@@ -9,10 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+	@ObservedObject var viewModel: GasMileageViewModel
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var items: [GasFillEntry]
 
     var body: some View {
+		Spacer(minLength: 200)
         NavigationSplitView {
             List {
                 ForEach(items) { item in
@@ -37,11 +39,14 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }
+		ScrollView {
+			Spacer()
+		}
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+            let newItem = GasFillEntry(timestamp: Date())
             modelContext.insert(newItem)
         }
     }
@@ -57,5 +62,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: GasFillEntry.self, inMemory: true)
 }
