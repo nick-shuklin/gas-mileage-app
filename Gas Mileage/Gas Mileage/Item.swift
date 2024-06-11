@@ -10,9 +10,25 @@ import SwiftData
 
 @Model
 final class Item {
-    var timestamp: Date
+	@Attribute(.unique) var odometerReading: Int
+	var timestamp: Date
+	var totalAmount: Double
+	var gasPrice: Double
+	var isFilledUp: Bool
+	var volume: Double
+	var gasMileage: Double
+	var paidCash: Bool
+	var gasStationName: GasStationName
     
     init(timestamp: Date) {
         self.timestamp = timestamp
+		self.odometerReading = 23
+		self.totalAmount = 34
+		self.gasPrice = 4.5
+		self.isFilledUp = true
+		self.volume = self.totalAmount/self.gasPrice
+		self.gasMileage = 22.4
+		self.paidCash = true
+		self.gasStationName = .chevron
     }
 }
