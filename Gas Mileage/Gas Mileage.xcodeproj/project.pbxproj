@@ -12,7 +12,8 @@
 		B75A527F2C0DE19200111A3A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527E2C0DE19200111A3A /* Item.swift */; };
 		B75A52812C0DE19400111A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52802C0DE19400111A3A /* Assets.xcassets */; };
 		B75A52842C0DE19400111A3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52832C0DE19400111A3A /* Preview Assets.xcassets */; };
-		B75A528B2C12140300111A3A /* GasMileageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528A2C12140300111A3A /* GasMileageModel.swift */; };
+		B75A528B2C12140300111A3A /* GasStationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528A2C12140300111A3A /* GasStationName.swift */; };
+		B75A528D2C12194E00111A3A /* GasMileageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528C2C12194E00111A3A /* GasMileageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +23,8 @@
 		B75A527E2C0DE19200111A3A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B75A52802C0DE19400111A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B75A52832C0DE19400111A3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B75A528A2C12140300111A3A /* GasMileageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageModel.swift; sourceTree = "<group>"; };
+		B75A528A2C12140300111A3A /* GasStationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationName.swift; sourceTree = "<group>"; };
+		B75A528C2C12194E00111A3A /* GasMileageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +57,13 @@
 		B75A52792C0DE19200111A3A /* Gas Mileage */ = {
 			isa = PBXGroup;
 			children = (
+				B7F6CCA72C18615E003BD847 /* Enums */,
 				B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */,
 				B75A527C2C0DE19200111A3A /* ContentView.swift */,
 				B75A527E2C0DE19200111A3A /* Item.swift */,
 				B75A52802C0DE19400111A3A /* Assets.xcassets */,
 				B75A52822C0DE19400111A3A /* Preview Content */,
-				B75A528A2C12140300111A3A /* GasMileageModel.swift */,
+				B75A528C2C12194E00111A3A /* GasMileageViewModel.swift */,
 			);
 			path = "Gas Mileage";
 			sourceTree = "<group>";
@@ -71,6 +74,14 @@
 				B75A52832C0DE19400111A3A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B7F6CCA72C18615E003BD847 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				B75A528A2C12140300111A3A /* GasStationName.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75A528B2C12140300111A3A /* GasMileageModel.swift in Sources */,
+				B75A528B2C12140300111A3A /* GasStationName.swift in Sources */,
+				B75A528D2C12194E00111A3A /* GasMileageViewModel.swift in Sources */,
 				B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */,
 				B75A527F2C0DE19200111A3A /* Item.swift in Sources */,
 				B75A527B2C0DE19200111A3A /* Gas_MileageApp.swift in Sources */,
