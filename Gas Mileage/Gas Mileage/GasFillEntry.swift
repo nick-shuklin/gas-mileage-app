@@ -26,7 +26,7 @@ final class GasFillEntry {
 		self.totalAmount = 34
 		self.gasPrice = 4.5
 		self.isFilledUp = true
-		self.volume = self.totalAmount/self.gasPrice
+		self.volume = 34
 		self.gasMileage = 22.4
 		self.paidCash = true
 		self.gasStationName = .chevron
