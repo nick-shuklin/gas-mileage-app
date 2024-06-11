@@ -9,12 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-	@ObservedObject var viewModel: GasMileageViewModel
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [GasFillEntry]
 
     var body: some View {
-		Spacer(minLength: 200)
         NavigationSplitView {
             List {
                 ForEach(items) { item in
@@ -39,9 +37,6 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }
-		ScrollView {
-			Spacer()
-		}
     }
 
     private func addItem() {
