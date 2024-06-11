@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GasStationName: String {
+enum GasStationName: String, Codable {
 	case shell = "Shell"
 	case chevron = "Chevron"
 	case lukoil = "Lukoil"
