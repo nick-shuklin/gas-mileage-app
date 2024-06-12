@@ -16,14 +16,13 @@ struct ContentView: View {
         NavigationSplitView {
             List {
                 ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
+					NavigationLink(value: item) {
+						EntryRow(item: item)
+					}
                 }
                 .onDelete(perform: deleteItems)
             }
+			.navigationTitle("List of entries")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -34,6 +33,9 @@ struct ContentView: View {
                     }
                 }
             }
+			.navigationDestination(for: GasFillEntry.self) { item in
+				EntryDetails(item: item)
+			}
         } detail: {
             Text("Select an item")
         }
