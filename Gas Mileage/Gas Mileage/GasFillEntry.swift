@@ -31,25 +31,4 @@ final class GasFillEntry {
 		self.paidCash = true
 		self.gasStationName = .chevron
     }
-	
-	// TODO: Replace this by moving addon strings to the actual row view
-	var odometerReadingDescription: String {
-		return "\(odometerReading) miles"
-	}
-	
-	var totalAmountDescription: String {
-		return "$\(totalAmount)"
-	}
-	
-	var gasPriceDescription: String {
-		return "$\(gasPrice) per gal"
-	}
-	
-	var volumeDescription: String {
-		return "\(volume) gal"
-	}
-	
-	var gasMileageDescription: String {
-		return "\(gasMileage) mpg"
-	}
 }
