@@ -67,6 +67,7 @@
 				B7F6CCAC2C18CA81003BD847 /* Views */,
 				B7F6CCA72C18615E003BD847 /* Enums */,
 				B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */,
+				B75A527C2C0DE19200111A3A /* ContentView.swift */,
 				B75A527E2C0DE19200111A3A /* GasFillEntry.swift */,
 				B75A52802C0DE19400111A3A /* Assets.xcassets */,
 				B75A52822C0DE19400111A3A /* Preview Content */,
@@ -93,7 +94,6 @@
 		B7F6CCAC2C18CA81003BD847 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B75A527C2C0DE19200111A3A /* ContentView.swift */,
 				B7F6CCA82C18C731003BD847 /* EntryRow.swift */,
 				B7F6CCAA2C18C818003BD847 /* EntryDetails.swift */,
 				B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */,
