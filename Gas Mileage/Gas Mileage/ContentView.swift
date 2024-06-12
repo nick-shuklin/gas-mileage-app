@@ -32,7 +32,8 @@ struct ContentView: View {
 						Label("Add Item", systemImage: "plus")
 					}
 					.sheet(isPresented: $showEditEntryView) {
-						EditEntryView()
+						let newItem = GasFillEntry(timestamp: Date())
+						EditEntryView(item: newItem)
 					}
 				}
 				ToolbarItem(placement: .navigationBarTrailing) {
