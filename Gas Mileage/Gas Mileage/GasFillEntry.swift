@@ -14,10 +14,10 @@ final class GasFillEntry {
 	var timestamp: Date
 	var totalAmount: Double
 	var gasPrice: Double
-	var isFilledUp: Bool
 	var volume: Double
 	var gasMileage: Double
-	var paidCash: Bool
+	var isFilledUp: Bool
+	var isPaidCash: Bool
 	var gasStationName: GasStationName
     
     init(timestamp: Date) {
@@ -28,7 +28,7 @@ final class GasFillEntry {
 		self.isFilledUp = true
 		self.volume = 34
 		self.gasMileage = 22.4
-		self.paidCash = true
+		self.isPaidCash = true
 		self.gasStationName = .chevron
     }
 }
