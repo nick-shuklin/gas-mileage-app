@@ -10,9 +10,9 @@ import SwiftData
 
 @Model
 final class GasFillEntry {
-	@Attribute(.unique) var odometerReading: Int
+	@Attribute(.unique) var odometer: Int
 	var timestamp: Date
-	var totalAmount: Double
+	var total: Double
 	var gasPrice: Double
 	var volume: Double
 	var gasMileage: Double
@@ -20,15 +20,33 @@ final class GasFillEntry {
 	var isPaidCash: Bool
 	var gasStationName: GasStationName
     
-    init(timestamp: Date) {
+	init(odometer: Int,
+		 timestamp: Date,
+		 total: Double,
+		 gasPrice: Double,
+		 volume: Double,
+		 gasMileage: Double,
+		 gasStationName: GasStationName) {
+		self.odometer = odometer
         self.timestamp = timestamp
-		self.odometerReading = Int.random(in: 1...40000)
-		self.totalAmount = 34
+		self.total = total
+		self.gasPrice = gasPrice
+		self.volume = volume
+		self.gasMileage = gasMileage
+		self.isFilledUp = true
+		self.isPaidCash = false
+		self.gasStationName = gasStationName
+    }
+	
+	init(timestamp: Date) {
+		self.timestamp = timestamp
+		self.odometer = Int.random(in: 1...40000)
+		self.total = 34
 		self.gasPrice = 4.5
 		self.isFilledUp = true
 		self.volume = 34
 		self.gasMileage = 22.4
 		self.isPaidCash = true
 		self.gasStationName = .chevron
-    }
+	}
 }
