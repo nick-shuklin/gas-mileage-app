@@ -11,6 +11,7 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [GasFillEntry]
+	@State private var showEditEntryView: Bool = false
 
     var body: some View {
         NavigationSplitView {
@@ -24,14 +25,24 @@ struct ContentView: View {
             }
 			.navigationTitle("List of entries")
             .toolbar {
+				ToolbarItem(placement: .topBarLeading) {
+					Button {
+						showEditEntryView.toggle()
+					} label: {
+						Label("Add Item", systemImage: "plus")
+					}
+					.sheet(isPresented: $showEditEntryView) {
+						EditEntryView()
+					}
+				}
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
+				ToolbarItem {
+					Button(action: addItem) {
+						Label("Add Item", systemImage: "allergens")
+					}
+				}
             }
 			.navigationDestination(for: GasFillEntry.self) { item in
 				EntryDetails(item: item)
