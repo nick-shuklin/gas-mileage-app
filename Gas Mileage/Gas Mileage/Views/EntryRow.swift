@@ -2,7 +2,7 @@
 //  EntryRow.swift
 //  Gas Mileage
 //
-//  Created by Nikolay Shuklin on 6/11/24.
+//  Created by Nick Shuklin on 6/11/24.
 //
 
 import SwiftUI
@@ -13,18 +13,19 @@ struct EntryRow: View {
     var body: some View {
 		HStack {
 			VStack(alignment: .leading) {
-				Text(item.gasStationName.rawValue)
+				Text(item.gasStationName.rawValue).bold()
+				Text(item.isFilledUp ? "Full" : "")
 			}
 			VStack(alignment: .leading) {
-				Text(item.odometerReadingDescription)
-				Text(item.gasPriceDescription)
-				Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+				Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
+				Text("\(item.odometerReading) miles")
+				Text("$ " + String(item.gasPrice.roundTo(places: 2)) + " per gal")
 			}
 			.lineLimit(1)
 			VStack(alignment: .leading) {
-				Text(item.totalAmountDescription)
-				Text(item.gasMileageDescription)
-				Text(item.volumeDescription)
+				Text("$ " + String(item.totalAmount.roundTo(places: 2)))
+				Text(String(item.gasMileage.roundTo(places: 2)) + " mpg")
+				Text(String(item.volume.roundTo(places: 2)) + " gal")
 			}
 		}
 		.font(.caption)
