@@ -10,6 +10,7 @@ import SwiftData
 
 struct EntryDetails: View {
 	@Bindable var item: GasFillEntry
+	@State private var showEditEntryView: Bool = false
 	
 	var body: some View {
 		VStack {
@@ -17,6 +18,16 @@ struct EntryDetails: View {
 				Text("Odometer")
 				Spacer()
 				Text("\(item.odometer)")
+			}.padding(20)
+		}
+		HStack {
+			Button {
+				showEditEntryView.toggle()
+			} label: {
+				Label("Edit", systemImage: "plus")
+			}
+			.sheet(isPresented: $showEditEntryView) {
+				EditEntryView(item: item)
 			}
 		}
 	}
