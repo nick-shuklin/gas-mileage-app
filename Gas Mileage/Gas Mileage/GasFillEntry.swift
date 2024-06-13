@@ -15,7 +15,7 @@ final class GasFillEntry {
 	var total: Double
 	var gasPrice: Double
 	var volume: Double
-	var gasMileage: Double
+	var gasMileage: Double?
 	var isFilledUp: Bool
 	var isPaidCash: Bool
 	var gasStationName: GasStationName
@@ -45,7 +45,6 @@ final class GasFillEntry {
 		self.gasPrice = 4.5
 		self.isFilledUp = true
 		self.volume = 18
-		self.gasMileage = 18.5
 		self.isPaidCash = true
 		self.gasStationName = .chevron
 	}
