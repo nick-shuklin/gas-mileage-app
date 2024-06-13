@@ -7,12 +7,7 @@
 
 import Foundation
 
-enum GasStationName: String, Codable, CaseIterable {
-	static var allCases: [String] {
-		return [shell.rawValue, chevron.rawValue, lukoil.rawValue,
-				gazprom.rawValue, mobil.rawValue, repsol.rawValue,
-				valero.rawValue]
-	}
+enum GasStationName: String, Codable, CaseIterable, Identifiable {
 	case shell = "Shell"
 	case chevron = "Chevron"
 	case lukoil = "Lukoil"
@@ -20,4 +15,5 @@ enum GasStationName: String, Codable, CaseIterable {
 	case mobil = "Mobil"
 	case repsol = "Repsol"
 	case valero = "Valero"
+	var id: String { self.rawValue }
 }

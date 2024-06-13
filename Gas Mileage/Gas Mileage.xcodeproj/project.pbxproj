@@ -15,6 +15,8 @@
 		B75A528B2C12140300111A3A /* GasStationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528A2C12140300111A3A /* GasStationName.swift */; };
 		B7F6CCA92C18C731003BD847 /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCA82C18C731003BD847 /* EntryRow.swift */; };
 		B7F6CCAB2C18C818003BD847 /* EntryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAA2C18C818003BD847 /* EntryDetails.swift */; };
+		B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */; };
+		B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		B75A528A2C12140300111A3A /* GasStationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationName.swift; sourceTree = "<group>"; };
 		B7F6CCA82C18C731003BD847 /* EntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRow.swift; sourceTree = "<group>"; };
 		B7F6CCAA2C18C818003BD847 /* EntryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetails.swift; sourceTree = "<group>"; };
+		B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Double.swift"; sourceTree = "<group>"; };
+		B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		B75A52792C0DE19200111A3A /* Gas Mileage */ = {
 			isa = PBXGroup;
 			children = (
+				B7F6CCAD2C19D0AA003BD847 /* Extensions */,
 				B7F6CCAC2C18CA81003BD847 /* Views */,
 				B7F6CCA72C18615E003BD847 /* Enums */,
 				B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */,
@@ -91,8 +96,17 @@
 			children = (
 				B7F6CCA82C18C731003BD847 /* EntryRow.swift */,
 				B7F6CCAA2C18C818003BD847 /* EntryDetails.swift */,
+				B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B7F6CCAD2C19D0AA003BD847 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,9 +180,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75A528B2C12140300111A3A /* GasStationName.swift in Sources */,
+				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
 				B7F6CCAB2C18C818003BD847 /* EntryDetails.swift in Sources */,
 				B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */,
 				B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */,
+				B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */,
 				B7F6CCA92C18C731003BD847 /* EntryRow.swift in Sources */,
 				B75A527B2C0DE19200111A3A /* Gas_MileageApp.swift in Sources */,
 			);

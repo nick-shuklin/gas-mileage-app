@@ -10,46 +10,42 @@ import SwiftData
 
 @Model
 final class GasFillEntry {
-	@Attribute(.unique) var odometerReading: Int
+	@Attribute(.unique) var odometer: Int
 	var timestamp: Date
-	var totalAmount: Double
+	var total: Double
 	var gasPrice: Double
-	var isFilledUp: Bool
 	var volume: Double
-	var gasMileage: Double
-	var paidCash: Bool
+	var gasMileage: Double?
+	var isFilledUp: Bool
+	var isPaidCash: Bool
 	var gasStationName: GasStationName
     
-    init(timestamp: Date) {
+	init(odometer: Int,
+		 timestamp: Date,
+		 total: Double,
+		 gasPrice: Double,
+		 volume: Double,
+		 gasMileage: Double,
+		 gasStationName: GasStationName) {
+		self.odometer = odometer
         self.timestamp = timestamp
-		self.odometerReading = Int.random(in: 1...40000)
-		self.totalAmount = 34
-		self.gasPrice = 4.5
+		self.total = total
+		self.gasPrice = gasPrice
+		self.volume = volume
+		self.gasMileage = gasMileage
 		self.isFilledUp = true
-		self.volume = 34
-		self.gasMileage = 22.4
-		self.paidCash = true
-		self.gasStationName = .chevron
+		self.isPaidCash = false
+		self.gasStationName = gasStationName
     }
 	
-	// TODO: Replace this by moving addon strings to the actual row view
-	var odometerReadingDescription: String {
-		return "\(odometerReading) miles"
-	}
-	
-	var totalAmountDescription: String {
-		return "$\(totalAmount)"
-	}
-	
-	var gasPriceDescription: String {
-		return "$\(gasPrice) per gal"
-	}
-	
-	var volumeDescription: String {
-		return "\(volume) gal"
-	}
-	
-	var gasMileageDescription: String {
-		return "\(gasMileage) mpg"
+	init(timestamp: Date) {
+		self.timestamp = timestamp
+		self.odometer = Int.random(in: 1...40000)
+		self.total = 1
+		self.gasPrice = 4.5
+		self.isFilledUp = true
+		self.volume = 18
+		self.isPaidCash = true
+		self.gasStationName = .chevron
 	}
 }
