@@ -41,11 +41,11 @@ final class GasFillEntry {
 	init(timestamp: Date) {
 		self.timestamp = timestamp
 		self.odometer = Int.random(in: 1...40000)
-		self.total = 34
+		self.total = 1
 		self.gasPrice = 4.5
 		self.isFilledUp = true
-		self.volume = 34
-		self.gasMileage = 22.4
+		self.volume = 18
+		self.gasMileage = 18.5
 		self.isPaidCash = true
 		self.gasStationName = .chevron
 	}
