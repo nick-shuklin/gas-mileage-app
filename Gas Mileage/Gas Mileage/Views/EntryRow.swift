@@ -24,7 +24,7 @@ struct EntryRow: View {
 			.lineLimit(1)
 			VStack(alignment: .leading) {
 				Text("$ " + String(item.total.roundTo(places: 2)))
-				Text(String(item.gasMileage.roundTo(places: 2)) + " mpg")
+				Text(String(item.gasMileage?.roundTo(places: 2) ?? 0) + " mpg")
 				Text(String(item.volume.roundTo(places: 2)) + " gal")
 			}
 		}
