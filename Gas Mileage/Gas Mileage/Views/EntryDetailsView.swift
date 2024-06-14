@@ -1,5 +1,5 @@
 //
-//  EntryDetails.swift
+//  EntryDetailsView.swift
 //  Gas Mileage
 //
 //  Created by Nick Shuklin on 6/11/24.
@@ -8,9 +8,10 @@
 import SwiftUI
 import SwiftData
 
-struct EntryDetails: View {
+struct EntryDetailsView: View {
 	@Bindable var item: GasFillEntry
 	@State private var showEditEntryView: Bool = false
+	@Binding var showTabBar: Bool
 	
 	var body: some View {
 		Form {
@@ -55,6 +56,17 @@ struct EntryDetails: View {
 				Toggle(String("Paid cash?"), isOn: $item.isPaidCash)
 			}
 		}
+		.onAppear {
+			withAnimation {
+				showTabBar.toggle()
+			}
+		}
+		.onDisappear {
+			withAnimation {
+				showTabBar.toggle()
+			}
+		}
+		
 		HStack {
 			Button {
 				showEditEntryView.toggle()

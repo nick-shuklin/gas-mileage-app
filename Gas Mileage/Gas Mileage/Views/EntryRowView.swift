@@ -1,5 +1,5 @@
 //
-//  EntryRow.swift
+//  EntryRowView.swift
 //  Gas Mileage
 //
 //  Created by Nick Shuklin on 6/11/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EntryRow: View {
+struct EntryRowView: View {
 	var item: GasFillEntry
 	
     var body: some View {

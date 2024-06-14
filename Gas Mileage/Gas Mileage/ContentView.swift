@@ -12,46 +12,65 @@ struct ContentView: View {
 	@Environment(\.modelContext) private var modelContext
 	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
 	@State private var showEditEntryView: Bool = false
+	@State private var showTabBar = true
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-					NavigationLink(value: item) {
-						EntryRow(item: item)
+		TabView {
+			NavigationSplitView {
+				List {
+					ForEach(items) { item in
+						NavigationLink(value: item) {
+							EntryRowView(item: item)
+						}
+						.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+						.listRowBackground(item.isFilledUp ? Color.green : Color.blue)
 					}
-					.listRowBackground(item.isFilledUp ? Color.green : Color.blue)
-                }
-                .onDelete(perform: deleteItems)
-            }
-			.navigationTitle("List of entries")
-			.toolbar {
-				ToolbarItem(placement: .topBarLeading) {
-					Button {
-						showEditEntryView.toggle()
-					} label: {
-						Label("Add Item", systemImage: "plus")
+					.onDelete(perform: deleteItems)
+				}
+				.navigationTitle("List of entries")
+				.navigationDestination(for: GasFillEntry.self) { item in
+					EntryDetailsView(item: item, showTabBar: $showTabBar)
+				}
+				.toolbar {
+					ToolbarItem(placement: .topBarLeading) {
+						Button {
+							showEditEntryView.toggle()
+						} label: {
+							Label("Add Item", systemImage: "plus")
+						}
+						.sheet(isPresented: $showEditEntryView) {
+							let newItem = GasFillEntry(timestamp: Date())
+							EditEntryView(item: newItem)
+						}
 					}
-					.sheet(isPresented: $showEditEntryView) {
-						let newItem = GasFillEntry(timestamp: Date())
-						EditEntryView(item: newItem)
+					ToolbarItem(placement: .navigationBarTrailing) {
+						EditButton()
+					}
+					ToolbarItem {
+						Button(action: addItem) {
+							Label("Add Item", systemImage: "allergens")
+						}
 					}
 				}
-				ToolbarItem(placement: .navigationBarTrailing) {
-					EditButton()
-				}
-				ToolbarItem {
-					Button(action: addItem) {
-						Label("Add Item", systemImage: "allergens")
-					}
-				}
-            }
-			.navigationDestination(for: GasFillEntry.self) { item in
-				EntryDetails(item: item)
+			} detail: {
+				Text("Select an item")
 			}
-        } detail: {
-            Text("Select an item")
-        }
+			.tabItem {
+				Label("Entries",
+					  systemImage: "fuelpump.circle")
+			}
+			
+			Text("Tab 2")
+				.tabItem {
+					Label("Graphs",
+						  systemImage: "waveform.circle")
+				}
+			
+			SettingsView()
+				.tabItem {
+					Label("Settings", systemImage: "gear")
+				}
+		}
     }
 
     private func addItem() {

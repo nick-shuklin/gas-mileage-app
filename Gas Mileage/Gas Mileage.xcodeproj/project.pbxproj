@@ -13,10 +13,12 @@
 		B75A52812C0DE19400111A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52802C0DE19400111A3A /* Assets.xcassets */; };
 		B75A52842C0DE19400111A3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52832C0DE19400111A3A /* Preview Assets.xcassets */; };
 		B75A528B2C12140300111A3A /* GasStationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528A2C12140300111A3A /* GasStationName.swift */; };
-		B7F6CCA92C18C731003BD847 /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCA82C18C731003BD847 /* EntryRow.swift */; };
-		B7F6CCAB2C18C818003BD847 /* EntryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAA2C18C818003BD847 /* EntryDetails.swift */; };
+		B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCA82C18C731003BD847 /* EntryRowView.swift */; };
+		B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */; };
 		B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */; };
 		B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */; };
+		B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB22C1C429F003BD847 /* SettingsView.swift */; };
+		B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,10 +29,12 @@
 		B75A52802C0DE19400111A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B75A52832C0DE19400111A3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B75A528A2C12140300111A3A /* GasStationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationName.swift; sourceTree = "<group>"; };
-		B7F6CCA82C18C731003BD847 /* EntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRow.swift; sourceTree = "<group>"; };
-		B7F6CCAA2C18C818003BD847 /* EntryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetails.swift; sourceTree = "<group>"; };
+		B7F6CCA82C18C731003BD847 /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
+		B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsView.swift; sourceTree = "<group>"; };
 		B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Double.swift"; sourceTree = "<group>"; };
 		B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryView.swift; sourceTree = "<group>"; };
+		B7F6CCB22C1C429F003BD847 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +67,11 @@
 		B75A52792C0DE19200111A3A /* Gas Mileage */ = {
 			isa = PBXGroup;
 			children = (
+				B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */,
+				B75A527C2C0DE19200111A3A /* ContentView.swift */,
 				B7F6CCAD2C19D0AA003BD847 /* Extensions */,
 				B7F6CCAC2C18CA81003BD847 /* Views */,
 				B7F6CCA72C18615E003BD847 /* Enums */,
-				B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */,
-				B75A527C2C0DE19200111A3A /* ContentView.swift */,
 				B75A527E2C0DE19200111A3A /* GasFillEntry.swift */,
 				B75A52802C0DE19400111A3A /* Assets.xcassets */,
 				B75A52822C0DE19400111A3A /* Preview Content */,
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				B75A528A2C12140300111A3A /* GasStationName.swift */,
+				B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -94,9 +99,10 @@
 		B7F6CCAC2C18CA81003BD847 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B7F6CCA82C18C731003BD847 /* EntryRow.swift */,
-				B7F6CCAA2C18C818003BD847 /* EntryDetails.swift */,
+				B7F6CCA82C18C731003BD847 /* EntryRowView.swift */,
+				B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */,
 				B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */,
+				B7F6CCB22C1C429F003BD847 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,7 +156,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = B75A526E2C0DE19200111A3A;
 			productRefGroup = B75A52782C0DE19200111A3A /* Products */;
@@ -181,11 +186,13 @@
 			files = (
 				B75A528B2C12140300111A3A /* GasStationName.swift in Sources */,
 				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
-				B7F6CCAB2C18C818003BD847 /* EntryDetails.swift in Sources */,
+				B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */,
+				B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */,
+				B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */,
 				B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */,
 				B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */,
 				B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */,
-				B7F6CCA92C18C731003BD847 /* EntryRow.swift in Sources */,
+				B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */,
 				B75A527B2C0DE19200111A3A /* Gas_MileageApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +343,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0.;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-Mileage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -373,7 +380,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0.;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-Mileage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
