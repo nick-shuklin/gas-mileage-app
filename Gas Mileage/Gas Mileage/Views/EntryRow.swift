@@ -14,7 +14,7 @@ struct EntryRow: View {
 		HStack {
 			VStack(alignment: .leading) {
 				Text(item.gasStationName.rawValue).bold()
-				Text(item.isFilledUp ? "Full" : "")
+				Text(item.isPaidCash ? "Cash" : "Card")
 			}
 			VStack(alignment: .leading) {
 				Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
