@@ -48,7 +48,7 @@ struct EditEntryView: View {
 						TextField(
 							"Total",
 							value: $item.total,
-							formatter: EditEntryView.nf,
+							formatter: EditEntryView.nf.totalFormat(),
 							onEditingChanged: { _ in
 								
 							}, onCommit: {
@@ -63,7 +63,7 @@ struct EditEntryView: View {
 						TextField(
 							"Price",
 							value: $item.gasPrice,
-							formatter: EditEntryView.nf,
+							formatter: EditEntryView.nf.priceFormat(),
 							onEditingChanged: { _ in
 								
 							}, onCommit: {
@@ -77,7 +77,21 @@ struct EditEntryView: View {
 						TextField(
 							"Volume",
 							value: $item.volume,
-							formatter: EditEntryView.nf,
+							formatter: EditEntryView.nf.totalFormat(),
+							onEditingChanged: { _ in
+								
+							}, onCommit: {
+								
+						})
+						.keyboardType(.decimalPad)
+					}
+					HStack {
+						Text("Gas mileage")
+						Spacer()
+						TextField(
+							"miles per gallon",
+							value: $item.gasMileage,
+							formatter: EditEntryView.nf.totalFormat(),
 							onEditingChanged: { _ in
 								
 							}, onCommit: {
