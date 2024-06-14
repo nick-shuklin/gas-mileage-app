@@ -20,19 +20,17 @@ struct ContentView: View {
 				List {
 					ForEach(items) { item in
 						NavigationLink(value: item) {
-							EntryRow(item: item)
-								.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
-								.onTapGesture {
-									withAnimation {
-										showTabBar.toggle()
-									}
-								}
+							EntryRowView(item: item)
 						}
+						.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 						.listRowBackground(item.isFilledUp ? Color.green : Color.blue)
 					}
 					.onDelete(perform: deleteItems)
 				}
 				.navigationTitle("List of entries")
+				.navigationDestination(for: GasFillEntry.self) { item in
+					EntryDetailsView(item: item, showTabBar: $showTabBar)
+				}
 				.toolbar {
 					ToolbarItem(placement: .topBarLeading) {
 						Button {
@@ -53,9 +51,6 @@ struct ContentView: View {
 							Label("Add Item", systemImage: "allergens")
 						}
 					}
-				}
-				.navigationDestination(for: GasFillEntry.self) { item in
-					EntryDetails(item: item)
 				}
 			} detail: {
 				Text("Select an item")
