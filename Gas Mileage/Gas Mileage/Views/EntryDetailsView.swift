@@ -11,6 +11,7 @@ import SwiftData
 struct EntryDetailsView: View {
 	@Bindable var item: GasFillEntry
 	@State private var showEditEntryView: Bool = false
+	@Binding var showTabBar: Bool
 	
 	var body: some View {
 		Form {
@@ -55,6 +56,17 @@ struct EntryDetailsView: View {
 				Toggle(String("Paid cash?"), isOn: $item.isPaidCash)
 			}
 		}
+		.onAppear {
+			withAnimation {
+				showTabBar.toggle()
+			}
+		}
+		.onDisappear {
+			withAnimation {
+				showTabBar.toggle()
+			}
+		}
+		
 		HStack {
 			Button {
 				showEditEntryView.toggle()
