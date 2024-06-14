@@ -20,6 +20,7 @@ struct ContentView: View {
 					NavigationLink(value: item) {
 						EntryRow(item: item)
 					}
+					.listRowBackground(item.isFilledUp ? Color.green : Color.blue)
                 }
                 .onDelete(perform: deleteItems)
             }
