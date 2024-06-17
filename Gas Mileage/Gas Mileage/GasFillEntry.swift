@@ -20,32 +20,34 @@ final class GasFillEntry {
 	var isPaidCash: Bool
 	var gasStationName: GasStationName
     
-	init(odometer: Int,
+	init(odometer: Int = Int.random(in: 1...200),
 		 timestamp: Date,
-		 total: Double,
-		 gasPrice: Double,
-		 volume: Double,
-		 gasMileage: Double,
-		 gasStationName: GasStationName) {
+		 total: Double = Double.random(in: 30...150),
+		 gasPrice: Double = 4.349,
+		 volume: Double = Double.random(in: 1...19),
+		 gasMileage: Double? = nil,
+		 isFilledUp: Bool = Bool.random(),
+		 isPaidCash: Bool = Bool.random(),
+		 gasStationName: GasStationName = .chevron) {
 		self.odometer = odometer
         self.timestamp = timestamp
 		self.total = total
 		self.gasPrice = gasPrice
 		self.volume = volume
 		self.gasMileage = gasMileage
-		self.isFilledUp = true
-		self.isPaidCash = false
+		self.isFilledUp = isFilledUp
+		self.isPaidCash = isPaidCash
 		self.gasStationName = gasStationName
     }
 	
-	init(timestamp: Date) {
-		self.timestamp = timestamp
-		self.odometer = Int.random(in: 1...200)
-		self.total = 1
-		self.gasPrice = 4.499
-		self.isFilledUp = true
-		self.volume = Double.random(in: 1...19)
-		self.isPaidCash = true
-		self.gasStationName = .chevron
-	}
+//	init(timestamp: Date) {
+//		self.timestamp = timestamp
+//		self.odometer = Int.random(in: 1...200)
+//		self.total = 1
+//		self.gasPrice = 4.499
+//		self.isFilledUp = true
+//		self.volume = Double.random(in: 1...19)
+//		self.isPaidCash = true
+//		self.gasStationName = .chevron
+//	}
 }
