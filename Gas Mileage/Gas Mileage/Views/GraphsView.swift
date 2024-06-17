@@ -7,12 +7,34 @@
 
 import SwiftUI
 import Charts
+import SwiftData
 
 struct GraphsView: View {
+	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
+	
     var body: some View {
-		Section {
-			Chart {
-				
+		VStack {
+			Section {
+				Chart {
+					ForEach(items) { item in
+						BarMark(
+							x: .value("Date", item.timestamp),
+							y: .value("Odometer", item.odometer)
+						)
+					}
+				}
+				.padding(20)
+			}
+			Section {
+				Chart {
+					ForEach(items) { item in
+						BarMark(
+							x: .value("Date", item.timestamp),
+							y: .value("Volume", item.volume)
+						)
+					}
+				}
+				.padding(20)
 			}
 		}
     }
