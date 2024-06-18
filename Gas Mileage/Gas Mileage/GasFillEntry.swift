@@ -39,15 +39,4 @@ final class GasFillEntry {
 		self.isPaidCash = isPaidCash
 		self.gasStationName = gasStationName
     }
-	
-//	init(timestamp: Date) {
-//		self.timestamp = timestamp
-//		self.odometer = Int.random(in: 1...200)
-//		self.total = 1
-//		self.gasPrice = 4.499
-//		self.isFilledUp = true
-//		self.volume = Double.random(in: 1...19)
-//		self.isPaidCash = true
-//		self.gasStationName = .chevron
-//	}
 }
