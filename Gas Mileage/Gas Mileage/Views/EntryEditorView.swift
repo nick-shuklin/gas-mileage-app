@@ -1,5 +1,5 @@
 //
-//  EditEntryView.swift
+//  EntryEditorView.swift
 //  Gas Mileage
 //
 //  Created by Nick Shuklin on 6/12/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditEntryView: View {
+struct EntryEditorView: View {
 	@Bindable var item: GasFillEntry
 	@Environment(\.dismiss) private var dismiss
 	@Environment(\.modelContext) private var modelContext
@@ -34,7 +34,7 @@ struct EditEntryView: View {
 						TextField(
 							"Odometer",
 							value: $item.odometer,
-							formatter: EditEntryView.nf,
+							formatter: EntryEditorView.nf,
 							onEditingChanged: { _ in
 								
 							}, onCommit: {
@@ -48,7 +48,7 @@ struct EditEntryView: View {
 						TextField(
 							"Total",
 							value: $item.total,
-							formatter: EditEntryView.nf.totalFormat(),
+							formatter: EntryEditorView.nf.totalFormat(),
 							onEditingChanged: { _ in
 								
 							}, onCommit: {
@@ -63,7 +63,7 @@ struct EditEntryView: View {
 						TextField(
 							"Price",
 							value: $item.gasPrice,
-							formatter: EditEntryView.nf.priceFormat(),
+							formatter: EntryEditorView.nf.priceFormat(),
 							onEditingChanged: { _ in
 								
 							}, onCommit: {
@@ -77,7 +77,7 @@ struct EditEntryView: View {
 						TextField(
 							"Volume",
 							value: $item.volume,
-							formatter: EditEntryView.nf.totalFormat(),
+							formatter: EntryEditorView.nf.totalFormat(),
 							onEditingChanged: { _ in
 								
 							}, onCommit: {
@@ -91,7 +91,7 @@ struct EditEntryView: View {
 						TextField(
 							"miles per gallon",
 							value: $item.gasMileage,
-							formatter: EditEntryView.nf.totalFormat(),
+							formatter: EntryEditorView.nf.totalFormat(),
 							onEditingChanged: { _ in
 								
 							}, onCommit: {

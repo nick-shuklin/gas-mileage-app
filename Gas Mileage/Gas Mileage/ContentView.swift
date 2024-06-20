@@ -40,7 +40,7 @@ struct ContentView: View {
 						}
 						.sheet(isPresented: $showEditEntryView) {
 							let newItem = GasFillEntry(timestamp: Date())
-							EditEntryView(item: newItem)
+							EntryEditorView(item: newItem)
 						}
 					}
 					ToolbarItem(placement: .navigationBarTrailing) {
