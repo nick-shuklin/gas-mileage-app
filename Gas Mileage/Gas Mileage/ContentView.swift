@@ -62,7 +62,7 @@ struct ContentView: View {
 			
 			GraphsView()
 				.tabItem {
-					Label("Graphs",
+					Label("Charts",
 						  systemImage: "waveform.circle")
 				}
 			
@@ -92,4 +92,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: GasFillEntry.self, inMemory: true)
+		.environment(\.locale, .init(identifier: "ru"))
 }
