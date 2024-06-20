@@ -1,5 +1,5 @@
 //
-//  GraphsView.swift
+//  ChartsView.swift
 //  Gas Mileage
 //
 //  Created by Nick Shuklin on 6/14/24.
@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 import SwiftData
 
-struct GraphsView: View {
+struct ChartsView: View {
 	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
 	
     var body: some View {
