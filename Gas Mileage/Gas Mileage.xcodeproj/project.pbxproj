@@ -15,6 +15,7 @@
 		B75A528B2C12140300111A3A /* GasStationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528A2C12140300111A3A /* GasStationName.swift */; };
 		B7C992652C25CDFA00225D0A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992642C25CDFA00225D0A /* MainView.swift */; };
 		B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */; };
+		B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992692C270A2700225D0A /* SimpleChartView.swift */; };
 		B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCA82C18C731003BD847 /* EntryRowView.swift */; };
 		B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */; };
 		B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */; };
@@ -34,6 +35,7 @@
 		B75A528A2C12140300111A3A /* GasStationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationName.swift; sourceTree = "<group>"; };
 		B7C992642C25CDFA00225D0A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEntryRowView.swift; sourceTree = "<group>"; };
+		B7C992692C270A2700225D0A /* SimpleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChartView.swift; sourceTree = "<group>"; };
 		B7F6CCA82C18C731003BD847 /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
 		B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsView.swift; sourceTree = "<group>"; };
 		B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Double.swift"; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				B7C992642C25CDFA00225D0A /* MainView.swift */,
 				B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */,
+				B7C992692C270A2700225D0A /* SimpleChartView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */,
 				B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */,
 				B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */,
+				B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */,
 				B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */,
 				B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */,
 				B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */,
