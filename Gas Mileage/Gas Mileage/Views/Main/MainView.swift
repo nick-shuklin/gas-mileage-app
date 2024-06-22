@@ -7,15 +7,14 @@
 
 import SwiftUI
 import SwiftData
+import Charts
 
 struct MainView: View {
 	static let amountOfEntriesToDisplay = 10
 	static var fetchDescriptor: FetchDescriptor<GasFillEntry> {
 		var descriptor = FetchDescriptor<GasFillEntry>(
 			predicate: #Predicate { $0.isPaidCash == true },
-			sortBy: [
-				.init(\.timestamp)
-			]
+			sortBy: [SortDescriptor(\.odometer, order: .reverse)]
 		)
 		descriptor.fetchLimit = amountOfEntriesToDisplay
 		return descriptor
@@ -25,19 +24,27 @@ struct MainView: View {
 	@Environment(\.modelContext) private var modelContext
 	
     var body: some View {
-		HStack {
-			Spacer()
+		VStack {
+			Text("Main screen")
+			Chart {
+				ForEach(items) { item in
+					BarMark(
+						x: .value("Odometer", item.odometer),
+						y: .value("Total", item.total)
+					)
+				}
+			}
+			.chartScrollableAxes(.horizontal)
+			.chartScrollTargetBehavior(.valueAligned(unit: 2))
+			.padding()
+			Divider()
 			NavigationSplitView {
-				List(items) { EntryRowView(item: $0) }
+				List(items) { ShortEntryRowView(item: $0) }
 					.navigationTitle("Last \(MainView.amountOfEntriesToDisplay) of entries")
+					.toolbarTitleDisplayMode(.inline)
 			} detail: {
 				Text("Select an item")
 			}
 		}
     }
-}
-
-#Preview {
-    MainView()
-		.modelContainer(for: GasFillEntry.self, inMemory: false)
 }
