@@ -20,7 +20,7 @@ final class GasFillEntry {
 	var isPaidCash: Bool
 	var gasStationName: GasStationName
     
-	init(odometer: Int = Int.random(in: 1...200),
+	init(odometer: Int = Int.random(in: 1...500),
 		 timestamp: Date,
 		 total: Double = Double.random(in: 30...150),
 		 gasPrice: Double = 4.349,
