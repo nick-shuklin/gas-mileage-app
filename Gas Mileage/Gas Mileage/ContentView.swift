@@ -44,8 +44,7 @@ struct ContentView: View {
 							Label("Add Item", systemImage: "plus")
 						}
 						.sheet(isPresented: $showEditEntryView) {
-							let newItem = GasFillEntry(creationDate: Date(),
-													   timeOfFillUp: Date())
+							let newItem = GasFillEntry()
 							EditEntryView(item: newItem)
 						}
 					}
@@ -81,8 +80,7 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = GasFillEntry(creationDate: Date(),
-									   timeOfFillUp: Date())
+            let newItem = GasFillEntry()
             modelContext.insert(newItem)
         }
     }

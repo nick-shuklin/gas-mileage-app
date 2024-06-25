@@ -23,8 +23,7 @@ final class GasFillEntry {
 	var gasStationName: GasStationName
     
 	init(odometer: Int = Int.random(in: 1...500),
-		 creationDate: Date,
-		 timeOfFillUp: Date,
+		 timeOfFillUp: Date = Date(),
 		 total: Double = Double.random(in: 20...120),
 		 gasPrice: Double = 4.349,
 		 volume: Double = Double.random(in: 1...19),
@@ -34,7 +33,7 @@ final class GasFillEntry {
 		 gasStationName: GasStationName = .chevron) {
 		self.uuid = UUID()
 		self.odometer = odometer
-        self.creationDate = creationDate
+        self.creationDate = Date()
 		self.timeOfFillUp = timeOfFillUp
 		self.total = total
 		self.gasPrice = gasPrice
