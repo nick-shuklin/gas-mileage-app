@@ -22,7 +22,7 @@ final class GasFillEntry {
     
 	init(odometer: Int = Int.random(in: 1...500),
 		 timestamp: Date,
-		 total: Double = Double.random(in: 30...150),
+		 total: Double = Double.random(in: 20...120),
 		 gasPrice: Double = 4.349,
 		 volume: Double = Double.random(in: 1...19),
 		 gasMileage: Double? = nil,
