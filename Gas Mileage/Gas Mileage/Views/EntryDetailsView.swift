@@ -16,7 +16,7 @@ struct EntryDetailsView: View {
 	var body: some View {
 		Form {
 			Section {
-				Text(item.creationDate, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+				Text(item.timeOfFillUp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
 				Text(item.gasStationName.rawValue)
 			}
 			Section {

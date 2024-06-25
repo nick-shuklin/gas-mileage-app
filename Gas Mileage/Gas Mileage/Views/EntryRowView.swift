@@ -17,7 +17,7 @@ struct EntryRowView: View {
 				Text(item.isPaidCash ? "Cash" : "Card")
 			}
 			VStack(alignment: .leading) {
-				Text(item.creationDate, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
+				Text(item.timeOfFillUp, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
 				Text("\(item.odometer) miles")
 				Text("$ " + String(item.gasPrice.roundTo(places: 2)) + " per gal")
 			}

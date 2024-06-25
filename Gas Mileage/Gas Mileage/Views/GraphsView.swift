@@ -18,7 +18,7 @@ struct GraphsView: View {
 				Chart {
 					ForEach(items) { item in
 						BarMark(
-							x: .value("Date", item.creationDate),
+							x: .value("Date", item.timeOfFillUp),
 							y: .value("Odometer", item.odometer)
 						)
 					}
@@ -29,7 +29,7 @@ struct GraphsView: View {
 				Chart {
 					ForEach(items) { item in
 						BarMark(
-							x: .value("Date", item.creationDate),
+							x: .value("Date", item.timeOfFillUp),
 							y: .value("Volume", item.volume)
 						)
 					}
