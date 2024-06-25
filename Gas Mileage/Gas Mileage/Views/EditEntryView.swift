@@ -17,7 +17,7 @@ struct EditEntryView: View {
     var body: some View {
 		Form {
 			Section {
-				DatePicker("Date", selection: $item.timestamp)
+				DatePicker("Date", selection: $item.creationDate)
 				Picker("Gas Station", selection: $item.gasStationName) {
 					ForEach(GasStationName.allCases) { name in
 						Text(name.rawValue)
