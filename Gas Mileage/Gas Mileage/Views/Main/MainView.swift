@@ -26,21 +26,13 @@ struct MainView: View {
     var body: some View {
 		VStack {
 			Text("Main screen")
-			Chart {
-				ForEach(items) { item in
-					BarMark(
-						x: .value("Odometer", item.odometer),
-						y: .value("Total", item.total)
-					)
-				}
-			}
-			.chartScrollableAxes(.horizontal)
-			.chartScrollTargetBehavior(.valueAligned(unit: 2))
-			.padding()
+				.font(.headline)
+			SimpleChartView()
+				.frame(height: 300)
 			Divider()
 			NavigationSplitView {
 				List(items) { ShortEntryRowView(item: $0) }
-					.navigationTitle("Last \(MainView.amountOfEntriesToDisplay) of entries")
+//					.navigationTitle("Last \(MainView.amountOfEntriesToDisplay) of entries")
 					.toolbarTitleDisplayMode(.inline)
 			} detail: {
 				Text("Select an item")
