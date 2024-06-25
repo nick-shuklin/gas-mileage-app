@@ -13,6 +13,9 @@
 		B75A52812C0DE19400111A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52802C0DE19400111A3A /* Assets.xcassets */; };
 		B75A52842C0DE19400111A3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52832C0DE19400111A3A /* Preview Assets.xcassets */; };
 		B75A528B2C12140300111A3A /* GasStationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528A2C12140300111A3A /* GasStationName.swift */; };
+		B7C992652C25CDFA00225D0A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992642C25CDFA00225D0A /* MainView.swift */; };
+		B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */; };
+		B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992692C270A2700225D0A /* SimpleChartView.swift */; };
 		B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCA82C18C731003BD847 /* EntryRowView.swift */; };
 		B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */; };
 		B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */; };
@@ -30,6 +33,9 @@
 		B75A52802C0DE19400111A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B75A52832C0DE19400111A3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B75A528A2C12140300111A3A /* GasStationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationName.swift; sourceTree = "<group>"; };
+		B7C992642C25CDFA00225D0A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEntryRowView.swift; sourceTree = "<group>"; };
+		B7C992692C270A2700225D0A /* SimpleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChartView.swift; sourceTree = "<group>"; };
 		B7F6CCA82C18C731003BD847 /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
 		B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsView.swift; sourceTree = "<group>"; };
 		B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Double.swift"; sourceTree = "<group>"; };
@@ -89,6 +95,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B7C992682C27092700225D0A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B7C992642C25CDFA00225D0A /* MainView.swift */,
+				B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */,
+				B7C992692C270A2700225D0A /* SimpleChartView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		B7F6CCA72C18615E003BD847 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +117,7 @@
 		B7F6CCAC2C18CA81003BD847 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B7C992682C27092700225D0A /* Main */,
 				B7F6CCA82C18C731003BD847 /* EntryRowView.swift */,
 				B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */,
 				B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */,
@@ -188,12 +205,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75A528B2C12140300111A3A /* GasStationName.swift in Sources */,
+				B7C992652C25CDFA00225D0A /* MainView.swift in Sources */,
 				B7F6CCB72C1C68BC003BD847 /* GraphsView.swift in Sources */,
 				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
+				B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */,
 				B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */,
 				B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */,
 				B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */,
 				B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */,
+				B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */,
 				B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */,
 				B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */,
 				B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */,
@@ -237,6 +257,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -300,6 +321,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -328,10 +350,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
-				DEVELOPMENT_TEAM = NRK4ATF8LQ;
+				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Gas Mileage";
@@ -347,9 +370,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0.;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-Mileage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -365,10 +389,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
-				DEVELOPMENT_TEAM = NRK4ATF8LQ;
+				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Gas Mileage";
@@ -384,9 +409,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0.;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-Mileage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

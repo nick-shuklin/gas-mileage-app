@@ -16,6 +16,11 @@ struct ContentView: View {
 
     var body: some View {
 		TabView {
+			MainView()
+				.tabItem {
+					Label("Main",
+						  systemImage: "house.circle.fill")
+				}
 			NavigationSplitView {
 				List {
 					ForEach(items) { item in
@@ -91,5 +96,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: GasFillEntry.self, inMemory: true)
+        .modelContainer(for: GasFillEntry.self, inMemory: false)
 }
