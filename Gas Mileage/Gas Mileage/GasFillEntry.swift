@@ -44,3 +44,15 @@ final class GasFillEntry {
 		self.gasStationName = gasStationName
     }
 }
+
+extension GasFillEntry {
+	enum GasStationName: String, Codable, CaseIterable {
+		case shell = "Shell"
+		case chevron = "Chevron"
+		case lukoil = "Lukoil"
+		case gazprom = "Gazprom"
+		case mobil = "Mobil"
+		case repsol = "Repsol"
+		case valero = "Valero"
+	}
+}
