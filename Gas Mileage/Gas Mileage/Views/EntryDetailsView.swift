@@ -74,7 +74,7 @@ struct EntryDetailsView: View {
 				Label("Edit", systemImage: "edit")
 			}
 			.sheet(isPresented: $showEditEntryView) {
-				EditEntryView(item: item)
+				EditEntryView(entry: item)
 			}
 		}
 	}
