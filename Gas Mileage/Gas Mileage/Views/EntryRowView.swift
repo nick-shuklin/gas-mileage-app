@@ -16,15 +16,17 @@ struct EntryRowView: View {
 				Text(item.gasStationName.rawValue).bold()
 				Text(item.isPaidCash ? "Cash" : "Card")
 			}
+			
 			VStack(alignment: .leading) {
-				Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
+				Text(item.timeOfFillUp, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
 				Text("\(item.odometer) miles")
 				Text("$ " + String(item.gasPrice.roundTo(places: 2)) + " per gal")
 			}
 			.lineLimit(1)
+			
 			VStack(alignment: .leading) {
 				Text("$ " + String(item.total.roundTo(places: 2)))
-				Text(String(item.gasMileage?.roundTo(places: 2) ?? 0) + " mpg")
+				Text(String(item.gasMileage.roundTo(places: 2)) + " mpg")
 				Text(String(item.volume.roundTo(places: 2)) + " gal")
 			}
 		}

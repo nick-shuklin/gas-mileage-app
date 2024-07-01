@@ -24,9 +24,43 @@ struct Gas_MileageApp: App {
     }()
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-        .modelContainer(sharedModelContainer)
+		#if DEBUG
+			WindowGroup {
+				ContentView()
+			}
+			.modelContainer(for: GasFillEntry.self) { result in
+				do {
+					let container = try result.get()
+
+					// Check we haven't already added our users.
+					let descriptor = FetchDescriptor<GasFillEntry>()
+					let existingUsers = try container.mainContext.fetchCount(descriptor)
+					guard existingUsers == 0 else { return }
+
+					// Load and decode the JSON.
+					guard let url = Bundle.main.url(forResource: "testing_data", withExtension: "json") else {
+						fatalError("Failed to find testing_data.json")
+					}
+
+					let data = try Data(contentsOf: url)
+					let decoder = JSONDecoder()
+					decoder.dateDecodingStrategy = .iso8601
+					
+					let items = try decoder.decode([GasFillEntry].self, from: data)
+
+					// Add all our data to the context.
+					for item in items {
+						container.mainContext.insert(item)
+					}
+				} catch {
+					print("Failed to pre-seed database.")
+				}
+			}
+		#else
+			WindowGroup {
+				ContentView()
+			}
+			.modelContainer(sharedModelContainer)
+		#endif
     }
 }

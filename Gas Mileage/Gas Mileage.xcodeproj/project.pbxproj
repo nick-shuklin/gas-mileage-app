@@ -12,7 +12,8 @@
 		B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527E2C0DE19200111A3A /* GasFillEntry.swift */; };
 		B75A52812C0DE19400111A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52802C0DE19400111A3A /* Assets.xcassets */; };
 		B75A52842C0DE19400111A3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52832C0DE19400111A3A /* Preview Assets.xcassets */; };
-		B75A528B2C12140300111A3A /* GasStationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528A2C12140300111A3A /* GasStationName.swift */; };
+		B76B72CA2C31AD1C00B28752 /* ListOfEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B72C92C31AD1C00B28752 /* ListOfEntriesView.swift */; };
+		B76B72CC2C32F2B500B28752 /* testing_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B76B72CB2C32F2B500B28752 /* testing_data.json */; };
 		B7C992652C25CDFA00225D0A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992642C25CDFA00225D0A /* MainView.swift */; };
 		B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */; };
 		B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992692C270A2700225D0A /* SimpleChartView.swift */; };
@@ -32,7 +33,8 @@
 		B75A527E2C0DE19200111A3A /* GasFillEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasFillEntry.swift; sourceTree = "<group>"; };
 		B75A52802C0DE19400111A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B75A52832C0DE19400111A3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B75A528A2C12140300111A3A /* GasStationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationName.swift; sourceTree = "<group>"; };
+		B76B72C92C31AD1C00B28752 /* ListOfEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfEntriesView.swift; sourceTree = "<group>"; };
+		B76B72CB2C32F2B500B28752 /* testing_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testing_data.json; path = ../testing_data.json; sourceTree = "<group>"; };
 		B7C992642C25CDFA00225D0A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEntryRowView.swift; sourceTree = "<group>"; };
 		B7C992692C270A2700225D0A /* SimpleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChartView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		B75A526E2C0DE19200111A3A = {
 			isa = PBXGroup;
 			children = (
+				B76B72CB2C32F2B500B28752 /* testing_data.json */,
 				B75A52792C0DE19200111A3A /* Gas Mileage */,
 				B75A52782C0DE19200111A3A /* Products */,
 			);
@@ -101,6 +104,7 @@
 				B7C992642C25CDFA00225D0A /* MainView.swift */,
 				B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */,
 				B7C992692C270A2700225D0A /* SimpleChartView.swift */,
+				B76B72C92C31AD1C00B28752 /* ListOfEntriesView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -108,7 +112,6 @@
 		B7F6CCA72C18615E003BD847 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				B75A528A2C12140300111A3A /* GasStationName.swift */,
 				B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */,
 			);
 			path = Enums;
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75A52842C0DE19400111A3A /* Preview Assets.xcassets in Resources */,
+				B76B72CC2C32F2B500B28752 /* testing_data.json in Resources */,
 				B75A52812C0DE19400111A3A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,7 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75A528B2C12140300111A3A /* GasStationName.swift in Sources */,
+				B76B72CA2C31AD1C00B28752 /* ListOfEntriesView.swift in Sources */,
 				B7C992652C25CDFA00225D0A /* MainView.swift in Sources */,
 				B7F6CCB72C1C68BC003BD847 /* GraphsView.swift in Sources */,
 				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
@@ -352,7 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
 				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;
@@ -391,7 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
 				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;

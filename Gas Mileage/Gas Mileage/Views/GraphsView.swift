@@ -18,23 +18,23 @@ struct GraphsView: View {
 				Chart {
 					ForEach(items) { item in
 						BarMark(
-							x: .value("Date", item.timestamp),
+							x: .value("Date", item.timeOfFillUp),
 							y: .value("Odometer", item.odometer)
 						)
 					}
 				}
-				.padding(20)
+				.padding()
 			}
 			Section {
 				Chart {
 					ForEach(items) { item in
 						BarMark(
-							x: .value("Date", item.timestamp),
+							x: .value("Date", item.timeOfFillUp),
 							y: .value("Volume", item.volume)
 						)
 					}
 				}
-				.padding(20)
+				.padding()
 			}
 		}
     }

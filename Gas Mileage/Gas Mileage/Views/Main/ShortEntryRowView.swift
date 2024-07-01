@@ -14,7 +14,7 @@ struct ShortEntryRowView: View {
 		HStack {
 			Text("Logo")
 			Divider()
-			Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .shortened))
+			Text(item.creationDate, format: Date.FormatStyle(date: .numeric, time: .shortened))
 				.bold()
 				.lineLimit(1)
 			Text("$" + String(item.gasPrice.roundTo(places: 2)) + "/gal")
