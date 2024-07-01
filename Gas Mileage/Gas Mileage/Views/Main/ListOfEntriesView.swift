@@ -22,7 +22,7 @@ struct ListOfEntriesView: View {
 						EntryRowView(item: item)
 					}
 					.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
-					.listRowBackground(item.isFilledUp ? Color.green : Color.blue)
+					.listRowBackground(item.isFilledUp ? Color.green : Color.cyan)
 				}
 				.onDelete(perform: deleteItems)
 			}
