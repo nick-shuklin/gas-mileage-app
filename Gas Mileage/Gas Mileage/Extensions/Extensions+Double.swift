@@ -18,6 +18,7 @@ extension NumberFormatter {
 	func totalFormat() -> NumberFormatter {
 		let nf = NumberFormatter()
 		nf.numberStyle = .decimal
+		nf.maximumFractionDigits = 2
 		return nf
 	}
 	
@@ -26,6 +27,16 @@ extension NumberFormatter {
 		nf.numberStyle = .currency
 		nf.allowsFloats = true
 		nf.usesSignificantDigits = true
+		nf.maximumFractionDigits = 2
 		return nf
 	}
+	
+//	let numberFormatter: NumberFormatter = {
+//		let formatter = NumberFormatter()
+//		formatter.minimum = .init(integerLiteral: 1)
+//		formatter.maximum = .init(integerLiteral: Int.max)
+//		formatter.generatesDecimalNumbers = false
+//		formatter.maximumFractionDigits = 0
+//		return formatter
+//	}()
 }
