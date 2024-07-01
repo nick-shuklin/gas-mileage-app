@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class GasFillEntry {
+final class GasFillEntry: Codable {
 	@Attribute(.unique) var odometer: Int
 	var creationDate: Date
 	var timeOfFillUp: Date
@@ -41,9 +41,44 @@ final class GasFillEntry {
 		self.isPaidCash = isPaidCash
 		self.gasStationName = gasStationName
     }
+	
+	required init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		
+		self.odometer = try container.decode(Int.self, forKey: .odometer)
+		self.creationDate = try container.decode(Date.self, forKey: .creationDate)
+		self.timeOfFillUp = try container.decode(Date.self, forKey: .timeOfFillUp)
+		self.total = try container.decode(Double.self, forKey: .total)
+		self.gasPrice = try container.decode(Double.self, forKey: .gasPrice)
+		self.volume = try container.decode(Double.self, forKey: .volume)
+		self.gasMileage = try container.decode(Double.self, forKey: .gasMileage)
+		self.isFilledUp = try container.decode(Bool.self, forKey: .isFilledUp)
+		self.isPaidCash = try container.decode(Bool.self, forKey: .isPaidCash)
+		self.gasStationName = try container.decode(GasStationName.self, forKey: .gasStationName)
+	}
+	
+	func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		
+		try container.encode(odometer, forKey: .odometer)
+		try container.encode(creationDate, forKey: .creationDate)
+		try container.encode(timeOfFillUp, forKey: .timeOfFillUp)
+		try container.encode(total, forKey: .total)
+		try container.encode(gasPrice, forKey: .gasPrice)
+		try container.encode(volume, forKey: .volume)
+		try container.encode(gasMileage, forKey: .gasMileage)
+		try container.encode(isFilledUp, forKey: .isFilledUp)
+		try container.encode(isPaidCash, forKey: .isPaidCash)
+		try container.encode(gasStationName, forKey: .gasStationName)
+	}
 }
 
 extension GasFillEntry {
+	enum CodingKeys: CodingKey {
+		case odometer, creationDate, timeOfFillUp, total, gasPrice
+		case volume, gasMileage, isFilledUp, isPaidCash, gasStationName
+	}
+	
 	enum GasStationName: String, Codable, CaseIterable {
 		case shell = "Shell"
 		case chevron = "Chevron"
