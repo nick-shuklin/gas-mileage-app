@@ -23,7 +23,7 @@ struct GraphsView: View {
 						)
 					}
 				}
-				.padding(20)
+				.padding()
 			}
 			Section {
 				Chart {
@@ -34,7 +34,7 @@ struct GraphsView: View {
 						)
 					}
 				}
-				.padding(20)
+				.padding()
 			}
 		}
     }
