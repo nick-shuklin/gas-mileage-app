@@ -1,0 +1,26 @@
+[
+	{
+		"odometer": 100,
+		"creationDate": "2024-07-01T17:30:31Z",
+		"timeOfFillUp": "2024-07-01T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 0.0,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Chevron"
+	},
+	{
+		"odometer": 200,
+		"creationDate": "2024-06-01T17:30:31Z",
+		"timeOfFillUp": "2024-06-01T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 0.0,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	}
+]
