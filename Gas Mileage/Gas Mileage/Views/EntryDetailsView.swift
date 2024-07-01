@@ -25,32 +25,48 @@ struct EntryDetailsView: View {
 					VStack {
 						HStack {
 							Text("Odometer")
-							Spacer()
-							Text("\(item.odometer) miles")
+							HStack(alignment: .lastTextBaseline) {
+								Spacer()
+								Text("\(item.odometer) miles")
+								Spacer()
+							}
 						}
+						
 						HStack {
 							Text("Total")
-							Spacer()
-							Text("$ " + String(item.total.roundTo(places: 2)))
+							HStack(alignment: .lastTextBaseline) {
+								Spacer()
+								Text("$" + String(item.total.roundTo(places: 2)))
+								Spacer()
+							}
 						}
+						
 						HStack {
 							Text("Price")
-							Spacer()
-							Text("$ " + String(item.gasPrice.roundTo(places: 2)) + " per gal")
+							HStack(alignment: .lastTextBaseline) {
+								Spacer()
+								Text("$" + String(item.gasPrice.roundTo(places: 2)) + " per gal")
+								Spacer()
+							}
 						}
+						
 						HStack {
 							Text("Volume")
-							Spacer()
-							Text(String(item.volume.roundTo(places: 2)) + " gal")
+							HStack(alignment: .lastTextBaseline) {
+								Spacer()
+								Text(String(item.volume.roundTo(places: 2)) + " gal")
+								Spacer()
+							}
 						}
-						// FIXME: when formatting is fixed uncomment out this part
-						//					if item.gasMileage != nil {
+						
 						HStack {
 							Text("Gas mileage")
-							Spacer()
-							Text(String(item.gasMileage?.roundTo(places: 2) ?? 0) + " mpg")
+							HStack(alignment: .lastTextBaseline) {
+								Spacer()
+								Text(String(item.gasMileage.roundTo(places: 2)) + " mpg")
+								Spacer()
+							}
 						}
-						//					}
 					}
 				}
 				
