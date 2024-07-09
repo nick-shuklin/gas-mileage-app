@@ -15,48 +15,55 @@ struct ListOfEntriesView: View {
 	@State private var showTabBar = true
 	
     var body: some View {
-		NavigationSplitView {
-			List {
-				ForEach(items) { item in
-					NavigationLink(value: item) {
-						EntryRowView(item: item)
+		ZStack {
+			Color.background
+				.ignoresSafeArea()
+			
+			VStack {
+				NavigationSplitView {
+					List {
+						ForEach(items) { item in
+							NavigationLink(value: item) {
+								EntryRowView(item: item)
+							}
+							.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+							.listRowBackground(item.isFilledUp ? Color.green : Color.cyan)
+						}
+						.onDelete(perform: deleteItems)
 					}
-					.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
-					.listRowBackground(item.isFilledUp ? Color.green : Color.cyan)
+					.navigationTitle("List of entries")
+					.toolbarTitleDisplayMode(.inline)
+					.navigationDestination(for: GasFillEntry.self) { item in
+						EntryDetailsView(item: item, showTabBar: $showTabBar)
+					}
+					.toolbar {
+						ToolbarItem(placement: .topBarLeading) {
+							Button {
+								showEditEntryView.toggle()
+							} label: {
+								Label("Add Item", systemImage: "plus")
+							}
+							.sheet(isPresented: $showEditEntryView) {
+								EditEntryView(entry: nil)
+							}
+						}
+						
+						ToolbarItem(placement: .navigationBarTrailing) {
+							EditButton()
+						}
+						
+#if DEBUG
+						ToolbarItem {
+							Button(action: addItem) {
+								Label("Add Item", systemImage: "allergens")
+							}
+						}
+#endif
+					}
+				} detail: {
+					Text("Select an item")
 				}
-				.onDelete(perform: deleteItems)
 			}
-			.navigationTitle("List of entries")
-			.toolbarTitleDisplayMode(.inline)
-			.navigationDestination(for: GasFillEntry.self) { item in
-				EntryDetailsView(item: item, showTabBar: $showTabBar)
-			}
-			.toolbar {
-				ToolbarItem(placement: .topBarLeading) {
-					Button {
-						showEditEntryView.toggle()
-					} label: {
-						Label("Add Item", systemImage: "plus")
-					}
-					.sheet(isPresented: $showEditEntryView) {
-						EditEntryView(entry: nil)
-					}
-				}
-				
-				ToolbarItem(placement: .navigationBarTrailing) {
-					EditButton()
-				}
-				
-				#if DEBUG
-				ToolbarItem {
-					Button(action: addItem) {
-						Label("Add Item", systemImage: "allergens")
-					}
-				}
-				#endif
-			}
-		} detail: {
-			Text("Select an item")
 		}
     }
 	
