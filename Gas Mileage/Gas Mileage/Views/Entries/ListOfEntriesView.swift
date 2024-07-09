@@ -27,6 +27,7 @@ struct ListOfEntriesView: View {
 				.onDelete(perform: deleteItems)
 			}
 			.navigationTitle("List of entries")
+			.toolbarTitleDisplayMode(.inline)
 			.navigationDestination(for: GasFillEntry.self) { item in
 				EntryDetailsView(item: item, showTabBar: $showTabBar)
 			}
@@ -46,11 +47,13 @@ struct ListOfEntriesView: View {
 					EditButton()
 				}
 				
+				#if DEBUG
 				ToolbarItem {
 					Button(action: addItem) {
 						Label("Add Item", systemImage: "allergens")
 					}
 				}
+				#endif
 			}
 		} detail: {
 			Text("Select an item")
