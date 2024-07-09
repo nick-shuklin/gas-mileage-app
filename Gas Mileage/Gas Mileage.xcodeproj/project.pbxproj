@@ -109,6 +109,7 @@
 		B77E8CB92C3AD8B7002E3652 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
+				B76B72C92C31AD1C00B28752 /* ListOfEntriesView.swift */,
 				B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */,
 				B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */,
 				B7F6CCA82C18C731003BD847 /* EntryRowView.swift */,
@@ -122,7 +123,6 @@
 				B7C992642C25CDFA00225D0A /* MainView.swift */,
 				B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */,
 				B7C992692C270A2700225D0A /* SimpleChartView.swift */,
-				B76B72C92C31AD1C00B28752 /* ListOfEntriesView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
