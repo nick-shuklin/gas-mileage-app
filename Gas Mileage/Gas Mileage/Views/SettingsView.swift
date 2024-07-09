@@ -11,25 +11,30 @@ struct SettingsView: View {
 	@State private var isMetric = true
 	
     var body: some View {
-		NavigationStack {
-			Text("Settings")
-				.font(.headline)
+		ZStack {
+			Color.background
+				.ignoresSafeArea()
 			
-			Form {
-				Section() {
-					Toggle(isOn: $isMetric) {
-						Label("Imperial or Metric",
-							  systemImage: isMetric ? "m.square.fill" : "i.square.fill")
-					}
-					.toggleStyle(SwitchToggleStyle(tint: .cyan))
-				} header: {
-					Text("Unit settings")
-				} footer: {
-					Text("Default setting applied based on iPhone settings. Metric: km for odometer, liters per 100km for gas mileage. Imperial: ml and miles per gallon (mpg)")
-				}
+			VStack {
+				Text("Settings")
+					.font(.headline)
 				
-				Section("About") {
-					Text("Version \(AppVersionProvider.appVersion())")
+				Form {
+					Section() {
+						Toggle(isOn: $isMetric) {
+							Label("Imperial or Metric",
+								  systemImage: isMetric ? "m.square.fill" : "i.square.fill")
+						}
+						.toggleStyle(SwitchToggleStyle(tint: .cyan))
+					} header: {
+						Text("Unit settings")
+					} footer: {
+						Text("Default settings applied based on iPhone settings. Metric: km for odometer, liters per 100km for gas mileage. Imperial: ml and miles per gallon (mpg)")
+					}
+					
+					Section("About") {
+						Text("Version \(AppVersionProvider.appVersion())")
+					}
 				}
 			}
 		}
