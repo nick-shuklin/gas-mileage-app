@@ -23,8 +23,8 @@ struct GraphsView: View {
 						)
 					}
 				}
-				.padding()
 			}
+			
 			Section {
 				Chart {
 					ForEach(items) { item in
@@ -34,8 +34,8 @@ struct GraphsView: View {
 						)
 					}
 				}
-				.padding()
 			}
 		}
+		.padding()
     }
 }
