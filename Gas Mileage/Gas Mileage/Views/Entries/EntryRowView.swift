@@ -16,7 +16,8 @@ struct EntryRowView: View {
 			
 			VStack(alignment: .leading) {
 				Text(item.gasStationName.rawValue).bold()
-				Text(item.isPaidCash ? "Cash" : "Card")
+//				Text(item.isPaidCash ? "Cash" : "Card")
+				Text(item.isFilledUp ? "Full" : "")
 			}
 			
 			Spacer()
@@ -32,7 +33,7 @@ struct EntryRowView: View {
 			
 			VStack(alignment: .leading) {
 				Text("$ " + String(item.total.roundTo(places: 2)))
-				Text(String(item.gasMileage.roundTo(places: 2)) + " mpg")
+				Text(String(item.gasMileage.roundTo(places: 2)) + " mpg").bold()
 				Text(String(item.volume.roundTo(places: 2)) + " gal")
 			}
 			
