@@ -10,6 +10,9 @@ import SwiftData
 import Charts
 
 struct MainView: View {
+	@Query(MainView.fetchDescriptor) private var items: [GasFillEntry]
+	@Environment(\.modelContext) private var modelContext
+	
 	static let amountOfEntriesToDisplay = 10
 	static var fetchDescriptor: FetchDescriptor<GasFillEntry> {
 		var descriptor = FetchDescriptor<GasFillEntry>(
@@ -19,24 +22,37 @@ struct MainView: View {
 		descriptor.fetchLimit = amountOfEntriesToDisplay
 		return descriptor
 	}
-
-	@Query(MainView.fetchDescriptor) private var items: [GasFillEntry]
-	@Environment(\.modelContext) private var modelContext
 	
-    var body: some View {
-		VStack {
-			Text("Main screen")
-				.font(.headline)
-			SimpleChartView()
-				.frame(height: 300)
-			Divider()
-			NavigationSplitView {
-				List(items) { ShortEntryRowView(item: $0) }
-//					.navigationTitle("Last \(MainView.amountOfEntriesToDisplay) of entries")
-					.toolbarTitleDisplayMode(.inline)
-			} detail: {
-				Text("Select an item")
+	var body: some View {
+		ZStack {
+			Color.background
+				.ignoresSafeArea()
+
+			VStack {
+				Text("Main screen")
+					.font(.headline)
+				
+				SimpleChartView()
+					.frame(height: 280) // adjust height to the screen size
+					.padding()
+				
+				ScrollView() {
+					Grid(alignment: .trailing) {
+						ForEach(items) { item in
+							GridRow {
+								ShortEntryRowView(item: item)
+							}
+						}
+					}
+					.padding()
+				}
+				.scrollIndicators(.hidden)
 			}
 		}
-    }
+	}
+}
+
+#Preview {
+	MainView()
+		.modelContainer(for: GasFillEntry.self, inMemory: false)
 }

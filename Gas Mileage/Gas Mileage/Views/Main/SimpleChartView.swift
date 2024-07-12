@@ -13,7 +13,9 @@ struct SimpleChartView: View {
 	@Environment(\.modelContext) private var modelContext
 	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
 	var gradient: LinearGradient {
-		LinearGradient(gradient: Gradient(colors: [.yellow, .green]), startPoint: .top, endPoint: .bottom)
+		LinearGradient(gradient: Gradient(colors: [.yellow, .green]), 
+					   startPoint: .top,
+					   endPoint: .bottom)
 	}
 	
     var body: some View {
@@ -21,8 +23,10 @@ struct SimpleChartView: View {
 			Text("Total Sales")
 				.font(.callout)
 				.foregroundStyle(.secondary)
-			Text("35 Pancakes")
+			
+			Text("Gas mileage chart")
 				.font(.title2.bold())
+			
 			Chart {
 				ForEach(items) { item in
 					BarMark(

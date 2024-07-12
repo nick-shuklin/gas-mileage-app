@@ -12,10 +12,15 @@ struct EntryRowView: View {
 	
     var body: some View {
 		HStack {
+			Spacer()
+			
 			VStack(alignment: .leading) {
 				Text(item.gasStationName.rawValue).bold()
-				Text(item.isPaidCash ? "Cash" : "Card")
+//				Text(item.isPaidCash ? "Cash" : "Card")
+				Text(item.isFilledUp ? "Full" : "")
 			}
+			
+			Spacer()
 			
 			VStack(alignment: .leading) {
 				Text(item.timeOfFillUp, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
@@ -24,11 +29,15 @@ struct EntryRowView: View {
 			}
 			.lineLimit(1)
 			
+			Spacer()
+			
 			VStack(alignment: .leading) {
 				Text("$ " + String(item.total.roundTo(places: 2)))
-				Text(String(item.gasMileage.roundTo(places: 2)) + " mpg")
+				Text(String(item.gasMileage.roundTo(places: 2)) + " mpg").bold()
 				Text(String(item.volume.roundTo(places: 2)) + " gal")
 			}
+			
+			Spacer()
 		}
 		.font(.caption)
     }

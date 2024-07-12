@@ -14,12 +14,12 @@ struct EditEntryView: View {
 	
 	let entry: GasFillEntry?
 	
-	@State private var odometer = ""
+	@State private var odometer = "4100"
 	@State private var creationDate = Date()
 	@State private var timeOfFillUp = Date()
-	@State private var total: Double = 0.0
-	@State private var gasPrice: Double = 0.0
-	@State private var volume: Double = 0.0
+	@State private var total: Double = 45.0
+	@State private var gasPrice: Double = 3.0
+	@State private var volume: Double = 15.0
 	@State private var gasMileage = 0.0
 	@State private var isFilledUp = true
 	@State private var isPaidCash = false
@@ -74,7 +74,7 @@ struct EditEntryView: View {
 //								}
 //							}
 							.keyboardType(.decimalPad)
-							.border(.background)
+//							.border(.background)
 							
 //							Text(total.debugDescription)
 						}
@@ -157,20 +157,52 @@ struct EditEntryView: View {
     }
 	
 	private func calculateGasMileage() {
-		if isFilledUp {
-			for item in items {
-				if (item.odometer < Int(odometer)!) && item.isFilledUp {
-					gasMileage = Double(Int(odometer)! - item.odometer) / volume
+		let isNewEntryTheMostRecent = items.first?.odometer ?? 0 < Int(odometer)! ? true : false
+		
+		if isNewEntryTheMostRecent {
+			if isFilledUp {
+				var volumeBetweenFullTankFillUps = volume
+				
+				for item in items {
+					if item.isFilledUp {
+						gasMileage = Double(Int(odometer)! - item.odometer) / volumeBetweenFullTankFillUps
+						break
+					} else {
+						volumeBetweenFullTankFillUps += item.volume
+					}
 				}
+			} else {
+				gasMileage = items.first?.gasMileage ?? -1.0
 			}
-		} else {
-			for item in items {
-				if (item.odometer < Int(odometer)!){
-					gasMileage = item.gasMileage
-				}
-			}
-		}
+		} 
+//		else {
+//			if isFilledUp {
+//				var volumeBetweenFullTankFillUps = volume
+//				
+//				for item in items {
+//					if item.odometer < Int(odometer)! {
+//						if item.isFilledUp {
+//							gasMileage = Double(Int(odometer)! - item.odometer) / volume
+//							break
+//						} else {
+//							volumeBetweenFullTankFillUps += item.volume
+//						}
+//					}
+//				}
+//			}
+//			else {
+//				for item in items {
+//					if (item.odometer < Int(odometer)!){
+//						gasMileage = item.gasMileage
+//					}
+//				}
+//			}
+//		}
 	}
+	
+//	private func validateDate() {
+//		
+//	}
 	
 	private func save() {
 		if let entry {
