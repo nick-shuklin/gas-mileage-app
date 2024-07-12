@@ -62,14 +62,14 @@ struct ShortEntryRowView: View {
 								  x: dropXY2/modifier, y: dropXY2/modifier))
 				)
 				.foregroundColor(Color.background)
-				.onTapGesture {
-					withAnimation(.linear(duration: 2.5)) {
-						dropBlur1 /= 100
-						dropBlur2 /= 100
-						innerBlur1 *= 100
-						innerBlur2 *= 100
-					}
-				}
+//				.onLongPressGesture {
+//					withAnimation(.linear(duration: 2.5)) {
+//						dropBlur1 /= 100
+//						dropBlur2 /= 100
+//						innerBlur1 *= 100
+//						innerBlur2 *= 100
+//					}
+//				}
 		)
 	}
 }
