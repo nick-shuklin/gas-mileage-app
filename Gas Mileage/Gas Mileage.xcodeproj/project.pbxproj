@@ -23,7 +23,7 @@
 		B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */; };
 		B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB22C1C429F003BD847 /* SettingsView.swift */; };
 		B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */; };
-		B7F6CCB72C1C68BC003BD847 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB62C1C68BC003BD847 /* GraphsView.swift */; };
+		B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +44,7 @@
 		B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryView.swift; sourceTree = "<group>"; };
 		B7F6CCB22C1C429F003BD847 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
-		B7F6CCB62C1C68BC003BD847 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
+		B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		B77E8CB82C3AD8A8002E3652 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				B7F6CCB62C1C68BC003BD847 /* GraphsView.swift */,
+				B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 			files = (
 				B76B72CA2C31AD1C00B28752 /* ListOfEntriesView.swift in Sources */,
 				B7C992652C25CDFA00225D0A /* MainView.swift in Sources */,
-				B7F6CCB72C1C68BC003BD847 /* GraphsView.swift in Sources */,
+				B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */,
 				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
 				B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */,
 				B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */,
@@ -372,7 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
 				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;
@@ -411,7 +411,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
 				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;

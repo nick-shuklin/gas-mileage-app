@@ -23,7 +23,7 @@ struct ContentView: View {
 						  systemImage: "fuelpump.circle")
 				}
 			
-			GraphsView()
+			ChartsView()
 				.tabItem {
 					Label("Graphs",
 						  systemImage: "waveform.circle")
