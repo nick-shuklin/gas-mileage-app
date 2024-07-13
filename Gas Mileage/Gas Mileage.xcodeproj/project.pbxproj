@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70F97B52C42E71A0037D26F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F97B42C42E71A0037D26F /* Utils.swift */; };
 		B75A527B2C0DE19200111A3A /* Gas_MileageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */; };
 		B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527C2C0DE19200111A3A /* ContentView.swift */; };
 		B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527E2C0DE19200111A3A /* GasFillEntry.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B70F97B42C42E71A0037D26F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B75A52772C0DE19200111A3A /* Gas Mileage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gas Mileage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas_MileageApp.swift; sourceTree = "<group>"; };
 		B75A527C2C0DE19200111A3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				B75A527E2C0DE19200111A3A /* GasFillEntry.swift */,
 				B75A52802C0DE19400111A3A /* Assets.xcassets */,
 				B75A52822C0DE19400111A3A /* Preview Content */,
+				B70F97B42C42E71A0037D26F /* Utils.swift */,
 			);
 			path = "Gas Mileage";
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */,
 				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
 				B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */,
+				B70F97B52C42E71A0037D26F /* Utils.swift in Sources */,
 				B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */,
 				B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */,
 				B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */,
