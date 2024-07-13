@@ -24,6 +24,7 @@ struct EditEntryView: View {
 	@State private var isFilledUp = true
 	@State private var isPaidCash = false
 	@State private var selectedGasStationName: GasFillEntry.GasStationName = .chevron
+	@State private var showAlert = false
 		
 	private var editorTitle: String {
 		entry == nil ? "Add entry" : "Edit entry"
@@ -34,126 +35,147 @@ struct EditEntryView: View {
 	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
 	
     var body: some View {
-		NavigationStack {
-			Form {
-				Section {
-					DatePicker("Fill up date", selection: $timeOfFillUp)
-					
-					Picker("Gas Station", selection: $selectedGasStationName) {
-						ForEach(GasFillEntry.GasStationName.allCases, id: \.self) { name in
-							Text(name.rawValue).tag(name)
-						}
-					}
-					.pickerStyle(.menu)
-				}
-				
-				Section {
-					VStack {
-						HStack {
-							Text("Odometer")
-							Spacer()
-							TextField("Odometer",
-									  text: $odometer
-							)
-							.keyboardType(.numberPad)
-							.border(.secondary)
-						
-//							Text(odometer.debugDescription)
-						}
-						
-						HStack {
-							Text("Total")
-							Spacer()
-							TextField("Total",
-									  value: $total,
-									  formatter: EditEntryView.nf.totalFormat()
-							)
-//							.onTapGesture {
-//								for item in items {
-//									print(item.odometer)
-//								}
-//							}
-							.keyboardType(.decimalPad)
-//							.border(.background)
+		ZStack {
+			Color.background
+				.ignoresSafeArea()
+			
+			VStack {
+				NavigationStack {
+					Form {
+						Section {
+							DatePicker("Fill up date", selection: $timeOfFillUp)
 							
-//							Text(total.debugDescription)
-						}
-						
-						HStack {
-							Text("Price")
-							Spacer()
-							TextField("Price",
-									  value: $gasPrice,
-									  formatter: EditEntryView.nf.priceFormat()
-							)
-							.onChange(of: gasPrice) {
-								volume = (total / gasPrice).roundTo(places: 2)
+							Picker("Gas Station", selection: $selectedGasStationName) {
+								ForEach(GasFillEntry.GasStationName.allCases, id: \.self) { name in
+									Text(name.rawValue).tag(name)
+								}
 							}
-
-							.keyboardType(.decimalPad)
-							
-//							Text(gasPrice.debugDescription)
+							.pickerStyle(.menu)
 						}
 						
-						HStack {
-							Text("Volume")
-							Spacer()
-							TextField("Enter volume in gallons",
-									  value: $volume,
-									  formatter: EditEntryView.nf.totalFormat()
-							)
-							.onChange(of: volume) {
-								total = (volume * gasPrice).roundTo(places: 2)
+						Section {
+							VStack {
+								HStack {
+									Text("Odometer")
+									Spacer()
+									TextField("Odometer",
+											  text: $odometer
+									)
+									.keyboardType(.numberPad)
+									.border(.secondary)
+									
+									//							Text(odometer.debugDescription)
+								}
+								
+								HStack {
+									Text("Total")
+									Spacer()
+									TextField("Total",
+											  value: $total,
+											  formatter: EditEntryView.nf.totalFormat()
+									)
+									//							.onTapGesture {
+									//								for item in items {
+									//									print(item.odometer)
+									//								}
+									//							}
+									.keyboardType(.decimalPad)
+									//							.border(.background)
+									
+									//							Text(total.debugDescription)
+								}
+								
+								HStack {
+									Text("Price")
+									Spacer()
+									TextField("Price",
+											  value: $gasPrice,
+											  formatter: EditEntryView.nf.priceFormat()
+									)
+									.onChange(of: gasPrice) {
+										volume = (total / gasPrice).roundTo(places: 2)
+									}
+									
+									.keyboardType(.decimalPad)
+									
+									//							Text(gasPrice.debugDescription)
+								}
+								
+								HStack {
+									Text("Volume")
+									Spacer()
+									TextField("Enter volume in gallons",
+											  value: $volume,
+											  formatter: EditEntryView.nf.totalFormat()
+									)
+									.onChange(of: volume) {
+										total = (volume * gasPrice).roundTo(places: 2)
+									}
+									.keyboardType(.decimalPad)
+									
+									//							Text(volume.debugDescription)
+								}
 							}
-							.keyboardType(.decimalPad)
-							
-//							Text(volume.debugDescription)
+						}
+						
+						Section {
+							Toggle(String("Tank filled up?"), isOn: $isFilledUp)
+							Toggle(String("Paid cash?"), isOn: $isPaidCash)
 						}
 					}
-				}
-				
-				Section {
-					Toggle(String("Tank filled up?"), isOn: $isFilledUp)
-					Toggle(String("Paid cash?"), isOn: $isPaidCash)
-				}
-			}
-			.toolbar {
-				ToolbarItem(placement: .cancellationAction) {
-					Button("Cancel", role: .cancel) {
-						dismiss()
-					}
-				}
-				
-				ToolbarItem(placement: .principal) {
-					Text(editorTitle)
-				}
-				
-				ToolbarItem(placement: .confirmationAction) {
-					Button("Save") {
-						withAnimation {
-							calculateGasMileage()
-							save()
-							dismiss()
+					.toolbar {
+						ToolbarItem(placement: .cancellationAction) {
+							Button("Cancel", role: .cancel) {
+								dismiss()
+							}
+						}
+						
+						ToolbarItem(placement: .principal) {
+							Text(editorTitle)
+						}
+						
+						ToolbarItem(placement: .confirmationAction) {
+							Button("Save") {
+								withAnimation {
+									validateDate()
+									
+									if !showAlert {
+										calculateGasMileage()
+										save()
+										dismiss()
+									}
+								}
+							}
+							.disabled(odometer == "")
+							.alert("Date is not correct",
+								   isPresented: $showAlert) {
+								Button("Ok", role: .destructive) {
+									showAlert.toggle()
+								}
+							} message: {
+								Text("Please, check date or odometer reading")
+							}
 						}
 					}
-					.disabled(odometer == "")
+					.onAppear {
+						if let entry {
+							odometer = String(entry.odometer)
+							timeOfFillUp = entry.timeOfFillUp
+							total = entry.total
+							gasPrice = entry.gasPrice
+							volume = entry.volume
+							gasMileage = entry.gasMileage
+							isFilledUp = entry.isFilledUp
+							isPaidCash = entry.isPaidCash
+							selectedGasStationName = entry.gasStationName
+						}
+					}
+//					.background(Color.clear)
 				}
-			}
-			.onAppear {
-				if let entry {
-					odometer = String(entry.odometer)
-					timeOfFillUp = entry.timeOfFillUp
-					total = entry.total
-					gasPrice = entry.gasPrice
-					volume = entry.volume
-					gasMileage = entry.gasMileage
-					isFilledUp = entry.isFilledUp
-					isPaidCash = entry.isPaidCash
-					selectedGasStationName = entry.gasStationName
-				}
+				.padding()
+//				.background(Color.clear)
 			}
 		}
-		.padding()
     }
 	
 	private func calculateGasMileage() {
@@ -200,9 +222,14 @@ struct EditEntryView: View {
 //		}
 	}
 	
-//	private func validateDate() {
-//		
-//	}
+	private func validateDate() {
+		for item in items {
+			if (item.odometer < Int(odometer)!) && (item.timeOfFillUp > timeOfFillUp) ||
+				(item.odometer > Int(odometer)!) && (item.timeOfFillUp < timeOfFillUp) {
+				showAlert = true
+			}
+		}
+	}
 	
 	private func save() {
 		if let entry {
