@@ -48,12 +48,12 @@ struct ShortEntryRowView: View {
 		.background(
 			RoundedRectangle(cornerRadius: frameHeight/3)
 				.fill(
-					.shadow(.inner(color: innerColor1,
-								   radius: innerBlur1/modifier,
-								   x: innerXY1/modifier, y: innerXY1/modifier))
-					.shadow(.inner(color: innerColor2,
-								   radius: innerBlur2/modifier,
-								   x: innerXY2/modifier, y: innerXY2/modifier))
+//					.shadow(.inner(color: innerColor1,
+//								   radius: innerBlur1/modifier,
+//								   x: innerXY1/modifier, y: innerXY1/modifier))
+//					.shadow(.inner(color: innerColor2,
+//								   radius: innerBlur2/modifier,
+//								   x: innerXY2/modifier, y: innerXY2/modifier))
 					.shadow(.drop(color: dropColor1,
 								  radius: dropBlur1/modifier,
 								  x: dropXY1/modifier, y: dropXY1/modifier))
