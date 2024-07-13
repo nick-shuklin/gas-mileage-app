@@ -121,8 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				B7C992642C25CDFA00225D0A /* MainView.swift */,
-				B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */,
 				B7C992692C270A2700225D0A /* SimpleChartView.swift */,
+				B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
