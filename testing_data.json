@@ -42,7 +42,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 34.0,
 		"isFilledUp": true,
 		"isPaidCash": false,
 		"gasStationName": "Shell"
@@ -54,7 +54,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 23.0,
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -66,7 +66,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 15.0,
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
@@ -78,7 +78,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 34.5,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -90,7 +90,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 25.0,
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
@@ -102,7 +102,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 28.0,
 		"isFilledUp": false,
 		"isPaidCash": false,
 		"gasStationName": "Chevron"
@@ -114,7 +114,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 27.0,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
@@ -126,7 +126,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 23.1,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -138,7 +138,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 17.2,
 		"isFilledUp": true,
 		"isPaidCash": false,
 		"gasStationName": "Shell"
@@ -150,7 +150,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 14.9,
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -162,7 +162,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 25.0,
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
@@ -174,7 +174,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 22.3,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -186,7 +186,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 19.8,
 		"isFilledUp": true,
 		"isPaidCash": false,
 		"gasStationName": "Shell"
@@ -198,7 +198,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 19.0,
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -210,7 +210,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 17.5,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
@@ -222,7 +222,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 15.6,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -234,7 +234,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 24,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
@@ -246,7 +246,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 17.3,
 		"isFilledUp": true,
 		"isPaidCash": false,
 		"gasStationName": "Chevron"
@@ -258,7 +258,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 14.7,
 		"isFilledUp": false,
 		"isPaidCash": false,
 		"gasStationName": "Shell"
@@ -270,7 +270,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 13.9,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -282,7 +282,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 17.6,
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
@@ -294,7 +294,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 29.0,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -306,7 +306,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 31.0,
 		"isFilledUp": true,
 		"isPaidCash": false,
 		"gasStationName": "Shell"
@@ -318,7 +318,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 22.0,
 		"isFilledUp": true,
 		"isPaidCash": false,
 		"gasStationName": "Chevron"
@@ -330,7 +330,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 14.5,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
@@ -342,7 +342,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 15.0,
 		"isFilledUp": false,
 		"isPaidCash": true,
 		"gasStationName": "Chevron"
@@ -354,7 +354,7 @@
 		"total": 45.56,
 		"gasPrice": 3.44,
 		"volume": 12.45,
-		"gasMileage": 0.0,
+		"gasMileage": 13.0,
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
