@@ -1,5 +1,17 @@
 [
 	{
+		"odometer": 4150,
+		"creationDate": "2024-07-22T17:30:31Z",
+		"timeOfFillUp": "2024-07-22T17:30:31Z",
+		"total": 150.00,
+		"gasPrice": 5.00,
+		"volume": 30.00,
+		"gasMileage": 15.0,
+		"isFilledUp": false,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
 		"odometer": 3800,
 		"creationDate": "2024-07-02T17:30:31Z",
 		"timeOfFillUp": "2024-07-02T17:30:31Z",
