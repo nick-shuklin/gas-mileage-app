@@ -78,4 +78,3 @@ struct ShortEntryRowView: View {
 	ShortEntryRowView(item: GasFillEntry())
 		.modelContainer(for: GasFillEntry.self, inMemory: true)
 }
-
