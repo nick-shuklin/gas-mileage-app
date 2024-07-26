@@ -23,7 +23,7 @@ struct EntryRowView: View {
 			Spacer()
 			
 			VStack(alignment: .leading) {
-				Text(item.timeOfFillUp, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
+				Text(item.fillUpDate, format: Date.FormatStyle(date: .abbreviated, time: .shortened)).bold()
 				Text("\(item.odometer) miles")
 				Text("$" + String(item.gasPrice.roundTo(places: 2)) + " per gal")
 			}
