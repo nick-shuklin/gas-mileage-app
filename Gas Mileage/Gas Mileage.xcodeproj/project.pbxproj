@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B70389D62C527FC800A59C00 /* GasMileageChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70389D52C527FC800A59C00 /* GasMileageChart.swift */; };
+		B70389D62C527FC800A59C00 /* GasMileageDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70389D52C527FC800A59C00 /* GasMileageDetails.swift */; };
 		B70F97B52C42E71A0037D26F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F97B42C42E71A0037D26F /* Utils.swift */; };
 		B75A527B2C0DE19200111A3A /* Gas_MileageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */; };
 		B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527C2C0DE19200111A3A /* ContentView.swift */; };
@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B70389D52C527FC800A59C00 /* GasMileageChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageChart.swift; sourceTree = "<group>"; };
+		B70389D52C527FC800A59C00 /* GasMileageDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageDetails.swift; sourceTree = "<group>"; };
 		B70F97B42C42E71A0037D26F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B75A52772C0DE19200111A3A /* Gas Mileage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gas Mileage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas_MileageApp.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */,
-				B70389D52C527FC800A59C00 /* GasMileageChart.swift */,
+				B70389D52C527FC800A59C00 /* GasMileageDetails.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76B72CA2C31AD1C00B28752 /* ListOfEntriesView.swift in Sources */,
-				B70389D62C527FC800A59C00 /* GasMileageChart.swift in Sources */,
+				B70389D62C527FC800A59C00 /* GasMileageDetails.swift in Sources */,
 				B7C992652C25CDFA00225D0A /* MainView.swift in Sources */,
 				B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */,
 				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
