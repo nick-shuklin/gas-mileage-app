@@ -187,9 +187,21 @@ struct GasMileageChartAll: View {
 		.chartScrollableAxes(.horizontal)
 		.chartXAxis {
 			AxisMarks(values: .stride(by: .month)) { value in
-				AxisGridLine()
-				AxisTick()
-				AxisValueLabel(format: .dateTime.month(.abbreviated), centered: false)
+				if let date = value.as(Date.self) {
+					let month = Calendar.current.component(.month, from: date)
+					AxisValueLabel {
+						VStack(alignment: .leading) {
+							Text(date, format: .dateTime.month())
+							
+							if value.index == 0 || month == 1 {
+								Text(date, format: .dateTime.year())
+							}
+						}
+					}
+					
+					AxisGridLine()
+					AxisTick()
+				}
 			}
 		}
 		.chartYAxis {
