@@ -1,8 +1,32 @@
 [
 	{
+		"odometer": 4250,
+		"creationDate": "2024-07-14T17:30:31Z",
+		"fillUpDate": "2024-07-14T17:30:31Z",
+		"total": 150.00,
+		"gasPrice": 5.00,
+		"volume": 30.00,
+		"gasMileage": 19.0,
+		"isFilledUp": false,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
 		"odometer": 4150,
-		"creationDate": "2024-07-22T17:30:31Z",
-		"fillUpDate": "2024-07-22T17:30:31Z",
+		"creationDate": "2024-07-10T17:30:31Z",
+		"fillUpDate": "2024-07-10T17:30:31Z",
+		"total": 150.00,
+		"gasPrice": 5.00,
+		"volume": 30.00,
+		"gasMileage": 17.0,
+		"isFilledUp": false,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 3950,
+		"creationDate": "2024-07-07T17:30:31Z",
+		"fillUpDate": "2024-07-07T17:30:31Z",
 		"total": 150.00,
 		"gasPrice": 5.00,
 		"volume": 30.00,
