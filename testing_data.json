@@ -370,5 +370,113 @@
 		"isFilledUp": true,
 		"isPaidCash": true,
 		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 9,
+		"creationDate": "2023-11-11T17:30:31Z",
+		"timeOfFillUp": "2023-11-11T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 21.5,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 8,
+		"creationDate": "2023-10-10T17:30:31Z",
+		"timeOfFillUp": "2023-10-10T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 10.5,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 7,
+		"creationDate": "2023-09-09T17:30:31Z",
+		"timeOfFillUp": "2023-09-09T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 15.1,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 6,
+		"creationDate": "2023-08-08T17:30:31Z",
+		"timeOfFillUp": "2023-08-08T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 13.0,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 5,
+		"creationDate": "2023-07-07T17:30:31Z",
+		"timeOfFillUp": "2023-07-07T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 18.5,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 4,
+		"creationDate": "2023-06-06T17:30:31Z",
+		"timeOfFillUp": "2023-06-06T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 13.5,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 3,
+		"creationDate": "2023-05-05T17:30:31Z",
+		"timeOfFillUp": "2023-05-05T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 23.5,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 2,
+		"creationDate": "2023-04-04T17:30:31Z",
+		"timeOfFillUp": "2023-04-04T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 15.5,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 1,
+		"creationDate": "2023-03-03T17:30:31Z",
+		"timeOfFillUp": "2023-03-03T17:30:31Z",
+		"total": 45.56,
+		"gasPrice": 3.44,
+		"volume": 12.45,
+		"gasMileage": 12.5,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
 	}
 ]
