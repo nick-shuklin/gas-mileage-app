@@ -12,7 +12,7 @@ import SwiftData
 final class GasFillEntry: Codable {
 	@Attribute(.unique) var odometer: Int
 	var creationDate: Date
-	var timeOfFillUp: Date
+	var fillUpDate: Date
 	var total: Double
 	var gasPrice: Double
 	var volume: Double
@@ -22,7 +22,7 @@ final class GasFillEntry: Codable {
 	var gasStationName: GasStationName
     
 	init(odometer: Int = Int.random(in: 1...500),
-		 timeOfFillUp: Date = Date(),
+		 fillUpDate: Date = Date(),
 		 total: Double = Double.random(in: 20...120),
 		 gasPrice: Double = 4.349,
 		 volume: Double = Double.random(in: 1...19),
@@ -32,7 +32,7 @@ final class GasFillEntry: Codable {
 		 gasStationName: GasStationName = .chevron) {
 		self.odometer = odometer
         self.creationDate = Date()
-		self.timeOfFillUp = timeOfFillUp
+		self.fillUpDate = fillUpDate
 		self.total = total
 		self.gasPrice = gasPrice
 		self.volume = volume
@@ -47,7 +47,7 @@ final class GasFillEntry: Codable {
 		
 		self.odometer = try container.decode(Int.self, forKey: .odometer)
 		self.creationDate = try container.decode(Date.self, forKey: .creationDate)
-		self.timeOfFillUp = try container.decode(Date.self, forKey: .timeOfFillUp)
+		self.fillUpDate = try container.decode(Date.self, forKey: .fillUpDate)
 		self.total = try container.decode(Double.self, forKey: .total)
 		self.gasPrice = try container.decode(Double.self, forKey: .gasPrice)
 		self.volume = try container.decode(Double.self, forKey: .volume)
@@ -62,7 +62,7 @@ final class GasFillEntry: Codable {
 		
 		try container.encode(odometer, forKey: .odometer)
 		try container.encode(creationDate, forKey: .creationDate)
-		try container.encode(timeOfFillUp, forKey: .timeOfFillUp)
+		try container.encode(fillUpDate, forKey: .fillUpDate)
 		try container.encode(total, forKey: .total)
 		try container.encode(gasPrice, forKey: .gasPrice)
 		try container.encode(volume, forKey: .volume)
@@ -75,7 +75,7 @@ final class GasFillEntry: Codable {
 
 extension GasFillEntry {
 	enum CodingKeys: CodingKey {
-		case odometer, creationDate, timeOfFillUp, total, gasPrice
+		case odometer, creationDate, fillUpDate, total, gasPrice
 		case volume, gasMileage, isFilledUp, isPaidCash, gasStationName
 	}
 	

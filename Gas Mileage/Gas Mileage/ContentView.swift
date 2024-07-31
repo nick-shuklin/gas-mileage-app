@@ -23,9 +23,9 @@ struct ContentView: View {
 						  systemImage: "fuelpump.circle")
 				}
 			
-			GraphsView()
+			ChartsView()
 				.tabItem {
-					Label("Graphs",
+					Label("Charts",
 						  systemImage: "waveform.circle")
 				}
 			
@@ -40,5 +40,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: GasFillEntry.self, inMemory: true)
+        .modelContainer(for: GasFillEntry.self, inMemory: false)
 }

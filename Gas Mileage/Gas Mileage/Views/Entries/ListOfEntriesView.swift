@@ -60,14 +60,14 @@ struct ListOfEntriesView: View {
 //													   radius: innerBlur2/modifier,
 //													   x: innerXY2/modifier, 
 //													   y: innerXY2/modifier))
-//										.shadow(.drop(color: dropColor1,
-//													  radius: dropBlur1/modifier,
-//													  x: dropXY1/modifier, 
-//													  y: dropXY1/modifier))
-										.shadow(.drop(color: dropColor2,
-													  radius: dropBlur2/modifier,
-													  x: dropXY2/modifier, 
-													  y: dropXY2/modifier))
+										.shadow(.drop(color: dropColor1,
+													  radius: dropBlur1/modifier,
+													  x: dropXY1/modifier, 
+													  y: dropXY1/modifier))
+//										.shadow(.drop(color: dropColor2,
+//													  radius: dropBlur2/modifier,
+//													  x: dropXY2/modifier, 
+//													  y: dropXY2/modifier))
 									)
 									.foregroundColor(Color.background)
 							)

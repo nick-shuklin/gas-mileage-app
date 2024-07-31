@@ -17,7 +17,7 @@ struct EntryDetailsView: View {
 		NavigationStack {
 			Form {
 				Section {
-					Text(item.timeOfFillUp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+					Text(item.fillUpDate, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
 					Text(item.gasStationName.rawValue)
 				}
 				

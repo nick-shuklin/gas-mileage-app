@@ -16,7 +16,7 @@ struct EditEntryView: View {
 	
 	@State private var odometer = "4100"
 	@State private var creationDate = Date()
-	@State private var timeOfFillUp = Date()
+	@State private var fillUpDate = Date()
 	@State private var total: Double = 45.0
 	@State private var gasPrice: Double = 3.0
 	@State private var volume: Double = 15.0
@@ -43,7 +43,7 @@ struct EditEntryView: View {
 				NavigationStack {
 					Form {
 						Section {
-							DatePicker("Fill up date", selection: $timeOfFillUp)
+							DatePicker("Fill up date", selection: $fillUpDate)
 							
 							Picker("Gas Station", selection: $selectedGasStationName) {
 								ForEach(GasFillEntry.GasStationName.allCases, id: \.self) { name in
@@ -160,7 +160,7 @@ struct EditEntryView: View {
 					.onAppear {
 						if let entry {
 							odometer = String(entry.odometer)
-							timeOfFillUp = entry.timeOfFillUp
+							fillUpDate = entry.fillUpDate
 							total = entry.total
 							gasPrice = entry.gasPrice
 							volume = entry.volume
@@ -224,8 +224,8 @@ struct EditEntryView: View {
 	
 	private func validateDate() {
 		for item in items {
-			if (item.odometer < Int(odometer)!) && (item.timeOfFillUp > timeOfFillUp) ||
-				(item.odometer > Int(odometer)!) && (item.timeOfFillUp < timeOfFillUp) {
+			if (item.odometer < Int(odometer)!) && (item.fillUpDate > fillUpDate) ||
+				(item.odometer > Int(odometer)!) && (item.fillUpDate < fillUpDate) {
 				showAlert = true
 			}
 		}
@@ -234,7 +234,7 @@ struct EditEntryView: View {
 	private func save() {
 		if let entry {
 			entry.odometer = Int(odometer)!
-			entry.timeOfFillUp = timeOfFillUp
+			entry.fillUpDate = fillUpDate
 			entry.total = total
 			entry.gasPrice = gasPrice
 			entry.volume = volume
@@ -244,7 +244,7 @@ struct EditEntryView: View {
 			entry.gasStationName = selectedGasStationName
 		} else {
 			let newEntry = GasFillEntry(odometer: Int(odometer)!,
-										timeOfFillUp: timeOfFillUp,
+										fillUpDate: fillUpDate,
 										total: total,
 										gasPrice: gasPrice,
 										volume: volume,
