@@ -16,7 +16,7 @@
 		B75A52842C0DE19400111A3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52832C0DE19400111A3A /* Preview Assets.xcassets */; };
 		B76B72CA2C31AD1C00B28752 /* ListOfEntriesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B72C92C31AD1C00B28752 /* ListOfEntriesTab.swift */; };
 		B76B72CC2C32F2B500B28752 /* testing_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B76B72CB2C32F2B500B28752 /* testing_data.json */; };
-		B7C992652C25CDFA00225D0A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992642C25CDFA00225D0A /* MainView.swift */; };
+		B7C992652C25CDFA00225D0A /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992642C25CDFA00225D0A /* MainTab.swift */; };
 		B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */; };
 		B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992692C270A2700225D0A /* SimpleChartView.swift */; };
 		B7D9F78E2C60E40900F30404 /* GasMileageOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */; };
@@ -41,7 +41,7 @@
 		B75A52832C0DE19400111A3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B76B72C92C31AD1C00B28752 /* ListOfEntriesTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfEntriesTab.swift; sourceTree = "<group>"; };
 		B76B72CB2C32F2B500B28752 /* testing_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testing_data.json; path = ../testing_data.json; sourceTree = "<group>"; };
-		B7C992642C25CDFA00225D0A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B7C992642C25CDFA00225D0A /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEntryRowView.swift; sourceTree = "<group>"; };
 		B7C992692C270A2700225D0A /* SimpleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChartView.swift; sourceTree = "<group>"; };
 		B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageOverview.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		B7C992682C27092700225D0A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B7C992642C25CDFA00225D0A /* MainView.swift */,
+				B7C992642C25CDFA00225D0A /* MainTab.swift */,
 				B7C992692C270A2700225D0A /* SimpleChartView.swift */,
 				B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */,
 			);
@@ -239,7 +239,7 @@
 				B7D9F7902C60E6A100F30404 /* ChartsTab.swift in Sources */,
 				B76B72CA2C31AD1C00B28752 /* ListOfEntriesTab.swift in Sources */,
 				B70389D62C527FC800A59C00 /* GasMileageDetails.swift in Sources */,
-				B7C992652C25CDFA00225D0A /* MainView.swift in Sources */,
+				B7C992652C25CDFA00225D0A /* MainTab.swift in Sources */,
 				B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */,
 				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
 				B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */,
