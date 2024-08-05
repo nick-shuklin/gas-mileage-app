@@ -1,16 +1,9 @@
-//
-//  MainView.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/21/24.
-//
-
 import SwiftUI
 import SwiftData
 import Charts
 
-struct MainView: View {
-	@Query(MainView.fetchDescriptor) private var items: [GasFillEntry]
+struct MainTab: View {
+	@Query(MainTab.fetchDescriptor) private var items: [GasFillEntry]
 	@Environment(\.modelContext) private var modelContext
 	
 	static let amountOfEntriesToDisplay = 10
@@ -53,6 +46,6 @@ struct MainView: View {
 }
 
 #Preview {
-	MainView()
+	MainTab()
 		.modelContainer(for: GasFillEntry.self, inMemory: false)
 }

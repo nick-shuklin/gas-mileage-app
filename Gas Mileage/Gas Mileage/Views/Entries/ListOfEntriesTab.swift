@@ -1,14 +1,7 @@
-//
-//  ListOfEntriesView.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/30/24.
-//
-
 import SwiftUI
 import SwiftData
 
-struct ListOfEntriesView: View {
+struct ListOfEntriesTab: View {
 	@Environment(\.modelContext) private var modelContext
 	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
 	@State private var showEditEntryView: Bool = false

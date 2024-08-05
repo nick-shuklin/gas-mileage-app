@@ -11,25 +11,25 @@ import SwiftData
 struct ContentView: View {
     var body: some View {
 		TabView {
-			MainView()
+			MainTab()
 				.tabItem {
 					Label("Main",
 						  systemImage: "house")
 				}
 			
-			ListOfEntriesView()
+			ListOfEntriesTab()
 				.tabItem {
 					Label("Entries",
 						  systemImage: "fuelpump")
 				}
 			
-			ChartsView()
+			ChartsTab()
 				.tabItem {
 					Label("Charts",
 						  systemImage: "waveform.and.person.filled")
 				}
 			
-			SettingsView()
+			SettingsTab()
 				.tabItem {
 					Label("Settings",
 						  systemImage: "folder.badge.gearshape")

@@ -1,14 +1,7 @@
-//
-//  SettingsView.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/14/24.
-//
-
 import SwiftUI
 import SwiftData
 
-struct SettingsView: View {
+struct SettingsTab: View {
 	@State private var isMetric = true
 	@State private var inProgress = false
 	@Query(sort: \GasFillEntry.odometer, order: .forward) var items: [GasFillEntry]
