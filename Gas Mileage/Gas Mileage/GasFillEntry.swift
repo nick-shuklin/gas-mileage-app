@@ -1,10 +1,3 @@
-//
-//  GasFillEntry.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/3/24.
-//
-
 import Foundation
 import SwiftData
 

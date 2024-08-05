@@ -1,10 +1,3 @@
-//
-//  AppVersionProvider.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/14/24.
-//
-
 import Foundation
 
 enum AppVersionProvider {

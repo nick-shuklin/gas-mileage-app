@@ -1,10 +1,3 @@
-//
-//  SimpleChartView.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/22/24.
-//
-
 import SwiftUI
 import SwiftData
 import Charts

@@ -1,10 +1,3 @@
-//
-//  ChartsTab.swift
-//  Gas Mileage
-//
-//  Created by Nikolay Shuklin on 8/5/24.
-//
-
 import SwiftUI
 
 struct ChartsTab: View {

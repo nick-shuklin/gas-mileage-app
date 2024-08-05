@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/3/24.
-//
-
 import SwiftUI
 import SwiftData
 

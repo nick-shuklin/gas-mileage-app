@@ -1,10 +1,3 @@
-//
-//  GasMileageOverview.swift
-//  Gas Mileage
-//
-//  Created by Nikolay Shuklin on 8/5/24.
-//
-
 import Charts
 import SwiftUI
 import SwiftData
