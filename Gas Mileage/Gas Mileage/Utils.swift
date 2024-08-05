@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
-enum TimeRange {
-	case last30Days
-	case last90Days
+enum TimeRange: Int {
+	case last30Days = 30
+	case last90Days = 90
 //	case last12Months
 //	case ytd
 	case all
@@ -38,4 +39,45 @@ var chartsGradient: LinearGradient {
 				   startPoint: .top,
 				   endPoint: .bottom
 	)
+}
+
+func predicate(forPeriod: TimeRange = .last30Days) -> Predicate<GasFillEntry> {
+	let calendar = Calendar.autoupdatingCurrent
+	let end = calendar.startOfDay(for: Date())
+	let start = calendar.date(byAdding: .init(day: -forPeriod.rawValue), to: end) ?? end
+
+	return #Predicate<GasFillEntry> { entry in
+		(entry.fillUpDate > start && entry.fillUpDate < end)
+	}
+}
+
+var fetchDescriptor30Days: FetchDescriptor<GasFillEntry> {
+	let descriptor = FetchDescriptor<GasFillEntry>(
+		predicate: predicate(forPeriod: .last30Days),
+		sortBy: [SortDescriptor(\.odometer, order: .reverse)]
+	)
+	return descriptor
+}
+
+var fetchDescriptor90Days: FetchDescriptor<GasFillEntry> {
+	let descriptor = FetchDescriptor<GasFillEntry>(
+		predicate: predicate(forPeriod: .last90Days),
+		sortBy: [SortDescriptor(\.odometer, order: .reverse)]
+	)
+	return descriptor
+}
+
+var fetchDescriptorAll: FetchDescriptor<GasFillEntry> {
+	let descriptor = FetchDescriptor<GasFillEntry>(
+		sortBy: [SortDescriptor(\.odometer, order: .reverse)]
+	)
+	return descriptor
+}
+
+var fetchDescriptorLast10: FetchDescriptor<GasFillEntry> {
+	var descriptor = FetchDescriptor<GasFillEntry>(
+		sortBy: [SortDescriptor(\.odometer, order: .reverse)]
+	)
+	descriptor.fetchLimit = 10
+	return descriptor
 }

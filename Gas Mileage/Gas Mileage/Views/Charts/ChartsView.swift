@@ -10,18 +10,6 @@ import Charts
 import SwiftData
 
 struct ChartsView: View {
-//	@Query(MainView.fetchDescriptor) private var items: [GasFillEntry]
-//	@Environment(\.modelContext) private var modelContext
-//	
-//	static let amountOfEntriesToDisplay = 10
-//	static var fetchDescriptor: FetchDescriptor<GasFillEntry> {
-//		var descriptor = FetchDescriptor<GasFillEntry>(
-//			predicate: #Predicate { $0.isPaidCash == true },
-//			sortBy: [SortDescriptor(\.odometer, order: .reverse)]
-//		)
-//		descriptor.fetchLimit = amountOfEntriesToDisplay
-//		return descriptor
-//	}
 	
 //	let radius: CGFloat = 7
 //	let modifier: CGFloat = 7
@@ -41,7 +29,7 @@ struct ChartsView: View {
 //	@State private var dropXY1: CGFloat = 28
 //	@State private var dropXY2: CGFloat = -23
 	
-	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
+	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	
 	var body: some View {
 		ZStack {
