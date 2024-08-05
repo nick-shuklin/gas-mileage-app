@@ -20,6 +20,7 @@
 		B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */; };
 		B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992692C270A2700225D0A /* SimpleChartView.swift */; };
 		B7D9F78E2C60E40900F30404 /* GasMileageOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */; };
+		B7D9F7902C60E6A100F30404 /* ChartsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9F78F2C60E6A100F30404 /* ChartsTab.swift */; };
 		B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCA82C18C731003BD847 /* EntryRowView.swift */; };
 		B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */; };
 		B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */; };
@@ -44,6 +45,7 @@
 		B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEntryRowView.swift; sourceTree = "<group>"; };
 		B7C992692C270A2700225D0A /* SimpleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChartView.swift; sourceTree = "<group>"; };
 		B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageOverview.swift; sourceTree = "<group>"; };
+		B7D9F78F2C60E6A100F30404 /* ChartsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsTab.swift; sourceTree = "<group>"; };
 		B7F6CCA82C18C731003BD847 /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
 		B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsView.swift; sourceTree = "<group>"; };
 		B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Double.swift"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */,
 				B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */,
 				B70389D52C527FC800A59C00 /* GasMileageDetails.swift */,
+				B7D9F78F2C60E6A100F30404 /* ChartsTab.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D9F7902C60E6A100F30404 /* ChartsTab.swift in Sources */,
 				B76B72CA2C31AD1C00B28752 /* ListOfEntriesView.swift in Sources */,
 				B70389D62C527FC800A59C00 /* GasMileageDetails.swift in Sources */,
 				B7C992652C25CDFA00225D0A /* MainView.swift in Sources */,
