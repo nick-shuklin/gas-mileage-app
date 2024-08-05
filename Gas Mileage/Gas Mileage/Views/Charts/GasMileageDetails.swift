@@ -29,13 +29,13 @@ struct GasMileageDetails: View {
 //							.foregroundStyle(.secondary)
 						
 						GasMileageChart30Days()
-							.frame(height: 240)
+							.frame(height: 300)
 					case .last90Days:
 						GasMileageChart90Days()
-							.frame(height: 240)
+							.frame(height: 300)
 					default:
 						GasMileageChartAll()
-							.frame(height: 240)
+							.frame(height: 300)
 				}
 			}
 		}
@@ -46,7 +46,6 @@ struct GasMileageChart30Days: View {
 	@Query(fetchDescriptor30Days) private var items: [GasFillEntry]
 	
 	var body: some View {
-		
 		Chart {
 			ForEach(items) { item in
 				LineMark(
@@ -85,7 +84,6 @@ struct GasMileageChart90Days: View {
 	@Query(fetchDescriptor90Days) private var items: [GasFillEntry]
 	
 	var body: some View {
-		
 		Chart {
 			ForEach(items) { item in
 				LineMark(
@@ -129,7 +127,6 @@ struct GasMileageChartAll: View {
 	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	
 	var body: some View {
-		
 		Chart {
 			ForEach(items) { item in
 				LineMark(
