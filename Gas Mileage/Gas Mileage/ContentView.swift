@@ -14,25 +14,25 @@ struct ContentView: View {
 			MainView()
 				.tabItem {
 					Label("Main",
-						  systemImage: "house.circle.fill")
+						  systemImage: "house")
 				}
 			
 			ListOfEntriesView()
 				.tabItem {
 					Label("Entries",
-						  systemImage: "fuelpump.circle")
+						  systemImage: "fuelpump")
 				}
 			
 			ChartsView()
 				.tabItem {
 					Label("Charts",
-						  systemImage: "waveform.circle")
+						  systemImage: "waveform.and.person.filled")
 				}
 			
 			SettingsView()
 				.tabItem {
 					Label("Settings",
-						  systemImage: "gear")
+						  systemImage: "folder.badge.gearshape")
 				}
 		}
     }
