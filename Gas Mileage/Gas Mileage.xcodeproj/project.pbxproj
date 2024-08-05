@@ -110,10 +110,10 @@
 		B77E8CB82C3AD8A8002E3652 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
+				B7D9F78F2C60E6A100F30404 /* ChartsTab.swift */,
 				B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */,
 				B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */,
 				B70389D52C527FC800A59C00 /* GasMileageDetails.swift */,
-				B7D9F78F2C60E6A100F30404 /* ChartsTab.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
