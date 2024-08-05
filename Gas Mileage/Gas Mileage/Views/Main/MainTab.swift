@@ -3,18 +3,8 @@ import SwiftData
 import Charts
 
 struct MainTab: View {
-	@Query(MainTab.fetchDescriptor) private var items: [GasFillEntry]
+	@Query(fetchDescriptorLast10) private var items: [GasFillEntry]
 	@Environment(\.modelContext) private var modelContext
-	
-	static let amountOfEntriesToDisplay = 10
-	static var fetchDescriptor: FetchDescriptor<GasFillEntry> {
-		var descriptor = FetchDescriptor<GasFillEntry>(
-			predicate: #Predicate { $0.isPaidCash == true },
-			sortBy: [SortDescriptor(\.odometer, order: .reverse)]
-		)
-		descriptor.fetchLimit = amountOfEntriesToDisplay
-		return descriptor
-	}
 	
 	var body: some View {
 		ZStack {

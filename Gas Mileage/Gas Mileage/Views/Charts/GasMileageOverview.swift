@@ -10,25 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct GasMileageOverviewChart: View {
-	@Query(GasMileageOverviewChart.fetchDescriptor) private var items: [GasFillEntry]
-
-	static func predicate() -> Predicate<GasFillEntry> {
-		let calendar = Calendar.autoupdatingCurrent
-		let end = calendar.startOfDay(for: Date())
-		let start = calendar.date(byAdding: .init(day: -90), to: end) ?? end
-	
-		return #Predicate<GasFillEntry> { entry in
-			(entry.fillUpDate > start && entry.fillUpDate < end)
-		}
-	}
-	
-	static var fetchDescriptor: FetchDescriptor<GasFillEntry> {
-		let descriptor = FetchDescriptor<GasFillEntry>(
-			predicate: predicate(),
-			sortBy: [SortDescriptor(\.odometer, order: .reverse)]
-		)
-		return descriptor
-	}
+	@Query(fetchDescriptor90Days) private var items: [GasFillEntry]
 	
 	var body: some View {
 		Chart {

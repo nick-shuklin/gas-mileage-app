@@ -43,25 +43,7 @@ struct GasMileageDetails: View {
 }
 
 struct GasMileageChart30Days: View {
-	@Query(GasMileageChart30Days.fetchDescriptor) private var items: [GasFillEntry]
-
-	static func predicate() -> Predicate<GasFillEntry> {
-		let calendar = Calendar.autoupdatingCurrent
-		let end = calendar.startOfDay(for: Date())
-		let start = calendar.date(byAdding: .init(day: -30), to: end) ?? end
-	
-		return #Predicate<GasFillEntry> { entry in
-			(entry.fillUpDate > start && entry.fillUpDate < end)
-		}
-	}
-	
-	static var fetchDescriptor: FetchDescriptor<GasFillEntry> {
-		let descriptor = FetchDescriptor<GasFillEntry>(
-			predicate: predicate(),
-			sortBy: [SortDescriptor(\.odometer, order: .reverse)]
-		)
-		return descriptor
-	}
+	@Query(fetchDescriptor30Days) private var items: [GasFillEntry]
 	
 	var body: some View {
 		
@@ -100,25 +82,7 @@ struct GasMileageChart30Days: View {
 }
 
 struct GasMileageChart90Days: View {
-	@Query(GasMileageChart90Days.fetchDescriptor) private var items: [GasFillEntry]
-
-	static func predicate() -> Predicate<GasFillEntry> {
-		let calendar = Calendar.autoupdatingCurrent
-		let end = calendar.startOfDay(for: Date())
-		let start = calendar.date(byAdding: .init(day: -90), to: end) ?? end
-	
-		return #Predicate<GasFillEntry> { entry in
-			(entry.fillUpDate > start && entry.fillUpDate < end)
-		}
-	}
-	
-	static var fetchDescriptor: FetchDescriptor<GasFillEntry> {
-		let descriptor = FetchDescriptor<GasFillEntry>(
-			predicate: predicate(),
-			sortBy: [SortDescriptor(\.odometer, order: .reverse)]
-		)
-		return descriptor
-	}
+	@Query(fetchDescriptor90Days) private var items: [GasFillEntry]
 	
 	var body: some View {
 		
@@ -162,7 +126,7 @@ struct GasMileageChart90Days: View {
 }
 
 struct GasMileageChartAll: View {
-	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
+	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	
 	var body: some View {
 		

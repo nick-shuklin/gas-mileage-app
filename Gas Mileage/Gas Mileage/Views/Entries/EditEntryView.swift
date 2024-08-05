@@ -32,7 +32,7 @@ struct EditEntryView: View {
 	
 	@Environment(\.dismiss) private var dismiss
 	@Environment(\.modelContext) private var modelContext
-	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
+	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	
     var body: some View {
 		ZStack {

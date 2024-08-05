@@ -3,7 +3,7 @@ import SwiftData
 
 struct ListOfEntriesTab: View {
 	@Environment(\.modelContext) private var modelContext
-	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
+	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	@State private var showEditEntryView: Bool = false
 	@State private var showTabBar = true
 	

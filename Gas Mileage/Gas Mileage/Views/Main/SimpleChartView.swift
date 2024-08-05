@@ -11,9 +11,10 @@ import Charts
 
 struct SimpleChartView: View {
 	@Environment(\.modelContext) private var modelContext
-	@Query(sort: \GasFillEntry.odometer, order: .reverse) private var items: [GasFillEntry]
+	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
+	
 	var gradient: LinearGradient {
-		LinearGradient(gradient: Gradient(colors: [.yellow, .green]), 
+		LinearGradient(gradient: Gradient(colors: [.yellow, .green]),
 					   startPoint: .top,
 					   endPoint: .bottom)
 	}
