@@ -25,7 +25,7 @@
 		B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */; };
 		B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */; };
 		B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */; };
-		B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB22C1C429F003BD847 /* SettingsView.swift */; };
+		B7F6CCB32C1C429F003BD847 /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */; };
 		B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */; };
 		B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +50,7 @@
 		B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsView.swift; sourceTree = "<group>"; };
 		B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Double.swift"; sourceTree = "<group>"; };
 		B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryView.swift; sourceTree = "<group>"; };
-		B7F6CCB22C1C429F003BD847 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
 		B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,7 +153,7 @@
 				B7C992682C27092700225D0A /* Main */,
 				B77E8CB92C3AD8B7002E3652 /* Entries */,
 				B77E8CB82C3AD8A8002E3652 /* Charts */,
-				B7F6CCB22C1C429F003BD847 /* SettingsView.swift */,
+				B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 				B70F97B52C42E71A0037D26F /* Utils.swift in Sources */,
 				B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */,
 				B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */,
-				B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */,
+				B7F6CCB32C1C429F003BD847 /* SettingsTab.swift in Sources */,
 				B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */,
 				B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */,
 				B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */,
