@@ -26,10 +26,24 @@
       }
     },
     "30D" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 дней"
+          }
+        }
+      }
     },
     "90D" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "90 дней"
+          }
+        }
+      }
     },
     "About" : {
       "extractionState" : "manual",
@@ -54,10 +68,24 @@
       }
     },
     "ALL" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Все"
+          }
+        }
+      }
     },
     "Average Gas Mileage" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Средний расход"
+          }
+        }
+      }
     },
     "Cancel" : {
       "localizations" : {
@@ -124,10 +152,24 @@
       }
     },
     "Date is not correct" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата не верна"
+          }
+        }
+      }
     },
     "Default settings applied based on iPhone settings. Metric: km for odometer, liters per 100km for gas mileage. Imperial: ml and miles per gallon (mpg)" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки по умолчанию используются из настроек системы iPhone. Метрическая: км для одометра, литры на 100 км для расхода. Имперская: мили для одометра, мили на один галлон для пробега"
+          }
+        }
+      }
     },
     "Edit" : {
       "localizations" : {
@@ -140,7 +182,14 @@
       }
     },
     "Enter volume in gallons" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите объем в галлонах"
+          }
+        }
+      }
     },
     "Entries" : {
       "extractionState" : "manual",
@@ -154,13 +203,34 @@
       }
     },
     "Entry details" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Данные"
+          }
+        }
+      }
     },
     "Fill up date" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата заправки"
+          }
+        }
+      }
     },
     "Full" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полный"
+          }
+        }
+      }
     },
     "Gas mileage" : {
       "localizations" : {
@@ -173,7 +243,14 @@
       }
     },
     "Gas mileage chart" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "График расхода"
+          }
+        }
+      }
     },
     "Gas Station" : {
       "localizations" : {
@@ -186,7 +263,14 @@
       }
     },
     "Imperial or Metric" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Имперская или метрическая"
+          }
+        }
+      }
     },
     "List of entries" : {
       "extractionState" : "manual",
@@ -200,13 +284,34 @@
       }
     },
     "Logo" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кого"
+          }
+        }
+      }
     },
     "Main" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основной"
+          }
+        }
+      }
     },
     "Main screen" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основной экран"
+          }
+        }
+      }
     },
     "miles per gallon" : {
       "extractionState" : "stale",
@@ -230,10 +335,24 @@
       }
     },
     "Ok" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ок"
+          }
+        }
+      }
     },
     "Please, check date or odometer reading" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте дату или данные одометра"
+          }
+        }
+      }
     },
     "Price" : {
       "localizations" : {
@@ -246,7 +365,14 @@
       }
     },
     "Save" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
+          }
+        }
+      }
     },
     "Select an item" : {
       "extractionState" : "manual",
@@ -260,7 +386,14 @@
       }
     },
     "Select data to view." : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите данные для отображения"
+          }
+        }
+      }
     },
     "Settings" : {
       "extractionState" : "manual",
@@ -274,7 +407,14 @@
       }
     },
     "To forcefully recalculate each entry gas mileage data turn on toggle above and wait until it automatically turns back off" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы пересчитать расход заново нажмите на тоггл"
+          }
+        }
+      }
     },
     "Total" : {
       "localizations" : {
@@ -287,13 +427,34 @@
       }
     },
     "Total Sales" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Общие продажи"
+          }
+        }
+      }
     },
     "Unit settings" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки данных"
+          }
+        }
+      }
     },
     "Utilities" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утилиты"
+          }
+        }
+      }
     },
     "Version %@" : {
       "localizations" : {
