@@ -7,36 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B709C1292C21E0AA00844D3A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B709C1282C21E0AA00844D3A /* Localizable.xcstrings */; };
+		B70389D62C527FC800A59C00 /* GasMileageDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70389D52C527FC800A59C00 /* GasMileageDetails.swift */; };
+		B70F97B52C42E71A0037D26F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F97B42C42E71A0037D26F /* Utils.swift */; };
 		B75A527B2C0DE19200111A3A /* Gas_MileageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */; };
 		B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527C2C0DE19200111A3A /* ContentView.swift */; };
 		B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527E2C0DE19200111A3A /* GasFillEntry.swift */; };
 		B75A52812C0DE19400111A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52802C0DE19400111A3A /* Assets.xcassets */; };
 		B75A52842C0DE19400111A3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A52832C0DE19400111A3A /* Preview Assets.xcassets */; };
-		B75A528B2C12140300111A3A /* GasStationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A528A2C12140300111A3A /* GasStationName.swift */; };
+		B76B72CA2C31AD1C00B28752 /* ListOfEntriesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B72C92C31AD1C00B28752 /* ListOfEntriesTab.swift */; };
+		B76B72CC2C32F2B500B28752 /* testing_data.json in Resources */ = {isa = PBXBuildFile; fileRef = B76B72CB2C32F2B500B28752 /* testing_data.json */; };
+		B7C992652C25CDFA00225D0A /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992642C25CDFA00225D0A /* MainTab.swift */; };
+		B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */; };
+		B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C992692C270A2700225D0A /* SimpleChartView.swift */; };
+		B7D9F78E2C60E40900F30404 /* GasMileageOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */; };
+		B7D9F7902C60E6A100F30404 /* ChartsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9F78F2C60E6A100F30404 /* ChartsTab.swift */; };
 		B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCA82C18C731003BD847 /* EntryRowView.swift */; };
 		B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */; };
 		B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */; };
-		B7F6CCB12C19DD4E003BD847 /* EntryEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB02C19DD4E003BD847 /* EntryEditorView.swift */; };
-		B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB22C1C429F003BD847 /* SettingsView.swift */; };
+		B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */; };
+		B7F6CCB32C1C429F003BD847 /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */; };
 		B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */; };
 		B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B709C1282C21E0AA00844D3A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		B70389D52C527FC800A59C00 /* GasMileageDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageDetails.swift; sourceTree = "<group>"; };
+		B70F97B42C42E71A0037D26F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B75A52772C0DE19200111A3A /* Gas Mileage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gas Mileage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas_MileageApp.swift; sourceTree = "<group>"; };
 		B75A527C2C0DE19200111A3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B75A527E2C0DE19200111A3A /* GasFillEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasFillEntry.swift; sourceTree = "<group>"; };
 		B75A52802C0DE19400111A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B75A52832C0DE19400111A3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B75A528A2C12140300111A3A /* GasStationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationName.swift; sourceTree = "<group>"; };
+		B76B72C92C31AD1C00B28752 /* ListOfEntriesTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfEntriesTab.swift; sourceTree = "<group>"; };
+		B76B72CB2C32F2B500B28752 /* testing_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testing_data.json; path = ../testing_data.json; sourceTree = "<group>"; };
+		B7C992642C25CDFA00225D0A /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
+		B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEntryRowView.swift; sourceTree = "<group>"; };
+		B7C992692C270A2700225D0A /* SimpleChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChartView.swift; sourceTree = "<group>"; };
+		B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageOverview.swift; sourceTree = "<group>"; };
+		B7D9F78F2C60E6A100F30404 /* ChartsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsTab.swift; sourceTree = "<group>"; };
 		B7F6CCA82C18C731003BD847 /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
 		B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsView.swift; sourceTree = "<group>"; };
 		B7F6CCAE2C19D16B003BD847 /* Extensions+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Double.swift"; sourceTree = "<group>"; };
-		B7F6CCB02C19DD4E003BD847 /* EntryEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEditorView.swift; sourceTree = "<group>"; };
-		B7F6CCB22C1C429F003BD847 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryView.swift; sourceTree = "<group>"; };
+		B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
 		B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +69,7 @@
 		B75A526E2C0DE19200111A3A = {
 			isa = PBXGroup;
 			children = (
+				B76B72CB2C32F2B500B28752 /* testing_data.json */,
 				B75A52792C0DE19200111A3A /* Gas Mileage */,
 				B75A52782C0DE19200111A3A /* Products */,
 			);
@@ -76,7 +91,8 @@
 				B7F6CCAD2C19D0AA003BD847 /* Extensions */,
 				B7F6CCAC2C18CA81003BD847 /* Views */,
 				B7F6CCA72C18615E003BD847 /* Enums */,
-				B7ECF50B2C244073000CFD92 /* Models */,
+				B75A527E2C0DE19200111A3A /* GasFillEntry.swift */,
+				B70F97B42C42E71A0037D26F /* Utils.swift */,
 				B75A52802C0DE19400111A3A /* Assets.xcassets */,
 				B75A52822C0DE19400111A3A /* Preview Content */,
 				B709C1282C21E0AA00844D3A /* Localizable.xcstrings */,
@@ -92,18 +108,41 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B7ECF50B2C244073000CFD92 /* Models */ = {
+		B77E8CB82C3AD8A8002E3652 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				B75A527E2C0DE19200111A3A /* GasFillEntry.swift */,
+				B7D9F78F2C60E6A100F30404 /* ChartsTab.swift */,
+				B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */,
+				B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */,
+				B70389D52C527FC800A59C00 /* GasMileageDetails.swift */,
 			);
-			path = Models;
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		B77E8CB92C3AD8B7002E3652 /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				B76B72C92C31AD1C00B28752 /* ListOfEntriesTab.swift */,
+				B7F6CCA82C18C731003BD847 /* EntryRowView.swift */,
+				B7F6CCB02C19DD4E003BD847 /* EditEntryView.swift */,
+				B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */,
+			);
+			path = Entries;
+			sourceTree = "<group>";
+		};
+		B7C992682C27092700225D0A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B7C992642C25CDFA00225D0A /* MainTab.swift */,
+				B7C992692C270A2700225D0A /* SimpleChartView.swift */,
+				B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		B7F6CCA72C18615E003BD847 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				B75A528A2C12140300111A3A /* GasStationName.swift */,
 				B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */,
 			);
 			path = Enums;
@@ -112,11 +151,10 @@
 		B7F6CCAC2C18CA81003BD847 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B7F6CCA82C18C731003BD847 /* EntryRowView.swift */,
-				B7F6CCAA2C18C818003BD847 /* EntryDetailsView.swift */,
-				B7F6CCB02C19DD4E003BD847 /* EntryEditorView.swift */,
-				B7F6CCB22C1C429F003BD847 /* SettingsView.swift */,
-				B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */,
+				B7C992682C27092700225D0A /* Main */,
+				B77E8CB92C3AD8B7002E3652 /* Entries */,
+				B77E8CB82C3AD8A8002E3652 /* Charts */,
+				B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75A52842C0DE19400111A3A /* Preview Assets.xcassets in Resources */,
+				B76B72CC2C32F2B500B28752 /* testing_data.json in Resources */,
 				B75A52812C0DE19400111A3A /* Assets.xcassets in Resources */,
 				B709C1292C21E0AA00844D3A /* Localizable.xcstrings in Resources */,
 			);
@@ -200,15 +239,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75A528B2C12140300111A3A /* GasStationName.swift in Sources */,
+				B7D9F7902C60E6A100F30404 /* ChartsTab.swift in Sources */,
+				B76B72CA2C31AD1C00B28752 /* ListOfEntriesTab.swift in Sources */,
+				B70389D62C527FC800A59C00 /* GasMileageDetails.swift in Sources */,
+				B7C992652C25CDFA00225D0A /* MainTab.swift in Sources */,
 				B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */,
-				B7F6CCB12C19DD4E003BD847 /* EntryEditorView.swift in Sources */,
+				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
+				B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */,
+				B70F97B52C42E71A0037D26F /* Utils.swift in Sources */,
 				B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */,
 				B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */,
-				B7F6CCB32C1C429F003BD847 /* SettingsView.swift in Sources */,
+				B7F6CCB32C1C429F003BD847 /* SettingsTab.swift in Sources */,
 				B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */,
+				B7C9926A2C270A2800225D0A /* SimpleChartView.swift in Sources */,
 				B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */,
 				B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */,
+				B7D9F78E2C60E40900F30404 /* GasMileageOverview.swift in Sources */,
 				B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */,
 				B75A527B2C0DE19200111A3A /* Gas_MileageApp.swift in Sources */,
 			);
@@ -250,6 +296,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -313,6 +360,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -341,10 +389,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
-				DEVELOPMENT_TEAM = NRK4ATF8LQ;
+				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Gas Mileage";
@@ -360,9 +409,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0.;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-Mileage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -378,10 +428,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
-				DEVELOPMENT_TEAM = NRK4ATF8LQ;
+				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Gas Mileage";
@@ -397,9 +448,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0.;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-Mileage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
