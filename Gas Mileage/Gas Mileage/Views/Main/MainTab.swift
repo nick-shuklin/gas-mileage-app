@@ -8,8 +8,8 @@ struct MainTab: View {
 	
 	var body: some View {
 		ZStack {
-			Color.background
-				.ignoresSafeArea()
+//			Color.background
+//				.ignoresSafeArea()
 
 			VStack {
 				Text("Main screen")

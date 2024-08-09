@@ -19,7 +19,7 @@ struct ShortEntryRowView: View {
 			Spacer()
 		}
 		.font(.caption)
-		.listRowSeparator(.hidden)
+//		.listRowSeparator(.hidden)
 		.frame(height: frameHeight)
 	}
 }
