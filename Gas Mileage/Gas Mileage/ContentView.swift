@@ -40,6 +40,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Gasen.self, inMemory: true)
+        .modelContainer(for: GasFillEntry.self, inMemory: true)
 		.environment(\.locale, .init(identifier: "ru"))
 }

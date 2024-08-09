@@ -1,7 +1,11 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%lld km" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -20,6 +24,12 @@
           }
         }
       }
+    },
+    "30D" : {
+
+    },
+    "90D" : {
+
     },
     "About" : {
       "extractionState" : "manual",
@@ -42,6 +52,12 @@
           }
         }
       }
+    },
+    "ALL" : {
+
+    },
+    "Average Gas Mileage" : {
+
     },
     "Cancel" : {
       "localizations" : {
@@ -87,6 +103,7 @@
       }
     },
     "Confirm" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -106,6 +123,12 @@
         }
       }
     },
+    "Date is not correct" : {
+
+    },
+    "Default settings applied based on iPhone settings. Metric: km for odometer, liters per 100km for gas mileage. Imperial: ml and miles per gallon (mpg)" : {
+
+    },
     "Edit" : {
       "localizations" : {
         "ru" : {
@@ -115,6 +138,9 @@
           }
         }
       }
+    },
+    "Enter volume in gallons" : {
+
     },
     "Entries" : {
       "extractionState" : "manual",
@@ -127,6 +153,15 @@
         }
       }
     },
+    "Entry details" : {
+
+    },
+    "Fill up date" : {
+
+    },
+    "Full" : {
+
+    },
     "Gas mileage" : {
       "localizations" : {
         "ru" : {
@@ -137,6 +172,9 @@
         }
       }
     },
+    "Gas mileage chart" : {
+
+    },
     "Gas Station" : {
       "localizations" : {
         "ru" : {
@@ -146,6 +184,9 @@
           }
         }
       }
+    },
+    "Imperial or Metric" : {
+
     },
     "List of entries" : {
       "extractionState" : "manual",
@@ -158,7 +199,17 @@
         }
       }
     },
+    "Logo" : {
+
+    },
+    "Main" : {
+
+    },
+    "Main screen" : {
+
+    },
     "miles per gallon" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -178,6 +229,12 @@
         }
       }
     },
+    "Ok" : {
+
+    },
+    "Please, check date or odometer reading" : {
+
+    },
     "Price" : {
       "localizations" : {
         "ru" : {
@@ -187,6 +244,9 @@
           }
         }
       }
+    },
+    "Save" : {
+
     },
     "Select an item" : {
       "extractionState" : "manual",
@@ -199,6 +259,9 @@
         }
       }
     },
+    "Select data to view." : {
+
+    },
     "Settings" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -210,6 +273,9 @@
         }
       }
     },
+    "To forcefully recalculate each entry gas mileage data turn on toggle above and wait until it automatically turns back off" : {
+
+    },
     "Total" : {
       "localizations" : {
         "ru" : {
@@ -219,6 +285,15 @@
           }
         }
       }
+    },
+    "Total Sales" : {
+
+    },
+    "Unit settings" : {
+
+    },
+    "Utilities" : {
+
     },
     "Version %@" : {
       "localizations" : {
