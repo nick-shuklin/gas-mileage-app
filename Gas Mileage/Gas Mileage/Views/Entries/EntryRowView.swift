@@ -2,6 +2,7 @@ import SwiftUI
 
 struct EntryRowView: View {
 	var item: GasFillEntry
+	@Environment(\.locale) var locale: Locale
 	
     var body: some View {
 		HStack {

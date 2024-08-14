@@ -34,7 +34,7 @@ final class GasFillEntry: Codable {
 		self.isPaidCash = isPaidCash
 		self.gasStationName = gasStationName
     }
-	
+
 	required init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		
