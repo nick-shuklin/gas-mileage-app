@@ -1,10 +1,3 @@
-//
-//  Extensions+Double.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/12/24.
-//
-
 import Foundation
 import SwiftUI
 

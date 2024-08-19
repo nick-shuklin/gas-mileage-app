@@ -1,10 +1,3 @@
-//
-//  EditEntryView.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/12/24.
-//
-
 import SwiftUI
 import SwiftData
 

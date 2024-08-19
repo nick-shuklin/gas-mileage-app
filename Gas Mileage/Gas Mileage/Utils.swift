@@ -1,10 +1,3 @@
-//
-//  Utils.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 7/13/24.
-//
-
 import SwiftUI
 import SwiftData
 

@@ -90,9 +90,9 @@
 			children = (
 				B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */,
 				B75A527C2C0DE19200111A3A /* ContentView.swift */,
-				B7F6CCAD2C19D0AA003BD847 /* Extensions */,
 				B7F6CCAC2C18CA81003BD847 /* Views */,
 				B7F6CCA72C18615E003BD847 /* Enums */,
+				B7F6CCAD2C19D0AA003BD847 /* Extensions */,
 				B75A527E2C0DE19200111A3A /* GasFillEntry.swift */,
 				B70F97B42C42E71A0037D26F /* Utils.swift */,
 				B75A52802C0DE19400111A3A /* Assets.xcassets */,

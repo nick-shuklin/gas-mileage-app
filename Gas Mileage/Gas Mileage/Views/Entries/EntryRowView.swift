@@ -1,10 +1,3 @@
-//
-//  EntryRowView.swift
-//  Gas Mileage
-//
-//  Created by Nick Shuklin on 6/11/24.
-//
-
 import SwiftUI
 
 struct EntryRowView: View {
