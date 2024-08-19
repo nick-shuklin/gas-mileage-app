@@ -18,29 +18,28 @@ struct ListOfEntriesTab: View {
 				NavigationSplitView {
 					List {
 						ForEach(items) { item in
-							NavigationLink(value: item) {
+							ZStack {
+								NavigationLink(destination: EntryDetailsView(item: item, showTabBar: $showTabBar)) {
+									EmptyView()
+								}
+								.opacity(0) // Hides the default NavigationLink's visibility
+
 								EntryRowView(item: item)
+									.contentShape(Rectangle())
+									.frame(height: frameHeight)
+									.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 							}
-							.frame(height: frameHeight)
-							.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 						}
 						.onDelete(perform: deleteItems)
-					}
-					.navigationDestination(for: GasFillEntry.self) { item in
-						EntryDetailsView(item: item, showTabBar: $showTabBar)
 					}
 					.navigationTitle("List of entries")
 					.toolbarTitleDisplayMode(.inline)
 					.toolbar {
 						ToolbarItem(placement: .topBarLeading) {
-							Button {
-								showEditEntryView.toggle()
-							} label: {
-								Label("Add Item", systemImage: "plus")
-							}
-							.sheet(isPresented: $showEditEntryView) {
-								EditEntryView(entry: nil)
-							}
+							addEntryButton
+								.sheet(isPresented: $showEditEntryView) {
+									EditEntryView(entry: nil)
+								}
 						}
 						
 						ToolbarItem(placement: .navigationBarTrailing) {
@@ -62,6 +61,18 @@ struct ListOfEntriesTab: View {
 			}
 		}
     }
+	
+	private var addEntryButton: some View {
+		Button {
+			showEditEntryView.toggle()
+		} label: {
+			Image(systemName: "plus")
+				.background(
+					backGroundSquareShapedShadow()
+						.frame(width: 30, height: 30)
+				)
+		}
+	}
 	
 	private func addItem() {
 		withAnimation {
