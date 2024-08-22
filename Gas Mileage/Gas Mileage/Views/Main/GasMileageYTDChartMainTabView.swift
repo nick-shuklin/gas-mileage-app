@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 import Charts
 
-struct SimpleChartView: View {
+struct GasMileageYTDChartMainTabView: View {
 	@Environment(\.modelContext) private var modelContext
 	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	

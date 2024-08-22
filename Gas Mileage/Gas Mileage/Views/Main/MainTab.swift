@@ -15,7 +15,7 @@ struct MainTab: View {
 				Text("Main screen")
 					.font(.headline)
 				
-				SimpleChartView()
+				GasMileageYTDChartMainTabView()
 					.frame(height: 280) // adjust height to the screen size
 					.padding()
 				
