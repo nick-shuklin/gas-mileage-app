@@ -8,29 +8,44 @@ struct MainTab: View {
 	
 	var body: some View {
 		ZStack {
-//			Color.background
-//				.ignoresSafeArea()
+			Color.background
+				.ignoresSafeArea()
 
 			VStack {
 				Text("Main screen")
 					.font(.headline)
 				
-				SimpleChartView()
-					.frame(height: 280) // adjust height to the screen size
+				GasMileageYTDChartMainTabView()
 					.padding()
+					.frame(height: 260)
+					.background(
+						backGroundSquareShapedShadow()
+					)
 				
-				ScrollView() {
-					Grid(alignment: .trailing) {
-						ForEach(items) { item in
-							GridRow {
-								ShortEntryRowView(item: item)
+				NavigationView {
+					ScrollView() {
+						Grid(alignment: .trailing) {
+							ForEach(items) { item in
+								GridRow {
+									ShortEntryRowView(item: item)
+								}
+								.frame(height: 32)
 							}
 						}
+						.padding()
 					}
-					.padding()
+					.toolbar {
+						ToolbarItem(placement: .navigationBarLeading) {
+							Text("Last 10 entries")
+								.font(.subheadline)
+						}
+					}
+					.scrollIndicators(.hidden)
+					.background(Color.background)
 				}
-				.scrollIndicators(.hidden)
+				.padding(.top, 5)
 			}
+			.padding()
 		}
 	}
 }

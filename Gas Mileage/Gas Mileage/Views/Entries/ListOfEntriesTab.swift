@@ -57,7 +57,6 @@ struct ListOfEntriesTab: View {
 				} detail: {
 					Text("Select an item")
 				}
-				.background(Color.background)
 			}
 		}
     }

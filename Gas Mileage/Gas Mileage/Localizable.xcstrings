@@ -77,16 +77,6 @@
         }
       }
     },
-    "Average Gas Mileage" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Средний расход"
-          }
-        }
-      }
-    },
     "Cancel" : {
       "localizations" : {
         "ru" : {
@@ -243,6 +233,7 @@
       }
     },
     "Gas mileage chart" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -268,6 +259,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Имперская или метрическая"
+          }
+        }
+      }
+    },
+    "Last 10 entries" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Последние 10 заправок"
           }
         }
       }
@@ -422,16 +423,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сумма"
-          }
-        }
-      }
-    },
-    "Total Sales" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Общие продажи"
           }
         }
       }
