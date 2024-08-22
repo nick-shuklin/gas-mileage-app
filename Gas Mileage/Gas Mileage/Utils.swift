@@ -77,7 +77,7 @@ var fetchDescriptorLast10: FetchDescriptor<GasFillEntry> {
 
 struct backGroundSquareShapedShadow: View {
 	let radius: CGFloat = 7
-	let modifier: CGFloat = 8
+	let modifier: CGFloat = 9
 
 	let innerColor1 = Color(hex: "FFFFFF").opacity(0.64)
 	let innerColor2 = Color(hex: "0D2750").opacity(0.16)
@@ -97,12 +97,12 @@ struct backGroundSquareShapedShadow: View {
 	var body: some View {
 		RoundedRectangle(cornerRadius: 5)
 			.fill(
-				.shadow(.inner(color: innerColor1,
+				.shadow(.drop(color: innerColor1,
 							   radius: innerBlur1/modifier,
 							   x: innerXY1/modifier,
 							   y: innerXY1/modifier)
 				)
-				.shadow(.inner(color: innerColor2,
+				.shadow(.drop(color: innerColor2,
 							   radius: innerBlur2/modifier,
 							   x: innerXY2/modifier,
 							   y: innerXY2/modifier)
@@ -121,3 +121,17 @@ struct backGroundSquareShapedShadow: View {
 			.foregroundColor(Color.background)
 	}
 }
+
+//struct BackgroundColorStyle: ViewModifier {
+//	@Environment (\.colorScheme) var colorScheme:ColorScheme
+//	
+//	func body(content: Content) -> some View {
+//		if colorScheme == .light {
+//			return content
+//				.background(Color.gray)
+//		} else {
+//			return content
+//				.background(Color.white)
+//		}
+//	}
+//}
