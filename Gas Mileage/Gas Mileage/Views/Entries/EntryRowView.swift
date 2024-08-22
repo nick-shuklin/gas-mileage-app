@@ -3,11 +3,9 @@ import SwiftUI
 struct EntryRowView: View {
 	var item: GasFillEntry
 	@Environment(\.locale) var locale: Locale
-	
+
     var body: some View {
 		HStack {
-			Spacer()
-			
 			VStack(alignment: .leading) {
 				Text(item.gasStationName.rawValue).bold()
 //				Text(item.isPaidCash ? "Cash" : "Card")
@@ -32,6 +30,12 @@ struct EntryRowView: View {
 			}
 			
 			Spacer()
+			
+			Image(systemName: "chevron.right")
+				.background(
+					backGroundSquareShapedShadow()
+						.frame(width: 30, height: 30)
+				)
 		}
 		.font(.caption)
     }
