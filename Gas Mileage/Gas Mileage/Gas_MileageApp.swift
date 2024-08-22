@@ -25,12 +25,10 @@ struct Gas_MileageApp: App {
 				do {
 					let container = try result.get()
 
-					// Check we haven't already added our users.
 					let descriptor = FetchDescriptor<GasFillEntry>()
 					let existingUsers = try container.mainContext.fetchCount(descriptor)
 					guard existingUsers == 0 else { return }
 
-					// Load and decode the JSON.
 					guard let url = Bundle.main.url(forResource: "testing_data", withExtension: "json") else {
 						fatalError("Failed to find testing_data.json")
 					}
@@ -41,7 +39,6 @@ struct Gas_MileageApp: App {
 					
 					let items = try decoder.decode([GasFillEntry].self, from: data)
 
-					// Add all our data to the context.
 					for item in items {
 						container.mainContext.insert(item)
 					}
