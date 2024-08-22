@@ -3,44 +3,36 @@ import SwiftData
 import Charts
 
 struct GasMileageYTDChartMainTabView: View {
-	@Environment(\.modelContext) private var modelContext
-	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
+	@Query(fetchDescriptorLast10) private var items: [GasFillEntry]
 	
-	var gradient: LinearGradient {
-		LinearGradient(gradient: Gradient(colors: [.yellow, .green]),
-					   startPoint: .top,
-					   endPoint: .bottom)
-	}
-	
-    var body: some View {
-		VStack(alignment: .leading) {
-			Text("Total Sales")
-				.font(.callout)
-				.foregroundStyle(.secondary)
-			
-			Text("Gas mileage chart")
-				.font(.title2.bold())
-			
-			Chart {
-				ForEach(items) { item in
-					BarMark(
-						x: .value("Odometer", item.odometer),
-						y: .value("Total", item.total)
-					)
-					.foregroundStyle(gradient)
-				}
-				RuleMark(y: .value("Average Gas Mileage", 75))
-					.foregroundStyle(.red.opacity(0.3))
+	var body: some View {
+		Chart {
+			ForEach(items) { item in
+				LineMark(
+					x: .value("Date", item.fillUpDate, unit: .day),
+					y: .value("Gas mileage", item.gasMileage)
+				)
+				.lineStyle(StrokeStyle(lineWidth: 1))
+				.foregroundStyle(.purple)
+				.symbol(Circle())
+				
+				AreaMark(
+					x: .value("Date", item.fillUpDate, unit: .day),
+					y: .value("Gas mileage", item.gasMileage)
+				)
+				.foregroundStyle(chartsGradient)
 			}
-			.chartScrollableAxes(.horizontal)
-			.chartXVisibleDomain(length: 50)
-			.chartXScale(domain: 0...30)
-			.padding()
-//			.chartPlotStyle { plotArea in
-//				plotArea
-//					.background(.mint.opacity(0.08))
-//					.border(.mint)
-//			}
+			.interpolationMethod(.catmullRom)
 		}
-    }
+		.chartXAxis {
+			AxisMarks(values: .stride(by: .day, count: 7)) { _ in
+				AxisGridLine()
+				AxisTick()
+				AxisValueLabel(format: .dateTime.month().day(), centered: false)
+			}
+		}
+		.chartYAxis {
+			AxisMarks(position: .leading, values: .automatic(desiredCount: 3))
+		}
+	}
 }
