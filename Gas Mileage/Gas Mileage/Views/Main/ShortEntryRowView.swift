@@ -5,9 +5,21 @@ struct ShortEntryRowView: View {
 	
 	var body: some View {
 		HStack {
-			Text("Logo") // here will be a small gas station logo pic
+			if let uiImage = UIImage(named: item.gasStationName.rawValue) {
+				Image(uiImage: uiImage)
+					.resizable()
+					.aspectRatio(contentMode: .fit)
+					.frame(width: 30, height: 30)
+					.cornerRadius(5)
+			} else {
+				Image("Default")
+					.resizable()
+					.aspectRatio(contentMode: .fit)
+					.frame(width: 30, height: 30)
+					.cornerRadius(5)
+			}
 			Spacer()
-			Text(item.creationDate, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+			Text(item.creationDate, format: Date.FormatStyle(date: .numeric, time: .shortened))
 				.bold()
 				.lineLimit(1)
 			Spacer()
