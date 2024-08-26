@@ -33,7 +33,7 @@
 		"gasMileage": 15.0,
 		"isFilledUp": false,
 		"isPaidCash": true,
-		"gasStationName": "Shell"
+		"gasStationName": "Mobil"
 	},
 	{
 		"odometer": 4924,
@@ -45,7 +45,7 @@
 		"gasMileage": 10.0,
 		"isFilledUp": false,
 		"isPaidCash": true,
-		"gasStationName": "Shell"
+		"gasStationName": "Lukoil"
 	},
 	{
 		"odometer": 4790,
@@ -57,7 +57,7 @@
 		"gasMileage": 23.0,
 		"isFilledUp": false,
 		"isPaidCash": false,
-		"gasStationName": "Shell"
+		"gasStationName": "Chevron"
 	},
 	{
 		"odometer": 4622,
@@ -69,7 +69,7 @@
 		"gasMileage": 23.0,
 		"isFilledUp": true,
 		"isPaidCash": false,
-		"gasStationName": "Chevron"
+		"gasStationName": "Valero"
 	},
 	{
 		"odometer": 4436,
