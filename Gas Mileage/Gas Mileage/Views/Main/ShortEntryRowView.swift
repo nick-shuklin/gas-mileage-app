@@ -33,7 +33,8 @@ struct ShortEntryRowView: View {
 					.cornerRadius(5)
 			}
 			Spacer()
-			Text(item.creationDate, format: Date.FormatStyle(date: .numeric, time: .shortened))
+			Text(item.creationDate, 
+				 format: Date.FormatStyle(date: .numeric, time: .none))
 				.bold()
 				.lineLimit(1)
 			Spacer()
