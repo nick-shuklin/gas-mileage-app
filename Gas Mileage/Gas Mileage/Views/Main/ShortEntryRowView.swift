@@ -2,36 +2,10 @@ import SwiftUI
 
 struct ShortEntryRowView: View {
 	var item: GasFillEntry
-	let logoSize: CGFloat = 36
 	
 	var body: some View {
 		HStack {
-			if let uiImage = UIImage(named: item.gasStationName.rawValue) {
-				ZStack {
-					Color.white
-						.frame(width: logoSize + 2,
-							   height: logoSize + 2)
-						.cornerRadius(5)
-							
-					Image(uiImage: uiImage)
-						.renderingMode(.original)
-						.resizable()
-						.saturation(0)
-						.contrast(0.7)
-						.aspectRatio(contentMode: .fit)
-						.frame(width: logoSize, 
-							   height: logoSize)
-						.cornerRadius(5)
-						.clipped()
-				}
-			} else {
-				Image("Default")
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-					.frame(width: logoSize, 
-						   height: logoSize)
-					.cornerRadius(5)
-			}
+			LogoView(logoName: item.gasStationName.rawValue)
 			Spacer()
 			Text(item.creationDate, 
 				 format: Date.FormatStyle(date: .numeric, time: .none))
