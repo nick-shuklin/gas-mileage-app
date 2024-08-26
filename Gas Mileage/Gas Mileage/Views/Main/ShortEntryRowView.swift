@@ -9,7 +9,8 @@ struct ShortEntryRowView: View {
 			if let uiImage = UIImage(named: item.gasStationName.rawValue) {
 				ZStack {
 					Color.white
-						.frame(width: logoSize, height: logoSize)
+						.frame(width: logoSize + 2,
+							   height: logoSize + 2)
 						.cornerRadius(5)
 							
 					Image(uiImage: uiImage)
@@ -18,7 +19,8 @@ struct ShortEntryRowView: View {
 						.saturation(0)
 						.contrast(0.7)
 						.aspectRatio(contentMode: .fit)
-						.frame(width: logoSize, height: logoSize)
+						.frame(width: logoSize, 
+							   height: logoSize)
 						.cornerRadius(5)
 						.clipped()
 				}
@@ -26,7 +28,8 @@ struct ShortEntryRowView: View {
 				Image("Default")
 					.resizable()
 					.aspectRatio(contentMode: .fit)
-					.frame(width: logoSize, height: logoSize)
+					.frame(width: logoSize, 
+						   height: logoSize)
 					.cornerRadius(5)
 			}
 			Spacer()
