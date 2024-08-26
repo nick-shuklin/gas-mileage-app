@@ -5,9 +5,9 @@ struct ListOfEntriesTab: View {
 	@Environment(\.modelContext) private var modelContext
 	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	@State private var showEditEntryView: Bool = false
-	@State private var showTabBar = true
+	@State private var showTabBar: Bool = true
 	
-	let frameHeight: CGFloat = 54
+	let frameHeight: CGFloat = 48
 	
     var body: some View {
 		ZStack {
@@ -27,7 +27,7 @@ struct ListOfEntriesTab: View {
 								EntryRowView(item: item)
 									.contentShape(Rectangle())
 									.frame(height: frameHeight)
-									.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+//									.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 							}
 						}
 						.onDelete(perform: deleteItems)
