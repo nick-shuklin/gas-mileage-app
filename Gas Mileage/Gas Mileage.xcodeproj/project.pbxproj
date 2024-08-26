@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B70389D62C527FC800A59C00 /* GasMileageDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70389D52C527FC800A59C00 /* GasMileageDetails.swift */; };
 		B70F97B52C42E71A0037D26F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F97B42C42E71A0037D26F /* Utils.swift */; };
+		B75211B22C7C965200A64DE1 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75211B12C7C965200A64DE1 /* LogoView.swift */; };
 		B75A527B2C0DE19200111A3A /* Gas_MileageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */; };
 		B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527C2C0DE19200111A3A /* ContentView.swift */; };
 		B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A527E2C0DE19200111A3A /* GasFillEntry.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		B70389D52C527FC800A59C00 /* GasMileageDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageDetails.swift; sourceTree = "<group>"; };
 		B70F97B42C42E71A0037D26F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B75211B12C7C965200A64DE1 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		B75A52772C0DE19200111A3A /* Gas Mileage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gas Mileage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75A527A2C0DE19200111A3A /* Gas_MileageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas_MileageApp.swift; sourceTree = "<group>"; };
 		B75A527C2C0DE19200111A3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				B77E8CB92C3AD8B7002E3652 /* Entries */,
 				B77E8CB82C3AD8A8002E3652 /* Charts */,
 				B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */,
+				B75211B12C7C965200A64DE1 /* LogoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */,
 				B7F6CCB12C19DD4E003BD847 /* EditEntryView.swift in Sources */,
 				B7C992672C25E22C00225D0A /* ShortEntryRowView.swift in Sources */,
+				B75211B22C7C965200A64DE1 /* LogoView.swift in Sources */,
 				B70F97B52C42E71A0037D26F /* Utils.swift in Sources */,
 				B7F6CCAB2C18C818003BD847 /* EntryDetailsView.swift in Sources */,
 				B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */,
@@ -393,7 +397,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
 				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;
@@ -432,7 +436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Gas Mileage/Preview Content\"";
 				DEVELOPMENT_TEAM = PDX8748A9F;
 				ENABLE_PREVIEWS = YES;

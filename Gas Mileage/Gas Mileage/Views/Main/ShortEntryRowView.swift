@@ -5,9 +5,10 @@ struct ShortEntryRowView: View {
 	
 	var body: some View {
 		HStack {
-			Text("Logo") // here will be a small gas station logo pic
+			LogoView(logoName: item.gasStationName.rawValue)
 			Spacer()
-			Text(item.creationDate, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+			Text(item.creationDate, 
+				 format: Date.FormatStyle(date: .numeric, time: .none))
 				.bold()
 				.lineLimit(1)
 			Spacer()

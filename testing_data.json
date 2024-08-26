@@ -4,19 +4,19 @@
 		"creationDate": "2024-07-14T17:30:31Z",
 		"fillUpDate": "2024-07-14T17:30:31Z",
 		"total": 150.00,
-		"gasPrice": 5.00,
+		"gasPrice": 5.46,
 		"volume": 30.00,
 		"gasMileage": 19.0,
 		"isFilledUp": false,
 		"isPaidCash": true,
-		"gasStationName": "Shell"
+		"gasStationName": "Valero"
 	},
 	{
 		"odometer": 5211,
 		"creationDate": "2024-07-10T17:30:31Z",
 		"fillUpDate": "2024-07-10T17:30:31Z",
 		"total": 150.00,
-		"gasPrice": 5.00,
+		"gasPrice": 4.99,
 		"volume": 30.00,
 		"gasMileage": 17.0,
 		"isFilledUp": true,
@@ -33,7 +33,7 @@
 		"gasMileage": 15.0,
 		"isFilledUp": false,
 		"isPaidCash": true,
-		"gasStationName": "Shell"
+		"gasStationName": "Mobil"
 	},
 	{
 		"odometer": 4924,
@@ -45,7 +45,7 @@
 		"gasMileage": 10.0,
 		"isFilledUp": false,
 		"isPaidCash": true,
-		"gasStationName": "Shell"
+		"gasStationName": "Lukoil"
 	},
 	{
 		"odometer": 4790,
@@ -57,7 +57,7 @@
 		"gasMileage": 23.0,
 		"isFilledUp": false,
 		"isPaidCash": false,
-		"gasStationName": "Shell"
+		"gasStationName": "Chevron"
 	},
 	{
 		"odometer": 4622,
@@ -69,7 +69,7 @@
 		"gasMileage": 23.0,
 		"isFilledUp": true,
 		"isPaidCash": false,
-		"gasStationName": "Chevron"
+		"gasStationName": "Valero"
 	},
 	{
 		"odometer": 4436,

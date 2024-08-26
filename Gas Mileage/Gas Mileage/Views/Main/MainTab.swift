@@ -29,7 +29,7 @@ struct MainTab: View {
 								GridRow {
 									ShortEntryRowView(item: item)
 								}
-								.frame(height: 32)
+								.frame(height: 36)
 							}
 						}
 						.padding()
