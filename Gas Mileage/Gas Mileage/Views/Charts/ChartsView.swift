@@ -3,25 +3,6 @@ import Charts
 import SwiftData
 
 struct ChartsView: View {
-	
-//	let radius: CGFloat = 7
-//	let modifier: CGFloat = 7
-//	
-//	let innerColor1 = Color(hex: "FFFFFF").opacity(0.64)
-//	let innerColor2 = Color(hex: "0D2750").opacity(0.16)
-//	/// B5BFC6 FAFBFF E4EBF1 FFFFFF 6E7F8D 0D2750 161B1D EFF2F9
-//	@State private var innerBlur1: CGFloat = 43
-//	@State private var innerBlur2: CGFloat = 48
-//	@State private var innerXY1: CGFloat = -31
-//	@State private var innerXY2: CGFloat = 26
-//	
-//	let dropColor1 = Color(hex: "0D2750").opacity(0.16)
-//	let dropColor2 = Color(hex: "FFFFFF")
-//	@State private var dropBlur1: CGFloat = 50
-//	@State private var dropBlur2: CGFloat = 45
-//	@State private var dropXY1: CGFloat = 28
-//	@State private var dropXY2: CGFloat = -23
-	
 	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	
 	var body: some View {
@@ -118,8 +99,3 @@ struct ChartsView: View {
 		}
 	}
 }
-
-//#Preview {
-//	ChartsView()
-//		.modelContainer(for: GasFillEntry.self, inMemory: false)
-//}
