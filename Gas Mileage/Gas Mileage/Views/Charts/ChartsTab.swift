@@ -4,6 +4,7 @@ struct ChartsTab: View {
 	private enum Destinations {
 		case empty
 		case gasMileage
+		case expenses
 	}
 
 	@State private var selection: Destinations?
@@ -16,13 +17,20 @@ struct ChartsTab: View {
 						GasMileageOverview()
 					}
 				}
+				
+				Section {
+					NavigationLink(value: Destinations.expenses) {
+						TotalExpensesOverview()
+					}
+				}
 			}
 			.navigationTitle("Charts")
 		} detail: {
 			NavigationStack {
 				switch selection ?? .empty {
-				case .empty: Text("Select data to view.")
-				case .gasMileage: GasMileageDetails()
+					case .empty: Text("Select data to view.")
+					case .gasMileage: GasMileageDetails()
+					case .expenses: TotalExpensesOverview()
 				}
 			}
 		}
