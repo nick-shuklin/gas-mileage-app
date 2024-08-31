@@ -86,12 +86,12 @@ struct EntryDetailsView: View {
 			}
 			.onAppear {
 				withAnimation {
-					showTabBar.toggle()
+					showTabBar = false
 				}
 			}
 			.onDisappear {
 				withAnimation {
-					showTabBar.toggle()
+					showTabBar = true
 				}
 			}
 		}

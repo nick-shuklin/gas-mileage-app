@@ -23,12 +23,12 @@ struct EntryRowView: View {
 				Text(String(item.gasMileage.roundTo(places: 2)) + " mpg").bold()
 				Text(String(item.volume.roundTo(places: 2)) + " gal")
 			}
-			Spacer()
-			Image(systemName: "chevron.right")
-				.background(
-					backGroundSquareShapedShadow()
-						.frame(width: 30, height: 30)
-				)
+//			Spacer()
+//			Image(systemName: "chevron.right")
+//				.background(
+//					backGroundSquareShapedShadow()
+//						.frame(width: 30, height: 30)
+//				)
 		}
 		.font(.caption)
     }
