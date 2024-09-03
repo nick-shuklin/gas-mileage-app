@@ -2,6 +2,18 @@ import Charts
 import SwiftUI
 import SwiftData
 
+struct GasMileageOverview: View {
+	var body: some View {
+		VStack(alignment: .center) {
+			Text("Gas mileage")
+				.font(.callout)
+				.foregroundStyle(.secondary)
+
+			GasMileageOverviewChart()
+		}
+	}
+}
+
 struct GasMileageOverviewChart: View {
 	@Query(fetchDescriptor90Days) private var items: [GasFillEntry]
 	
@@ -27,22 +39,4 @@ struct GasMileageOverviewChart: View {
 		.chartXAxis(.hidden)
 		.chartYAxis(.hidden)
 	}
-}
-
-struct GasMileageOverview: View {
-	var body: some View {
-		VStack(alignment: .leading) {
-			Text("Gas mileage")
-				.font(.callout)
-				.foregroundStyle(.secondary)
-
-			GasMileageOverviewChart()
-				.frame(height: 100)
-		}
-	}
-}
-
-#Preview {
-	GasMileageOverview()
-		.modelContainer(for: GasFillEntry.self, inMemory: false)
 }

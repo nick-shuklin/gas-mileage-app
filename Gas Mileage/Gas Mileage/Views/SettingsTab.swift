@@ -54,8 +54,6 @@ struct SettingsTab: View {
 			var data: (odometer: Int, accumulatedVolume: Double, gasMileage: Double) = (0, 0, 1)
 			
 			for (i, item) in items.enumerated() {
-				print("bla \(i)")
-				
 				if i == 0 {
 					item.gasMileage = 1
 				} else {
@@ -70,9 +68,8 @@ struct SettingsTab: View {
 					}
 				}
 			}
-
+			
 			inProgress.toggle()
-			print("---***---")
 		}
 	}
 }

@@ -3,35 +3,32 @@ import Charts
 import SwiftData
 
 struct GasMileageDetails: View {
-	@State private var timeRange: TimeRange = .last30Days
+	@State private var timeRange: TimeRangeGasMileageChart = .last30Days
 	
 	var body: some View {
-		List {
-			VStack(alignment: .leading) {
-				TimeRangePicker(value: $timeRange)
-					.padding(.bottom)
-				
-				switch timeRange {
-					case .last30Days:
+		VStack() {
+			TimeRangeGasMileageChartPicker(value: $timeRange)
+				.padding(.bottom)
+			
+			switch timeRange {
+				case .last30Days:
 //						Text("adadfads")
 //							.font(.title2.bold())
 //							.foregroundColor(.primary)
-//						
+//
 //						Text("qewewwqewq")
 //							.font(.callout)
 //							.foregroundStyle(.secondary)
-						
-						GasMileageChart30Days()
-							.frame(height: 300)
-					case .last90Days:
-						GasMileageChart90Days()
-							.frame(height: 300)
-					default:
-						GasMileageChartAll()
-							.frame(height: 300)
-				}
+					
+					GasMileageChart30Days()
+				case .last90Days:
+					GasMileageChart90Days()
+				default:
+					GasMileageChartAll()
 			}
 		}
+		.navigationTitle("Gas mileage")
+		.toolbarTitleDisplayMode(.inline)
 	}
 }
 
@@ -65,7 +62,7 @@ struct GasMileageChart30Days: View {
 			}
 		}
 		.chartYAxis {
-			AxisMarks(values: [0, 10, 20, 30, 40]) // TODO: add computed var based of max and min values
+			AxisMarks(position: .leading, values: .automatic(desiredCount: 3))
 		}
 		// This should be optional depending on amount of entries
 //		.chartScrollableAxes(.horizontal)

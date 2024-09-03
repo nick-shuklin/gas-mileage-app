@@ -1,52 +1,65 @@
 import SwiftUI
 import SwiftData
 
-enum TimeRange: Int {
-	case last30Days = 30
-	case last90Days = 90
-//	case last12Months
-//	case ytd
+// MARK: - Elements to support Gas Mileage charts
+enum TimeRangeGasMileageChart {
+	case last30Days
+	case last90Days
+	case last12Months
+	case ytd
 	case all
 }
 
-struct TimeRangePicker: View {
-	@Binding var value: TimeRange
+struct TimeRangeGasMileageChartPicker: View {
+	@Binding var value: TimeRangeGasMileageChart
 
 	var body: some View {
 		Picker(selection: $value.animation(.easeInOut), label: EmptyView()) {
-			Text("30D").tag(TimeRange.last30Days)
-			Text("90D").tag(TimeRange.last90Days)
-//			Text("12M").tag(TimeRange.last12Months)
-//			Text("YTD").tag(TimeRange.ytd)
-			Text("ALL").tag(TimeRange.all)
+			Text("30D").tag(TimeRangeGasMileageChart.last30Days)
+			Text("90D").tag(TimeRangeGasMileageChart.last90Days)
+			Text("12M").tag(TimeRangeGasMileageChart.last12Months)
+			Text("YTD").tag(TimeRangeGasMileageChart.ytd)
+			Text("ALL").tag(TimeRangeGasMileageChart.all)
 		}
 		.pickerStyle(.palette)
 	}
 }
 
-var chartsGradient: LinearGradient {
-	LinearGradient(gradient: Gradient(colors: [
-		Color(.purple).opacity(0.4),
-		Color(.purple).opacity(0.05)
-	]),
-				   startPoint: .top,
-				   endPoint: .bottom
-	)
+// MARK: - Elements to support Total Expenses charts
+enum TimeRangeTotalExpensesChart {
+	case last3months
+	case ytd
+	case all
 }
 
-func predicate(forPeriod: TimeRange = .last30Days) -> Predicate<GasFillEntry> {
+struct TimeRangeTotalExpensesChartPicker: View {
+	@Binding var value: TimeRangeTotalExpensesChart
+
+	var body: some View {
+		Picker(selection: $value.animation(.bouncy), label: EmptyView()) {
+			Text("3M").tag(TimeRangeTotalExpensesChart.last3months)
+			Text("YTD").tag(TimeRangeTotalExpensesChart.ytd)
+			Text("ALL").tag(TimeRangeTotalExpensesChart.all)
+		}
+		.pickerStyle(.palette)
+	}
+}
+
+func predicateForPeriod(ofDays days: Int = 30) -> Predicate<GasFillEntry> {
 	let calendar = Calendar.autoupdatingCurrent
 	let end = calendar.startOfDay(for: Date())
-	let start = calendar.date(byAdding: .init(day: -forPeriod.rawValue), to: end) ?? end
+	let start = calendar.date(byAdding: .init(day: -days), to: end) ?? end
 
 	return #Predicate<GasFillEntry> { entry in
 		(entry.fillUpDate > start && entry.fillUpDate < end)
 	}
 }
 
+// MARK: - Fetch descriptors
+// MARK: descriptors to support Gas Mileage charts
 var fetchDescriptor30Days: FetchDescriptor<GasFillEntry> {
 	let descriptor = FetchDescriptor<GasFillEntry>(
-		predicate: predicate(forPeriod: .last30Days),
+		predicate: predicateForPeriod(ofDays: 30),
 		sortBy: [SortDescriptor(\.odometer, order: .reverse)]
 	)
 	return descriptor
@@ -54,7 +67,7 @@ var fetchDescriptor30Days: FetchDescriptor<GasFillEntry> {
 
 var fetchDescriptor90Days: FetchDescriptor<GasFillEntry> {
 	let descriptor = FetchDescriptor<GasFillEntry>(
-		predicate: predicate(forPeriod: .last90Days),
+		predicate: predicateForPeriod(ofDays: 90),
 		sortBy: [SortDescriptor(\.odometer, order: .reverse)]
 	)
 	return descriptor
@@ -75,6 +88,72 @@ var fetchDescriptorLast10: FetchDescriptor<GasFillEntry> {
 	return descriptor
 }
 
+// MARK: descriptors to support Total Expenses charts
+var fetchDescriptorLast3months: FetchDescriptor<GasFillEntry> {
+	let calendar = Calendar.autoupdatingCurrent
+	let today = Date()
+	var numberOfDays: Int? = 0
+
+	if let twoMonthsBack = calendar.date(byAdding: .month, value: -2, to: today) {
+		if let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: twoMonthsBack)) {
+			numberOfDays = calendar.dateComponents([.day], from: firstDayOfMonth, to: today).day
+			print("Number of days between today and the first day of the month two months back: \(numberOfDays!)")
+		}
+	}
+	
+	let descriptor = FetchDescriptor<GasFillEntry>(
+		predicate: predicateForPeriod(ofDays: numberOfDays!),
+		sortBy: [SortDescriptor(\.odometer, order: .reverse)]
+	)
+	return descriptor
+}
+
+var fetchDescriptorYTD: FetchDescriptor<GasFillEntry> {
+	let calendar = Calendar.autoupdatingCurrent
+	let today = Date()
+	var numberOfDays: Int? = 0
+
+	if let twoMonthsBack = calendar.date(byAdding: .month, value: -2, to: today) {
+		if let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year], from: twoMonthsBack)) {
+			numberOfDays = calendar.dateComponents([.day], from: firstDayOfMonth, to: today).day
+		}
+	}
+	
+	let descriptor = FetchDescriptor<GasFillEntry>(
+		predicate: predicateForPeriod(ofDays: numberOfDays!),
+		sortBy: [SortDescriptor(\.odometer, order: .reverse)]
+	)
+	return descriptor
+}
+
+// MARK: - Grouping values
+func groupEntriesByMonthAndCalculateTotal(_ items: [GasFillEntry]) -> [Date: Double] {
+	var monthlyTotals: [Date: Double] = [:]
+
+	let calendar = Calendar.current
+	for item in items {
+		if let monthDate = calendar.date(from: calendar.dateComponents([.year, .month], from: item.fillUpDate)) {
+			monthlyTotals[monthDate, default: 0.0] += item.total
+		}
+	}
+
+	return monthlyTotals
+}
+
+func groupEntriesByYearAndCalculateTotal(_ items: [GasFillEntry]) -> [Date: Double] {
+	var yearlyTotals: [Date: Double] = [:]
+
+	let calendar = Calendar.current
+	for item in items {
+		if let yearDate = calendar.date(from: calendar.dateComponents([.year], from: item.fillUpDate)) {
+			yearlyTotals[yearDate, default: 0.0] += item.total
+		}
+	}
+
+	return yearlyTotals
+}
+
+// MARK: - UI elements
 struct backGroundSquareShapedShadow: View {
 	let radius: CGFloat = 7
 	let modifier: CGFloat = 9
@@ -89,10 +168,10 @@ struct backGroundSquareShapedShadow: View {
 
 	let dropColor1 = Color(hex: "0D2750").opacity(0.16)
 	let dropColor2 = Color(hex: "FFFFFF")
-	var dropBlur1: CGFloat = 50
-	var dropBlur2: CGFloat = 45
-	var dropXY1: CGFloat = 28
-	var dropXY2: CGFloat = -23
+	let dropBlur1: CGFloat = 50
+	let dropBlur2: CGFloat = 45
+	let dropXY1: CGFloat = 28
+	let dropXY2: CGFloat = -23
 
 	var body: some View {
 		RoundedRectangle(cornerRadius: 5)
@@ -120,6 +199,16 @@ struct backGroundSquareShapedShadow: View {
 			)
 			.foregroundColor(Color.background)
 	}
+}
+
+var chartsGradient: LinearGradient {
+	LinearGradient(gradient: Gradient(colors: [
+		Color(.purple).opacity(0.4),
+		Color(.purple).opacity(0.05)
+	]),
+				   startPoint: .top,
+				   endPoint: .bottom
+	)
 }
 
 //struct BackgroundColorStyle: ViewModifier {
