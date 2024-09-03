@@ -6,27 +6,25 @@ struct GasMileageDetails: View {
 	@State private var timeRange: TimeRangeGasMileageChart = .last30Days
 	
 	var body: some View {
-		List {
-			VStack(alignment: .leading) {
-				TimeRangeGasMileageChartPicker(value: $timeRange)
-					.padding(.bottom)
-				
-				switch timeRange {
-					case .last30Days:
+		VStack(alignment: .leading) {
+			TimeRangeGasMileageChartPicker(value: $timeRange)
+				.padding(.bottom)
+			
+			switch timeRange {
+				case .last30Days:
 //						Text("adadfads")
 //							.font(.title2.bold())
 //							.foregroundColor(.primary)
-//						
+//
 //						Text("qewewwqewq")
 //							.font(.callout)
 //							.foregroundStyle(.secondary)
-						
-						GasMileageChart30Days()
-					case .last90Days:
-						GasMileageChart90Days()
-					default:
-						GasMileageChartAll()
-				}
+					
+					GasMileageChart30Days()
+				case .last90Days:
+					GasMileageChart90Days()
+				default:
+					GasMileageChartAll()
 			}
 		}
 	}

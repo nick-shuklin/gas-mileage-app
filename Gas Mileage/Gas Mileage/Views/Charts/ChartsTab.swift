@@ -8,7 +8,7 @@ struct ChartsTab: View {
 		case expenses
 	}
 	
-	let overviewFrameHeight: CGFloat = 150
+	let overviewFrameHeight: CGFloat = 180
 	let detailsFrameHeight: CGFloat = 300
 
 	@State private var selection: Destinations?
@@ -40,9 +40,11 @@ struct ChartsTab: View {
 					case .gasMileage: 
 						GasMileageDetails()
 							.frame(height: detailsFrameHeight)
+							.padding()
 					case .expenses:
 						TotalExpensesDetails()
 							.frame(height: detailsFrameHeight)
+							.padding()
 				}
 			}
 		}
