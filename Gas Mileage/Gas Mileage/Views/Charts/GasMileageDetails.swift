@@ -3,6 +3,7 @@ import Charts
 import SwiftData
 
 struct GasMileageDetails: View {
+	let frameHeight: CGFloat = 300
 	@State private var timeRange: TimeRange = .last30Days
 	
 	var body: some View {
@@ -22,13 +23,13 @@ struct GasMileageDetails: View {
 //							.foregroundStyle(.secondary)
 						
 						GasMileageChart30Days()
-							.frame(height: 300)
+							.frame(height: frameHeight)
 					case .last90Days:
 						GasMileageChart90Days()
-							.frame(height: 300)
+							.frame(height: frameHeight)
 					default:
 						GasMileageChartAll()
-							.frame(height: 300)
+							.frame(height: frameHeight)
 				}
 			}
 		}
@@ -65,7 +66,7 @@ struct GasMileageChart30Days: View {
 			}
 		}
 		.chartYAxis {
-			AxisMarks(values: [0, 10, 20, 30, 40]) // TODO: add computed var based of max and min values
+			AxisMarks(position: .leading, values: .automatic(desiredCount: 3))
 		}
 		// This should be optional depending on amount of entries
 //		.chartScrollableAxes(.horizontal)
