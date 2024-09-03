@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct ChartsTab: View {
+	let overviewFrameHeight: CGFloat = 180
+	let detailsFrameHeight: CGFloat = 300
+	
 	// FIXME: replace this approach with apple suggested solution
 	private enum Destinations {
 		case empty
 		case gasMileage
 		case expenses
 	}
-	
-	let overviewFrameHeight: CGFloat = 180
-	let detailsFrameHeight: CGFloat = 300
 
 	@State private var selection: Destinations?
 
