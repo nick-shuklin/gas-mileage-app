@@ -25,6 +25,7 @@ struct ChartsTab: View {
 				}
 			}
 			.navigationTitle("Charts")
+			.toolbarTitleDisplayMode(.inline)
 		} detail: {
 			NavigationStack {
 				switch selection ?? .empty {
