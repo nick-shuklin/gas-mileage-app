@@ -1,24 +1,43 @@
 import SwiftUI
 import SwiftData
 
-enum TimeRange: Int {
+enum TimeRangeGasMileageChart: Int {
 	case last30Days = 30
 	case last90Days = 90
-//	case last12Months
-//	case ytd
+	case last12Months
+	case ytd
 	case all
 }
 
-struct TimeRangePicker: View {
-	@Binding var value: TimeRange
+struct TimeRangeGasMileageChartPicker: View {
+	@Binding var value: TimeRangeGasMileageChart
 
 	var body: some View {
 		Picker(selection: $value.animation(.easeInOut), label: EmptyView()) {
-			Text("30D").tag(TimeRange.last30Days)
-			Text("90D").tag(TimeRange.last90Days)
-//			Text("12M").tag(TimeRange.last12Months)
-//			Text("YTD").tag(TimeRange.ytd)
-			Text("ALL").tag(TimeRange.all)
+			Text("30D").tag(TimeRangeGasMileageChart.last30Days)
+			Text("90D").tag(TimeRangeGasMileageChart.last90Days)
+			Text("12M").tag(TimeRangeGasMileageChart.last12Months)
+			Text("YTD").tag(TimeRangeGasMileageChart.ytd)
+			Text("ALL").tag(TimeRangeGasMileageChart.all)
+		}
+		.pickerStyle(.palette)
+	}
+}
+
+enum TimeRangeTotalExpensesChart {
+	case last3months
+	case ytd
+	case all
+}
+
+struct TimeRangeTotalExpensesChartPicker: View {
+	@Binding var value: TimeRangeTotalExpensesChart
+
+	var body: some View {
+		Picker(selection: $value.animation(.bouncy), label: EmptyView()) {
+			Text("3M").tag(TimeRangeTotalExpensesChart.last3months)
+			Text("YTD").tag(TimeRangeTotalExpensesChart.ytd)
+			Text("ALL").tag(TimeRangeTotalExpensesChart.all)
 		}
 		.pickerStyle(.palette)
 	}
@@ -34,7 +53,7 @@ var chartsGradient: LinearGradient {
 	)
 }
 
-func predicate(forPeriod: TimeRange = .last30Days) -> Predicate<GasFillEntry> {
+func predicate(forPeriod: TimeRangeGasMileageChart = .last30Days) -> Predicate<GasFillEntry> {
 	let calendar = Calendar.autoupdatingCurrent
 	let end = calendar.startOfDay(for: Date())
 	let start = calendar.date(byAdding: .init(day: -forPeriod.rawValue), to: end) ?? end
