@@ -16,11 +16,6 @@ struct TotalExpensesOverview: View {
 
 struct TotalExpensesOverviewChart: View {
 	@Query(fetchDescriptorLast3months) var items: [GasFillEntry]
-//	let expenses: [Date : Double] = [
-//		Date.now : 34.5,
-//		Calendar.current.date(byAdding: .day, value: -30, to: Date.now)!  : 23.6,
-//		Calendar.current.date(byAdding: .day, value: -62, to: Date.now)! : 67.8
-//	]
 	
 	var body: some View {
 		let expenses = groupEntriesByMonthAndCalculateTotal(items)
@@ -42,8 +37,3 @@ struct TotalExpensesOverviewChart: View {
 		.chartYAxis(.hidden)
 	}
 }
-
-//#Preview {
-//	TotalExpensesOverviewChart()
-//		.modelContainer(for: GasFillEntry.self, inMemory: false)
-//}
