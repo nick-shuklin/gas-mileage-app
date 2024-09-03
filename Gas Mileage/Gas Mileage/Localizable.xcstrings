@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "%lld km" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -21,6 +18,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld миль"
+          }
+        }
+      }
+    },
+    "3M" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 мес"
+          }
+        }
+      }
+    },
+    "12M" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 мес"
           }
         }
       }
@@ -73,6 +90,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Все"
+          }
+        }
+      }
+    },
+    "Amount" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сумма"
           }
         }
       }
@@ -213,6 +240,7 @@
       }
     },
     "Full" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -285,6 +313,7 @@
       }
     },
     "Logo" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -321,6 +350,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "миль на галлон"
+          }
+        }
+      }
+    },
+    "Month" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Месяц"
           }
         }
       }
@@ -427,6 +466,16 @@
         }
       }
     },
+    "Total monthly expenses" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расход денежных средств"
+          }
+        }
+      }
+    },
     "Unit settings" : {
       "localizations" : {
         "ru" : {
@@ -463,6 +512,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Объём"
+          }
+        }
+      }
+    },
+    "YTD" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "с 01.01"
           }
         }
       }
