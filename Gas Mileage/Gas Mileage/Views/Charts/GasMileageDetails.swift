@@ -3,13 +3,12 @@ import Charts
 import SwiftData
 
 struct GasMileageDetails: View {
-	let frameHeight: CGFloat = 300
-	@State private var timeRange: TimeRange = .last30Days
+	@State private var timeRange: TimeRangeGasMileageChart = .last30Days
 	
 	var body: some View {
 		List {
 			VStack(alignment: .leading) {
-				TimeRangePicker(value: $timeRange)
+				TimeRangeGasMileageChartPicker(value: $timeRange)
 					.padding(.bottom)
 				
 				switch timeRange {
@@ -23,13 +22,10 @@ struct GasMileageDetails: View {
 //							.foregroundStyle(.secondary)
 						
 						GasMileageChart30Days()
-							.frame(height: frameHeight)
 					case .last90Days:
 						GasMileageChart90Days()
-							.frame(height: frameHeight)
 					default:
 						GasMileageChartAll()
-							.frame(height: frameHeight)
 				}
 			}
 		}

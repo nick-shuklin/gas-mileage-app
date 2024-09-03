@@ -40,8 +40,3 @@ struct GasMileageOverviewChart: View {
 		.chartYAxis(.hidden)
 	}
 }
-
-#Preview {
-	GasMileageOverview()
-		.modelContainer(for: GasFillEntry.self, inMemory: false)
-}

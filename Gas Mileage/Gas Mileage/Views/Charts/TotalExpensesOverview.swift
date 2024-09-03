@@ -21,7 +21,6 @@ struct TotalExpensesOverviewChart: View {
 //		Calendar.current.date(byAdding: .day, value: -30, to: Date.now)!  : 23.6,
 //		Calendar.current.date(byAdding: .day, value: -62, to: Date.now)! : 67.8
 //	]
-//	let expenses = groupEntriesByMonthAndCalculateTotal(items)
 	
 	var body: some View {
 		let expenses = groupEntriesByMonthAndCalculateTotal(items)

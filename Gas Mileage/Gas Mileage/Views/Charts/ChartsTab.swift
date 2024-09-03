@@ -9,6 +9,7 @@ struct ChartsTab: View {
 	}
 	
 	let overviewFrameHeight: CGFloat = 150
+	let detailsFrameHeight: CGFloat = 300
 
 	@State private var selection: Destinations?
 
@@ -34,9 +35,14 @@ struct ChartsTab: View {
 		} detail: {
 			NavigationStack {
 				switch selection ?? .empty {
-					case .empty: Text("Select data to view.")
-					case .gasMileage: GasMileageDetails()
-					case .expenses: TotalExpensesDetails()
+					case .empty: 
+						Text("Select data to view.")
+					case .gasMileage: 
+						GasMileageDetails()
+							.frame(height: detailsFrameHeight)
+					case .expenses:
+						TotalExpensesDetails()
+							.frame(height: detailsFrameHeight)
 				}
 			}
 		}
