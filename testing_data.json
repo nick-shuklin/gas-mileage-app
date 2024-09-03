@@ -1,5 +1,65 @@
 [
 	{
+		"odometer": 6146,
+		"creationDate": "2024-09-01T17:30:31Z",
+		"fillUpDate": "2024-09-01T17:30:31Z",
+		"total": 54.00,
+		"gasPrice": 5.46,
+		"volume": 12.00,
+		"gasMileage": 19.0,
+		"isFilledUp": false,
+		"isPaidCash": true,
+		"gasStationName": "Valero"
+	},
+	{
+		"odometer": 6023,
+		"creationDate": "2024-08-14T17:30:31Z",
+		"fillUpDate": "2024-08-14T17:30:31Z",
+		"total": 150.00,
+		"gasPrice": 5.46,
+		"volume": 12.00,
+		"gasMileage": 19.0,
+		"isFilledUp": false,
+		"isPaidCash": true,
+		"gasStationName": "Valero"
+	},
+	{
+		"odometer": 5811,
+		"creationDate": "2024-08-10T17:30:31Z",
+		"fillUpDate": "2024-08-10T17:30:31Z",
+		"total": 150.00,
+		"gasPrice": 4.99,
+		"volume": 14.00,
+		"gasMileage": 17.0,
+		"isFilledUp": true,
+		"isPaidCash": true,
+		"gasStationName": "Shell"
+	},
+	{
+		"odometer": 5734,
+		"creationDate": "2024-08-07T17:30:31Z",
+		"fillUpDate": "2024-08-07T17:30:31Z",
+		"total": 150.00,
+		"gasPrice": 5.00,
+		"volume": 15.00,
+		"gasMileage": 15.0,
+		"isFilledUp": false,
+		"isPaidCash": true,
+		"gasStationName": "Mobil"
+	},
+	{
+		"odometer": 5569,
+		"creationDate": "2024-08-02T17:30:31Z",
+		"fillUpDate": "2024-08-02T17:30:31Z",
+		"total": 150.00,
+		"gasPrice": 5.00,
+		"volume": 20.00,
+		"gasMileage": 10.0,
+		"isFilledUp": false,
+		"isPaidCash": true,
+		"gasStationName": "Lukoil"
+	},
+	{
 		"odometer": 5350,
 		"creationDate": "2024-07-14T17:30:31Z",
 		"fillUpDate": "2024-07-14T17:30:31Z",
