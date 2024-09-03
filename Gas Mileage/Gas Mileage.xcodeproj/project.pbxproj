@@ -31,6 +31,7 @@
 		B7F6CCB32C1C429F003BD847 /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */; };
 		B7F6CCB52C1C48B7003BD847 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */; };
 		B7F6CCB72C1C68BC003BD847 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */; };
+		B7F87DFB2C873A9500E77B39 /* TotalExpensesDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F87DFA2C873A9500E77B39 /* TotalExpensesDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		B7F6CCB22C1C429F003BD847 /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		B7F6CCB42C1C48B7003BD847 /* AppVersionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
 		B7F6CCB62C1C68BC003BD847 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
+		B7F87DFA2C873A9500E77B39 /* TotalExpensesDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpensesDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				B7D9F78D2C60E40900F30404 /* GasMileageOverview.swift */,
 				B70389D52C527FC800A59C00 /* GasMileageDetails.swift */,
 				B75211B32C83807300A64DE1 /* TotalExpensesOverview.swift */,
+				B7F87DFA2C873A9500E77B39 /* TotalExpensesDetails.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				B75A527D2C0DE19200111A3A /* ContentView.swift in Sources */,
 				B7C9926A2C270A2800225D0A /* GasMileageYTDChartMainTabView.swift in Sources */,
 				B75A527F2C0DE19200111A3A /* GasFillEntry.swift in Sources */,
+				B7F87DFB2C873A9500E77B39 /* TotalExpensesDetails.swift in Sources */,
 				B7F6CCAF2C19D16B003BD847 /* Extensions+Double.swift in Sources */,
 				B7D9F78E2C60E40900F30404 /* GasMileageOverview.swift in Sources */,
 				B7F6CCA92C18C731003BD847 /* EntryRowView.swift in Sources */,
