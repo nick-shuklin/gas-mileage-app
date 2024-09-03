@@ -2,17 +2,14 @@ import Charts
 import SwiftUI
 import SwiftData
 
-struct TotalExpensesOverview: View {
-	let frameHeight: CGFloat = 100
-	
+struct TotalExpensesOverview: View {	
 	var body: some View {
-		VStack(alignment: .leading) {
+		VStack(alignment: .center) {
 			Text("Total monthly expenses")
 				.font(.callout)
 				.foregroundStyle(.secondary)
 
 			TotalExpensesOverviewChart()
-				.frame(height: frameHeight)
 		}
 	}
 }

@@ -10,7 +10,6 @@ struct GasMileageOverview: View {
 				.foregroundStyle(.secondary)
 
 			GasMileageOverviewChart()
-				.frame(height: 100)
 		}
 	}
 }

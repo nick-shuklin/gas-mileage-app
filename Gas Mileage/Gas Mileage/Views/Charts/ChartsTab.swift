@@ -1,11 +1,14 @@
 import SwiftUI
 
 struct ChartsTab: View {
+	// FIXME: replace this approach with apple suggested solution
 	private enum Destinations {
 		case empty
 		case gasMileage
 		case expenses
 	}
+	
+	let frameHeight: CGFloat = 150
 
 	@State private var selection: Destinations?
 
@@ -15,12 +18,14 @@ struct ChartsTab: View {
 				Section {
 					NavigationLink(value: Destinations.gasMileage) {
 						GasMileageOverview()
+							.frame(height: frameHeight)
 					}
 				}
 				
 				Section {
 					NavigationLink(value: Destinations.expenses) {
 						TotalExpensesOverview()
+							.frame(height: frameHeight)
 					}
 				}
 			}
