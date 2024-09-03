@@ -26,12 +26,14 @@ struct TotalExpensesDetails: View {
 				case .all:
 					TotalExpensesChartAll()
 			}
-		}
+		}			
+		.navigationTitle("Total monthly expenses")
+		.toolbarTitleDisplayMode(.inline)
 	}
 }
 
 struct TotalExpensesChart3months: View {
-	@Query(fetchDescriptor30Days) private var items: [GasFillEntry]
+	@Query(fetchDescriptorLast3months) private var items: [GasFillEntry]
 	
 	var body: some View {
 		let expenses = groupEntriesByMonthAndCalculateTotal(items)
@@ -55,7 +57,7 @@ struct TotalExpensesChart3months: View {
 }
 
 struct TotalExpensesChartYTD: View {
-	@Query(fetchDescriptor90Days) private var items: [GasFillEntry]
+	@Query(fetchDescriptorYTD) private var items: [GasFillEntry]
 	
 	var body: some View {
 		let expenses = groupEntriesByMonthAndCalculateTotal(items)
@@ -82,7 +84,7 @@ struct TotalExpensesChartAll: View {
 	@Query(fetchDescriptorAll) private var items: [GasFillEntry]
 	
 	var body: some View {
-		let expenses = groupEntriesByMonthAndCalculateTotal(items)
+		let expenses = groupEntriesByYearAndCalculateTotal(items)
 		
 		Chart {
 			ForEach(expenses.keys.sorted(), id: \.self) { date in
