@@ -6,7 +6,7 @@ struct GasMileageDetails: View {
 	@State private var timeRange: TimeRangeGasMileageChart = .last30Days
 	
 	var body: some View {
-		VStack(alignment: .leading) {
+		VStack() {
 			TimeRangeGasMileageChartPicker(value: $timeRange)
 				.padding(.bottom)
 			
@@ -27,6 +27,8 @@ struct GasMileageDetails: View {
 					GasMileageChartAll()
 			}
 		}
+		.navigationTitle("Gas mileage")
+		.toolbarTitleDisplayMode(.inline)
 	}
 }
 
