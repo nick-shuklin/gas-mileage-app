@@ -31,7 +31,7 @@ struct ChartsTab: View {
 				switch selection ?? .empty {
 					case .empty: Text("Select data to view.")
 					case .gasMileage: GasMileageDetails()
-					case .expenses: TotalExpensesOverview()
+					case .expenses: TotalExpensesDetails()
 				}
 			}
 		}
