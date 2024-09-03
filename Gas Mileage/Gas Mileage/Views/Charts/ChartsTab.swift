@@ -8,7 +8,7 @@ struct ChartsTab: View {
 		case expenses
 	}
 	
-	let frameHeight: CGFloat = 150
+	let overviewFrameHeight: CGFloat = 150
 
 	@State private var selection: Destinations?
 
@@ -18,14 +18,14 @@ struct ChartsTab: View {
 				Section {
 					NavigationLink(value: Destinations.gasMileage) {
 						GasMileageOverview()
-							.frame(height: frameHeight)
+							.frame(height: overviewFrameHeight)
 					}
 				}
 				
 				Section {
 					NavigationLink(value: Destinations.expenses) {
 						TotalExpensesOverview()
-							.frame(height: frameHeight)
+							.frame(height: overviewFrameHeight)
 					}
 				}
 			}
