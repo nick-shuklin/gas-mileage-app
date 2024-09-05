@@ -21,18 +21,17 @@ struct TotalExpensesOverviewChart: View {
 		let expenses = groupEntriesByMonthAndCalculateTotal(items)
 		
 		Chart {
-			ForEach(expenses.keys.sorted(), id: \.self) { date in
-				if let amount = expenses[date] {
-					SectorMark(
-						angle: .value("Amount", amount),
-						innerRadius: .ratio(0.6),
-						angularInset: 2
-					)
-					.foregroundStyle(by: .value("Month", date))
-					.cornerRadius(5)
-				}
+			ForEach(expenses, id: \.month) { (month, total) in
+				SectorMark(
+					angle: .value("Amount", total),
+					innerRadius: .ratio(0.6),
+					angularInset: 2
+				)
+				.foregroundStyle(by: .value("Month", monthFormatted(month)))
+				.cornerRadius(5)
 			}
 		}
+		.chartLegend(.hidden)
 		.chartXAxis(.hidden)
 		.chartYAxis(.hidden)
 	}

@@ -32,6 +32,7 @@ struct TotalExpensesDetails: View {
 	}
 }
 
+// TODO: all 3 charts can be gathered in one struct
 struct TotalExpensesChart3months: View {
 	@Query(fetchDescriptorLast3months) private var items: [GasFillEntry]
 	
@@ -39,20 +40,17 @@ struct TotalExpensesChart3months: View {
 		let expenses = groupEntriesByMonthAndCalculateTotal(items)
 		
 		Chart {
-			ForEach(expenses.keys.sorted(), id: \.self) { date in
-				if let amount = expenses[date] {
-					SectorMark(
-						angle: .value("Amount", amount),
-						innerRadius: .ratio(0.6),
-						angularInset: 2
-					)
-					.foregroundStyle(by: .value("Month", date))
-					.cornerRadius(5)
-				}
+			ForEach(expenses, id: \.month) { (month, total) in
+				SectorMark(
+					angle: .value("Amount", total),
+					innerRadius: .ratio(0.6),
+					angularInset: 2
+				)
+				.foregroundStyle(by: .value("Month", monthFormatted(month)))
+				.cornerRadius(5)
 			}
 		}
-		.chartXAxis(.hidden)
-		.chartYAxis(.hidden)
+		.chartLegend(alignment: .bottom)
 	}
 }
 
@@ -63,20 +61,17 @@ struct TotalExpensesChartYTD: View {
 		let expenses = groupEntriesByMonthAndCalculateTotal(items)
 		
 		Chart {
-			ForEach(expenses.keys.sorted(), id: \.self) { date in
-				if let amount = expenses[date] {
-					SectorMark(
-						angle: .value("Amount", amount),
-						innerRadius: .ratio(0.6),
-						angularInset: 2
-					)
-					.foregroundStyle(by: .value("Month", date))
-					.cornerRadius(5)
-				}
+			ForEach(expenses, id: \.month) { (month, total) in
+				SectorMark(
+					angle: .value("Amount", total),
+					innerRadius: .ratio(0.6),
+					angularInset: 2
+				)
+				.foregroundStyle(by: .value("Month", monthFormatted(month)))
+				.cornerRadius(5)
 			}
 		}
-		.chartXAxis(.hidden)
-		.chartYAxis(.hidden)
+		.chartLegend(alignment: .bottom)
 	}
 }
 
@@ -87,19 +82,16 @@ struct TotalExpensesChartAll: View {
 		let expenses = groupEntriesByYearAndCalculateTotal(items)
 		
 		Chart {
-			ForEach(expenses.keys.sorted(), id: \.self) { date in
-				if let amount = expenses[date] {
-					SectorMark(
-						angle: .value("Amount", amount),
-						innerRadius: .ratio(0.6),
-						angularInset: 2
-					)
-					.foregroundStyle(by: .value("Month", date))
-					.cornerRadius(5)
-				}
+			ForEach(expenses, id: \.year) { (year, total) in
+				SectorMark(
+					angle: .value("Amount", total),
+					innerRadius: .ratio(0.6),
+					angularInset: 2
+				)
+				.foregroundStyle(by: .value("Month", yearFormatted(year)))
+				.cornerRadius(5)
 			}
 		}
-		.chartXAxis(.hidden)
-		.chartYAxis(.hidden)
+		.chartLegend(alignment: .bottom)
 	}
 }
