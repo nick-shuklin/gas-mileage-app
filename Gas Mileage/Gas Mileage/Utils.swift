@@ -55,6 +55,19 @@ func predicateForPeriod(ofDays days: Int = 30) -> Predicate<GasFillEntry> {
 	}
 }
 
+// MARK: - formatters
+func monthFormatted(_ date: Date) -> String {
+	let formatter = DateFormatter()
+	formatter.dateFormat = "MMM yyyy" // Example: "Jan 2024"
+	return formatter.string(from: date)
+}
+
+func yearFormatted(_ date: Date) -> String {
+	let formatter = DateFormatter()
+	formatter.dateFormat = "yyyy"
+	return formatter.string(from: date)
+}
+
 // MARK: - Fetch descriptors
 // MARK: descriptors to support Gas Mileage charts
 var fetchDescriptor30Days: FetchDescriptor<GasFillEntry> {
@@ -127,7 +140,7 @@ var fetchDescriptorYTD: FetchDescriptor<GasFillEntry> {
 }
 
 // MARK: - Grouping values
-func groupEntriesByMonthAndCalculateTotal(_ items: [GasFillEntry]) -> [Date: Double] {
+func groupEntriesByMonthAndCalculateTotal(_ items: [GasFillEntry]) -> [(month: Date, total: Double)] {
 	var monthlyTotals: [Date: Double] = [:]
 
 	let calendar = Calendar.current
@@ -137,10 +150,11 @@ func groupEntriesByMonthAndCalculateTotal(_ items: [GasFillEntry]) -> [Date: Dou
 		}
 	}
 
-	return monthlyTotals
+	let result = monthlyTotals.map { (month: $0.key, total: $0.value) }
+	return result.sorted { $0.month < $1.month }
 }
 
-func groupEntriesByYearAndCalculateTotal(_ items: [GasFillEntry]) -> [Date: Double] {
+func groupEntriesByYearAndCalculateTotal(_ items: [GasFillEntry]) -> [(year: Date, total: Double)] {
 	var yearlyTotals: [Date: Double] = [:]
 
 	let calendar = Calendar.current
@@ -149,8 +163,9 @@ func groupEntriesByYearAndCalculateTotal(_ items: [GasFillEntry]) -> [Date: Doub
 			yearlyTotals[yearDate, default: 0.0] += item.total
 		}
 	}
-
-	return yearlyTotals
+	
+	let result = yearlyTotals.map { (year: $0.key, total: $0.value) }
+	return result.sorted { $0.year < $1.year }
 }
 
 // MARK: - UI elements
