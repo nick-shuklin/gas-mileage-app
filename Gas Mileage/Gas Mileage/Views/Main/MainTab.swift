@@ -15,7 +15,7 @@ struct MainTab: View {
 				Text("Main screen")
 					.font(.headline)
 				
-				GasMileageYTDChartMainTabView()
+				GasMileageChartMainTabView()
 					.padding()
 					.frame(height: 260)
 					.background(
