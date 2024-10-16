@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ChartsTab: View {
 	let overviewFrameHeight: CGFloat = 180
-	let detailsFrameHeight: CGFloat = 320
+	let detailsFrameHeight: CGFloat = 360
 	
 	// FIXME: replace this approach with apple suggested solution
 	private enum Destinations {
