@@ -234,7 +234,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Дата заправки"
+            "value" : "Дата и время"
           }
         }
       }
@@ -246,6 +246,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Полный"
+          }
+        }
+      }
+    },
+    "gal." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "гал."
           }
         }
       }
@@ -343,6 +353,16 @@
         }
       }
     },
+    "mi." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "миль"
+          }
+        }
+      }
+    },
     "miles per gallon" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -400,6 +420,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Цена"
+          }
+        }
+      }
+    },
+    "Price per gallon" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цена за гал."
           }
         }
       }
