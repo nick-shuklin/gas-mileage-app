@@ -260,6 +260,7 @@
 					};
 					B78D57792CCC7F1E00F99C83 = {
 						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
 						TestTargetID = B75A52762C0DE19200111A3A;
 					};
 				};
@@ -553,6 +554,7 @@
 		B78D57822CCC7F1E00F99C83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NRK4ATF8LQ;
@@ -562,6 +564,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-MileageUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Gas Mileage";
@@ -571,6 +574,7 @@
 		B78D57832CCC7F1E00F99C83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NRK4ATF8LQ;
