@@ -21,7 +21,7 @@ class BaseUITest: XCTestCase {
 	}
 	
 	// MARK: Supporting methods
-	func launchPPApp() {
+	func launchApp() {
 		app.launch()
 		// TODO: here can be added addUIInterruptionMonitor
 	}
