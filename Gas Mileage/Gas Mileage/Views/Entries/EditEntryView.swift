@@ -34,86 +34,81 @@ struct EditEntryView: View {
 			
 			VStack {
 				NavigationStack {
+					Text(editorTitle)
+					
 					Form {
 						Section {
-							DatePicker("Fill up date", selection: $fillUpDate)
-							
-							Picker("Gas Station", selection: $selectedGasStationName) {
-								ForEach(GasFillEntry.GasStationName.allCases, id: \.self) { name in
-									Text(name.rawValue).tag(name)
+							VStack {
+								DatePicker("Fill up date", selection: $fillUpDate)
+//									.background(Color.clear)
+								Divider()
+								Picker("Gas Station", selection: $selectedGasStationName) {
+									ForEach(GasFillEntry.GasStationName.allCases, id: \.self) { name in
+										Text(name.rawValue).tag(name)
+									}
 								}
+								.pickerStyle(.menu)
+								.background(Color.background)
 							}
-							.pickerStyle(.menu)
 						}
 						
 						Section {
 							VStack {
 								HStack {
 									Text("Odometer")
-									Spacer()
-									TextField("Odometer",
-											  text: $odometer
-									)
-									.keyboardType(.numberPad)
-									.border(.secondary)
-									
-									//							Text(odometer.debugDescription)
+									TextField("Odometer", text: $odometer)
+										.multilineTextAlignment(.trailing)
+										.keyboardType(.numberPad)
+									Text("mi.")
 								}
+								
+								Divider()
 								
 								HStack {
 									Text("Total")
-									Spacer()
-									TextField("Total",
-											  value: $total,
-											  formatter: EditEntryView.nf.totalFormat()
-									)
-									//							.onTapGesture {
-									//								for item in items {
-									//									print(item.odometer)
-									//								}
-									//							}
+									TextField("Total", value: $total,
+											  formatter: EditEntryView.nf.totalFormat())
 									.keyboardType(.decimalPad)
-									//							.border(.background)
-									
-									//							Text(total.debugDescription)
+									.multilineTextAlignment(.trailing)
 								}
 								
+								Divider()
+								
 								HStack {
-									Text("Price")
-									Spacer()
-									TextField("Price",
-											  value: $gasPrice,
-											  formatter: EditEntryView.nf.priceFormat()
-									)
+									Text("Price per gallon")
+									TextField("Price", value: $gasPrice,
+											  formatter: EditEntryView.nf.priceFormat())
 									.onChange(of: gasPrice) {
 										volume = (total / gasPrice).roundTo(places: 2)
 									}
-									
 									.keyboardType(.decimalPad)
-									
-									//							Text(gasPrice.debugDescription)
+									.multilineTextAlignment(.trailing)
 								}
+								
+								Divider()
 								
 								HStack {
 									Text("Volume")
-									Spacer()
 									TextField("Enter volume in gallons",
 											  value: $volume,
-											  formatter: EditEntryView.nf.totalFormat()
+											  formatter: EditEntryView.nf.volumeFormat()
 									)
 									.onChange(of: volume) {
 										total = (volume * gasPrice).roundTo(places: 2)
 									}
 									.keyboardType(.decimalPad)
-									
-									//							Text(volume.debugDescription)
+									.multilineTextAlignment(.trailing)
+									Text("gal.")
 								}
 							}
 						}
 						
 						Section {
-							Toggle(String("Tank filled up?"), isOn: $isFilledUp)
-							Toggle(String("Paid cash?"), isOn: $isPaidCash)
+							VStack {
+								Toggle(String("Tank filled up?"), isOn: $isFilledUp)
+								Divider()
+								Toggle(String("Paid cash?"), isOn: $isPaidCash)
+							}
 						}
 					}
 					.toolbar {
@@ -121,10 +116,6 @@ struct EditEntryView: View {
 							Button("Cancel", role: .cancel) {
 								dismiss()
 							}
-						}
-						
-						ToolbarItem(placement: .principal) {
-							Text(editorTitle)
 						}
 						
 						ToolbarItem(placement: .confirmationAction) {
@@ -150,6 +141,7 @@ struct EditEntryView: View {
 							}
 						}
 					}
+//					.background(Color.background)
 					.onAppear {
 						if let entry {
 							odometer = String(entry.odometer)
@@ -163,11 +155,11 @@ struct EditEntryView: View {
 							selectedGasStationName = entry.gasStationName
 						}
 					}
-//					.background(Color.clear)
 				}
 				.padding()
-//				.background(Color.clear)
+//				.background(Color.blue)
 			}
+//			.background(Color.blue)
 		}
     }
 	
@@ -248,4 +240,9 @@ struct EditEntryView: View {
 			modelContext.insert(newEntry)
 		}
 	}
+}
+
+#Preview {
+	EditEntryView(entry: GasFillEntry.init())
+//		.environment(\.locale, .init(identifier: "ru"))
 }

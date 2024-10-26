@@ -50,7 +50,7 @@ struct MainTab: View {
 	}
 }
 
-#Preview {
-	MainTab()
-		.modelContainer(for: GasFillEntry.self, inMemory: false)
-}
+//#Preview {
+//	MainTab()
+//		.modelContainer(for: GasFillEntry.self, inMemory: false)
+//}
