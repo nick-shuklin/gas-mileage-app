@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,6 +34,16 @@
 		B7F87DFB2C873A9500E77B39 /* TotalExpensesDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F87DFA2C873A9500E77B39 /* TotalExpensesDetails.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B78D57802CCC7F1E00F99C83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B75A526F2C0DE19200111A3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B75A52762C0DE19200111A3A;
+			remoteInfo = "Gas Mileage";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		B70389D52C527FC800A59C00 /* GasMileageDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageDetails.swift; sourceTree = "<group>"; };
 		B70F97B42C42E71A0037D26F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -47,6 +57,7 @@
 		B75A52832C0DE19400111A3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B76B72C92C31AD1C00B28752 /* ListOfEntriesTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfEntriesTab.swift; sourceTree = "<group>"; };
 		B76B72CB2C32F2B500B28752 /* testing_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testing_data.json; path = ../testing_data.json; sourceTree = "<group>"; };
+		B78D577A2CCC7F1E00F99C83 /* Gas MileageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gas MileageUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C992642C25CDFA00225D0A /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		B7C992662C25E22C00225D0A /* ShortEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEntryRowView.swift; sourceTree = "<group>"; };
 		B7C992692C270A2700225D0A /* GasMileageYTDChartMainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasMileageYTDChartMainTabView.swift; sourceTree = "<group>"; };
@@ -63,8 +74,19 @@
 		B7F87DFA2C873A9500E77B39 /* TotalExpensesDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpensesDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B78D577B2CCC7F1E00F99C83 /* Gas MileageUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Gas MileageUITests"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		B75A52742C0DE19200111A3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B78D57772CCC7F1E00F99C83 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,6 +101,7 @@
 			children = (
 				B76B72CB2C32F2B500B28752 /* testing_data.json */,
 				B75A52792C0DE19200111A3A /* Gas Mileage */,
+				B78D577B2CCC7F1E00F99C83 /* Gas MileageUITests */,
 				B75A52782C0DE19200111A3A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B75A52772C0DE19200111A3A /* Gas Mileage.app */,
+				B78D577A2CCC7F1E00F99C83 /* Gas MileageUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +222,29 @@
 			productReference = B75A52772C0DE19200111A3A /* Gas Mileage.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B78D57792CCC7F1E00F99C83 /* Gas MileageUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B78D57842CCC7F1E00F99C83 /* Build configuration list for PBXNativeTarget "Gas MileageUITests" */;
+			buildPhases = (
+				B78D57762CCC7F1E00F99C83 /* Sources */,
+				B78D57772CCC7F1E00F99C83 /* Frameworks */,
+				B78D57782CCC7F1E00F99C83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B78D57812CCC7F1E00F99C83 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B78D577B2CCC7F1E00F99C83 /* Gas MileageUITests */,
+			);
+			name = "Gas MileageUITests";
+			packageProductDependencies = (
+			);
+			productName = "Gas MileageUITests";
+			productReference = B78D577A2CCC7F1E00F99C83 /* Gas MileageUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,11 +252,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					B75A52762C0DE19200111A3A = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					B78D57792CCC7F1E00F99C83 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = B75A52762C0DE19200111A3A;
 					};
 				};
 			};
@@ -227,6 +278,7 @@
 			projectRoot = "";
 			targets = (
 				B75A52762C0DE19200111A3A /* Gas Mileage */,
+				B78D57792CCC7F1E00F99C83 /* Gas MileageUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -240,6 +292,13 @@
 				B76B72CC2C32F2B500B28752 /* testing_data.json in Resources */,
 				B7E989352C666DBC00AFD86C /* Localizable.xcstrings in Resources */,
 				B75A52812C0DE19400111A3A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B78D57782CCC7F1E00F99C83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +333,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B78D57762CCC7F1E00F99C83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B78D57812CCC7F1E00F99C83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B75A52762C0DE19200111A3A /* Gas Mileage */;
+			targetProxy = B78D57802CCC7F1E00F99C83 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B75A52852C0DE19400111A3A /* Debug */ = {
@@ -476,6 +550,42 @@
 			};
 			name = Release;
 		};
+		B78D57822CCC7F1E00F99C83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NRK4ATF8LQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-MileageUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Gas Mileage";
+			};
+			name = Debug;
+		};
+		B78D57832CCC7F1E00F99C83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NRK4ATF8LQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shuklin.Gas-MileageUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Gas Mileage";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -493,6 +603,15 @@
 			buildConfigurations = (
 				B75A52882C0DE19400111A3A /* Debug */,
 				B75A52892C0DE19400111A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B78D57842CCC7F1E00F99C83 /* Build configuration list for PBXNativeTarget "Gas MileageUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B78D57822CCC7F1E00F99C83 /* Debug */,
+				B78D57832CCC7F1E00F99C83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
