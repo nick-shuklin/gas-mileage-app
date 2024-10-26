@@ -14,15 +14,15 @@ extension BaseScreen {
 	}
 	
 	var springboard: XCUIApplication {
-		return XCUIApplication(bundleIdentifier: UITestConstant.AppBundleIDs.springboard)
+		return XCUIApplication(bundleIdentifier: AppBundleIDs.springboard)
 	}
 	
 	var safariApp: XCUIApplication {
-		return XCUIApplication(bundleIdentifier: UITestConstant.AppBundleIDs.safari)
+		return XCUIApplication(bundleIdentifier: AppBundleIDs.safari)
 	}
 	
 	var settingsApp: XCUIApplication {
-		return XCUIApplication(bundleIdentifier: UITestConstant.AppBundleIDs.settings)
+		return XCUIApplication(bundleIdentifier: AppBundleIDs.settings)
 	}
 	
 	var err: String {
