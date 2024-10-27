@@ -9,24 +9,28 @@ struct ContentView: View {
 					Label("Main",
 						  systemImage: "house")
 				}
+				.accessibilityIdentifier("main_tab")
 			
 			ListOfEntriesTab()
 				.tabItem {
 					Label("Entries",
 						  systemImage: "fuelpump")
 				}
+				.accessibilityIdentifier("entries_tab")
 			
 			ChartsTab()
 				.tabItem {
 					Label("Charts",
 						  systemImage: "waveform.and.person.filled")
 				}
+				.accessibilityIdentifier("charts_tab")
 			
 			SettingsTab()
 				.tabItem {
 					Label("Settings",
 						  systemImage: "folder.badge.gearshape")
 				}
+				.accessibilityIdentifier("settings_tab")
 		}
     }
 }
