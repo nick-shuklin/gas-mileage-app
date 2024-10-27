@@ -34,5 +34,6 @@ struct GasMileageYTDChartMainTabView: View {
 		.chartYAxis {
 			AxisMarks(position: .leading, values: .automatic(desiredCount: 3))
 		}
+		.accessibilityIdentifier("ytd_chart_view")
 	}
 }
