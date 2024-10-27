@@ -1,9 +1,9 @@
 import Foundation
 import XCTest
 
-class HomeScreen: BaseScreen {
+class HomeScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Static Screen Elements
-	private lazy var viewBoardButton = app.staticTexts["VIEW BOARD"].firstMatch
+	private lazy var mainTabView = app.otherElements["main_tab"].firstMatch
 	
 	// MARK: - Labels
 	private let failureMessageAddOn = "'Home Screen'"
@@ -14,8 +14,8 @@ class HomeScreen: BaseScreen {
 	
 	internal func assertScreenIsDisplayed() {
 		runActivity(.screen, "Then verify \(failureMessageAddOn) is loaded") {
-			XCTAssert(viewBoardButton.wait(for: .long),
-					  "\(err) \(failureMessageAddOn) is NOT displayed because 'Sign Up' Button is NOT displayed")
+			XCTAssert(mainTabView.wait(for: .long),
+					  "\(err) \(failureMessageAddOn) is NOT displayed because Main Tab is NOT displayed")
 		}
 	}
 	
