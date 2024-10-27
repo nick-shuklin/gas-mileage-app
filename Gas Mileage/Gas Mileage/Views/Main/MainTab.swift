@@ -5,48 +5,42 @@ import Charts
 struct MainTab: View {
 	@Query(fetchDescriptorLast10) private var items: [GasFillEntry]
 	@Environment(\.modelContext) private var modelContext
-	
-	var body: some View {
-		ZStack {
-			Color.background
-				.ignoresSafeArea()
 
-			VStack {
-				Text("Main screen")
-					.font(.headline)
-				
+	var body: some View {
+		NavigationView {
+			VStack(alignment: .leading) {
 				GasMileageYTDChartMainTabView()
-					.padding()
+					.padding(.horizontal)
 					.frame(height: 260)
-					.background(
-						backGroundSquareShapedShadow()
-					)
-				
-				NavigationView {
-					ScrollView() {
-						Grid(alignment: .trailing) {
-							ForEach(items) { item in
+
+				Text("Last 10 entries")
+					.font(.subheadline)
+					.padding(.horizontal)
+					.padding(.top, 16)
+					.accessibilityIdentifier("last_10_entries_label")
+
+				ScrollView {
+					Grid(alignment: .trailing) {
+						ForEach(items) { item in
+							VStack {
 								GridRow {
 									ShortEntryRowView(item: item)
 								}
 								.frame(height: 36)
 							}
-						}
-						.padding()
-					}
-					.toolbar {
-						ToolbarItem(placement: .navigationBarLeading) {
-							Text("Last 10 entries")
-								.font(.subheadline)
+							.accessibilityElement(children: .ignore) // This will add IUview wrapper for each row
 						}
 					}
-					.scrollIndicators(.hidden)
-					.background(Color.background)
+					.padding(.horizontal)
 				}
-				.padding(.top, 5)
+				.scrollIndicators(.hidden)
+				.accessibilityIdentifier("scroll_view")
 			}
-			.padding()
+			.padding(.bottom, 16)
+			.navigationTitle("Main Screen")
+			.navigationBarTitleDisplayMode(.inline)
 		}
+		.accessibilityIdentifier("navigation_view")
 	}
 }
 
