@@ -11,6 +11,38 @@ extension TabBarProtocol {
 	func tapMainTabBarButton() -> Self {
 		runActivity(.step, "Then tap 'Main' tab bar button") {
 			mainTabBarButton.tapElement()
+			XCTAssert(mainTabBarButton.wait(state: .selected),
+					  "\(err) 'Main' tab bar button is NOT selected")
+		}
+		return self
+	}
+		
+	@discardableResult
+	func tapEntriesTabBarButton() -> Self {
+		runActivity(.step, "Then tap 'Entries' tab bar button") {
+			entriesTabBarButton.tapElement()
+			XCTAssert(entriesTabBarButton.wait(state: .selected),
+					  "\(err) 'Entries' tab bar button is NOT selected")
+		}
+		return self
+	}
+	
+	@discardableResult
+	func tapChartsTabBarButton() -> Self {
+		runActivity(.step, "Then tap 'Charts' tab bar button") {
+			chartsTabBarButton.tapElement()
+			XCTAssert(chartsTabBarButton.wait(state: .selected),
+					  "\(err) 'Charts' tab bar button is NOT selected")
+		}
+		return self
+	}
+	
+	@discardableResult
+	func tapSettingsTabBarButton() -> Self {
+		runActivity(.step, "Then tap 'Settings' tab bar button") {
+			settingsTabBarButton.tapElement()
+			XCTAssert(settingsTabBarButton.wait(state: .selected),
+					  "\(err) 'Settings' tab bar button is NOT selected")
 		}
 		return self
 	}
