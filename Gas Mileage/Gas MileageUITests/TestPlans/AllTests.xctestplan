@@ -2,9 +2,17 @@
   "configurations" : [
     {
       "id" : "F6C6F7E9-EB4F-4E93-AE8F-17E42553B5CA",
-      "name" : "Configuration 1",
+      "name" : "English",
       "options" : {
-
+        "language" : "en"
+      }
+    },
+    {
+      "enabled" : false,
+      "id" : "51D8FD2A-3FC9-49A5-B570-1CC270B414AD",
+      "name" : "Russian",
+      "options" : {
+        "language" : "ru"
       }
     }
   ],
