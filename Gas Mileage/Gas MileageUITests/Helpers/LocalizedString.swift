@@ -1,8 +1,7 @@
 import Foundation
 
 struct LocalizedString {
-	static func string(forKey key: String,
-					   locale: String = "en_US") -> String {
+	static func string(forKey key: String) -> String {
 		let locale = ProcessInfo.processInfo.environment["TEST_LOCALE"] ?? "en_US"
 		
 		guard let path = Bundle(for: BaseUITest.self).path(forResource: locale, ofType: "strings") else {
