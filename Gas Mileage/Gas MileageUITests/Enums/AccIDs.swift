@@ -8,6 +8,9 @@ enum AccIDs {
 	
 	enum EntriesScreen: String {
 		case entriesTabView = "entries_tab"
+		case addEntryButton = "add_entry_button"
+		case generateEntryButton = "generate_entry_button"
+		case editEntryButton = "edit_button"
 	}
 	
 	enum TabBar: String {
