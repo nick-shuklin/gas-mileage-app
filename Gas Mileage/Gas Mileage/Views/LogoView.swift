@@ -14,8 +14,6 @@ struct LogoView: View {
 			Image(uiImage: UIImage(named: logoName) ?? UIImage(named: "Default")!)
 				.renderingMode(.original)
 				.resizable()
-				.saturation(0)
-				.contrast(0.7)
 				.aspectRatio(contentMode: .fit)
 				.frame(width: logoSize,
 					   height: logoSize)
