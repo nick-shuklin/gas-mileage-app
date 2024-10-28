@@ -8,9 +8,30 @@ final class UITests: BaseUITest {
 		Helpers()
 			.waitForApplicationToLaunch()
 		MainScreen()
-			.verifyTabBarElements()
 			.verifyAllStaticElements()
 			.verifyScrollViewEntries()
+		SoftAssert.shared.checkForFailures()
+	}
+	
+	func testEntriesScreenAllElementsVerification() throws {
+		Helpers()
+			.waitForApplicationToLaunch()
+		MainScreen()
+			.tapEntriesTabBarButton()
+		EntriesScreen()
+			.verifyAllStaticElements()
+		SoftAssert.shared.checkForFailures()
+	}
+	
+	func testTabBarElementsOnEachScreenVerification() throws {
+		Helpers()
+			.waitForApplicationToLaunch()
+		MainScreen()
+			.verifyTabBarElements()
+			.tapEntriesTabBarButton()
+		EntriesScreen()
+			.verifyTabBarElements()
+			.tapChartsTabBarButton()
 		SoftAssert.shared.checkForFailures()
 	}
 }
