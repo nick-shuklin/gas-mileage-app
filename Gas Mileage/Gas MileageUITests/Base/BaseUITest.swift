@@ -12,6 +12,7 @@ class BaseUITest: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
+		SoftAssert.shared.reset()
 		continueAfterFailure = false
 	}
 	
