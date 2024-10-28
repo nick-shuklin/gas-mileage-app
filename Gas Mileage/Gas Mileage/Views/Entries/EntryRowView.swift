@@ -31,11 +31,6 @@ struct EntryRowView: View {
 					.accessibilityIdentifier("entry_row_volume_\(item.odometer)")
 			}
 			Spacer()
-			Image(systemName: "chevron.right")
-				.background(
-					backGroundSquareShapedShadow()
-						.frame(width: 30, height: 30)
-				)
 		}
 		.font(.caption)
     }
