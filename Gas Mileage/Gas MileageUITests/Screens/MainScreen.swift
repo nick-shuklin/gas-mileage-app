@@ -3,15 +3,15 @@ import XCTest
 
 class MainScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Static Screen Elements
-	private lazy var mainTabView = app.otherElements[AccIDs.HomeScreen.mainTabView.rawValue].firstMatch
+	private lazy var mainTabView = app.otherElements[AccIDs.MainScreen.mainTabView.rawValue].firstMatch
 	private lazy var mainScreenNavigationBarText = app.staticTexts[LocalizedString.string(forKey: "Main Screen")].firstMatch
-	private lazy var chartView = mainTabView.otherElements[AccIDs.HomeScreen.chartView.rawValue].firstMatch
-	private lazy var last10EntriesScrollView = mainTabView.scrollViews[AccIDs.HomeScreen.scrollView.rawValue].firstMatch
-	private lazy var last10EntriesText = mainTabView.staticTexts[AccIDs.HomeScreen.last10EntriesLabel.rawValue].firstMatch
+	private lazy var chartView = mainTabView.otherElements[AccIDs.MainScreen.chartView.rawValue].firstMatch
+	private lazy var last10EntriesScrollView = mainTabView.scrollViews[AccIDs.MainScreen.scrollView.rawValue].firstMatch
+	private lazy var last10EntriesText = mainTabView.staticTexts[AccIDs.MainScreen.last10EntriesLabel.rawValue].firstMatch
 	
 	// MARK: - Strings
-	private let failureMessageAddOn = "'Home Screen'"
-	private let last10EntriesLabel = LocalizedString.string(forKey: AccIDs.HomeScreen.last10EntriesLabel.rawValue)
+	private let failureMessageAddOn = "'Main Screen'"
+	private let last10EntriesLabel = LocalizedString.string(forKey: AccIDs.MainScreen.last10EntriesLabel.rawValue)
 	
 	init() {
 		assertScreenIsDisplayed()

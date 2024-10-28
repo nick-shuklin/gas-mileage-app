@@ -1,5 +1,5 @@
 enum AccIDs {
-	enum HomeScreen: String {
+	enum MainScreen: String {
 		case mainTabView = "main_tab"
 		case chartView = "ytd_chart_view"
 		case scrollView = "scroll_view"
