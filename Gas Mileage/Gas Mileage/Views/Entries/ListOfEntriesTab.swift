@@ -10,53 +10,48 @@ struct ListOfEntriesTab: View {
 	let frameHeight: CGFloat = 48
 	
     var body: some View {
-		ZStack {
-			Color.background
-				.ignoresSafeArea()
-			
-			VStack {
-				NavigationSplitView {
-					List {
-						ForEach(items) { item in
-							ZStack {
-								NavigationLink(destination: EntryDetailsView(item: item, showTabBar: $showTabBar)) {
-									EmptyView()
-								}
-								.opacity(0) // Hides the default NavigationLink's visibility
+		VStack {
+			NavigationSplitView {
+				List {
+					ForEach(items) { item in
+						ZStack {
+							NavigationLink(destination: EntryDetailsView(item: item, showTabBar: $showTabBar)) {
+								EmptyView()
+							}
+							.opacity(0) // Hides the default NavigationLink's visibility
 
-								EntryRowView(item: item)
-									.contentShape(Rectangle())
-									.frame(height: frameHeight)
+							EntryRowView(item: item)
+								.contentShape(Rectangle())
+								.frame(height: frameHeight)
 //									.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
-							}
 						}
-						.onDelete(perform: deleteItems)
 					}
-					.navigationTitle("List of entries")
-					.toolbarTitleDisplayMode(.inline)
-					.toolbar {
-						ToolbarItem(placement: .topBarLeading) {
-							addEntryButton
-								.sheet(isPresented: $showEditEntryView) {
-									EditEntryView(entry: nil)
-								}
-						}
-						
-						ToolbarItem(placement: .navigationBarTrailing) {
-							EditButton()
-						}
-						
-#if DEBUG
-						ToolbarItem {
-							Button(action: addItem) {
-								Label("Add Item", systemImage: "allergens")
-							}
-						}
-#endif
-					}
-				} detail: {
-					Text("Select an item")
+					.onDelete(perform: deleteItems)
 				}
+				.navigationTitle("List of entries")
+				.toolbarTitleDisplayMode(.inline)
+				.toolbar {
+					ToolbarItem(placement: .topBarLeading) {
+						addEntryButton
+							.sheet(isPresented: $showEditEntryView) {
+								EditEntryView(entry: nil)
+							}
+					}
+					
+					ToolbarItem(placement: .navigationBarTrailing) {
+						EditButton()
+					}
+					
+#if DEBUG
+					ToolbarItem {
+						Button(action: addItem) {
+							Label("Add Item", systemImage: "allergens")
+						}
+					}
+#endif
+				}
+			} detail: {
+				Text("Select an item")
 			}
 		}
     }
