@@ -50,17 +50,29 @@ extension TabBarProtocol {
 	// MARK: - Assertions
 	@discardableResult
 	func verifyTabBarElements() -> Self {
-		runActivity(.assert, "Then verify all Tab Bar buttons exists") {
-			XCTAssert(tabBar.wait(),
+		runActivity(.assert, "Then verify all Tab Bar buttons exists and label matches") {
+			SoftAssert.shared.assert(tabBar.wait(),
 					  "\(err) 'Tab Bar' doesn't exists")
-			XCTAssert(mainTabBarButton.wait(),
+			SoftAssert.shared.assert(mainTabBarButton.wait(),
 					  "\(err) 'Main' button doesn't exists")
-			XCTAssert(entriesTabBarButton.wait(),
+			SoftAssert.shared.assertEqual(mainTabBarButton.label,
+										  LocalizedString.string(forKey: AccIDs.TabBar.mainTabBarButton.rawValue),
+										  "\(err) label does NOT match")
+			SoftAssert.shared.assert(entriesTabBarButton.wait(),
 					  "\(err) 'Entries' button doesn't exists")
-			XCTAssert(chartsTabBarButton.wait(),
+			SoftAssert.shared.assertEqual(entriesTabBarButton.label,
+										  LocalizedString.string(forKey: AccIDs.TabBar.entriesTabBarButton.rawValue),
+										  "\(err) label does NOT match")
+			SoftAssert.shared.assert(chartsTabBarButton.wait(),
 					  "\(err) 'Charts' button doesn't exists")
-			XCTAssert(settingsTabBarButton.wait(),
+			SoftAssert.shared.assertEqual(chartsTabBarButton.label,
+										  LocalizedString.string(forKey: AccIDs.TabBar.chartsTabBarButton.rawValue),
+										  "\(err) label does NOT match")
+			SoftAssert.shared.assert(settingsTabBarButton.wait(),
 					  "\(err) 'Settings' button doesn't exists")
+			SoftAssert.shared.assertEqual(settingsTabBarButton.label,
+										  LocalizedString.string(forKey: AccIDs.TabBar.settingsTabBarButton.rawValue),
+										  "\(err) label does NOT match")
 		}
 		return self
 	}

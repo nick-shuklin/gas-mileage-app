@@ -11,22 +11,22 @@ protocol TabBarElements: BaseScreen {
 
 extension TabBarElements {
 	var tabBar: XCUIElement {
-		return app.tabBars["Tab Bar"].firstMatch
+		return app.tabBars[LocalizedString.string(forKey: "Tab Bar")].firstMatch
 	}
 	
 	var mainTabBarButton: XCUIElement {
-		return tabBar.buttons["Main"].firstMatch
+		return tabBar.buttons[AccIDs.TabBar.mainTabBarButton.rawValue].firstMatch
 	}
 	
 	var entriesTabBarButton: XCUIElement {
-		return tabBar.buttons["Entries"].firstMatch
+		return tabBar.buttons[AccIDs.TabBar.entriesTabBarButton.rawValue].firstMatch
 	}
 	
 	var chartsTabBarButton: XCUIElement {
-		return tabBar.buttons["Charts"].firstMatch
+		return tabBar.buttons[AccIDs.TabBar.chartsTabBarButton.rawValue].firstMatch
 	}
 	
 	var settingsTabBarButton: XCUIElement {
-		return tabBar.buttons["Settings"].firstMatch
+		return tabBar.buttons[AccIDs.TabBar.settingsTabBarButton.rawValue].firstMatch
 	}
 }
