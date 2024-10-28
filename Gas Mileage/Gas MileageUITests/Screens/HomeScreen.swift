@@ -3,14 +3,14 @@ import XCTest
 
 class HomeScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Static Screen Elements
-	private lazy var mainTabView = app.otherElements["main_tab"].firstMatch
-	private lazy var chartView = app.otherElements["ytd_chart_view"].firstMatch
-	private lazy var last10EntriesScrollView = app.scrollViews["scroll_view"].firstMatch
-	private lazy var last10EntriesLabel = app.staticTexts["last_10_entries_label"].firstMatch
+	private lazy var mainTabView = app.otherElements[AccIDs.HomeScreen.mainTabView.rawValue].firstMatch
+	private lazy var chartView = mainTabView.otherElements[AccIDs.HomeScreen.chartView.rawValue].firstMatch
+	private lazy var last10EntriesScrollView = mainTabView.scrollViews[AccIDs.HomeScreen.scrollView.rawValue].firstMatch
+	private lazy var last10EntriesLabel = mainTabView.staticTexts[AccIDs.HomeScreen.last10EntriesLabel.rawValue].firstMatch
 	
-	// MARK: - Labels
+	// MARK: - Strings
 	private let failureMessageAddOn = "'Home Screen'"
-	private let last10EntriesLabelValue = LocalizedString.string(forKey: "last_10_entries_label", locale: "en_US")
+	private let last10EntriesElementLabel = LocalizedString.string(forKey: AccIDs.HomeScreen.last10EntriesLabel.rawValue)
 	
 	init() {
 		assertScreenIsDisplayed()
@@ -19,7 +19,7 @@ class HomeScreen: BaseScreen, TabBarProtocol {
 	internal func assertScreenIsDisplayed() {
 		runActivity(.screen, "Then verify \(failureMessageAddOn) is loaded") {
 			XCTAssert(mainTabView.wait(for: .long),
-					  "\(err) \(failureMessageAddOn) is NOT displayed because Main Tab is NOT displayed")
+					  "\(err) \(failureMessageAddOn) is NOT displayed because 'Main Tab View' is NOT displayed")
 		}
 	}
 	
@@ -28,12 +28,12 @@ class HomeScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Assertions
 	@discardableResult
 	func verifyAllStaticElements() -> Self {
-		runActivity(.assert, "Then verify all static elements") {
-			XCTAssert(chartView.wait(),
+		runActivity(.assert, "Then verify all static elements exists on \(failureMessageAddOn)") {
+			SoftAssert.shared.assert(chartView.wait(),
 					  "\(err) Chart view doesn't exists on \(failureMessageAddOn)")
-			XCTAssert(last10EntriesScrollView.wait(),
+			SoftAssert.shared.assert(last10EntriesScrollView.wait(),
 					  "\(err) Scroll view doesn't exists on \(failureMessageAddOn)")
-			XCTAssertEqual(last10EntriesLabel.label, last10EntriesLabelValue,
+			SoftAssert.shared.assertEqual(last10EntriesLabel.label, last10EntriesElementLabel,
 					  "\(err) label does NOT match on \(failureMessageAddOn)")
 		}
 		return self
