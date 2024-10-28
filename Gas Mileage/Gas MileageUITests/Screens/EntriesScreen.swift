@@ -4,18 +4,13 @@ import XCTest
 class EntriesScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Static Screen Elements (in order top to the bottom, left to right how they displayed on the screen)
 	private lazy var entriesTabView = app.otherElements[AccIDs.EntriesScreen.entriesTabView.rawValue].firstMatch
+	private lazy var navigationBarText = app.staticTexts[LocalizedString.string(forKey: "List of entries")].firstMatch
+	private lazy var addEntryButton = app.buttons[AccIDs.EntriesScreen.addEntryButton.rawValue].firstMatch
+	private lazy var editEntryButton = app.buttons[AccIDs.EntriesScreen.editEntryButton.rawValue].firstMatch
 	
-	
-	
-	
-	
-	
-	
-	
-	private lazy var mainScreenNavigationBarText = app.staticTexts[LocalizedString.string(forKey: "Main Screen")].firstMatch
-	private lazy var chartView = mainTabView.otherElements[AccIDs.MainScreen.chartView.rawValue].firstMatch
-	private lazy var last10EntriesScrollView = mainTabView.scrollViews[AccIDs.MainScreen.scrollView.rawValue].firstMatch
-	private lazy var last10EntriesText = mainTabView.staticTexts[AccIDs.MainScreen.last10EntriesLabel.rawValue].firstMatch
+	// MARK: - Dynamic Screen Elements
+	// This button is visible only in Debug mode and helps to quickly add randomly generated new entry
+	private lazy var generateEntryButton = app.buttons[AccIDs.EntriesScreen.generateEntryButton.rawValue].firstMatch
 	
 	// MARK: - Strings
 	private let failureMessageAddOn = "'Entries Screen'"
@@ -38,16 +33,17 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	@discardableResult
 	func verifyAllStaticElements() -> Self {
 		runActivity(.assert, "Then verify all static elements exists and labels match on \(failureMessageAddOn)") {
-			SoftAssert.shared.assert(mainScreenNavigationBarText.wait(),
-					  "\(err) 'Main Screen' text doesn't exists on \(failureMessageAddOn)")
-			SoftAssert.shared.assert(chartView.wait(),
-					  "\(err) Chart view doesn't exists on \(failureMessageAddOn)")
-			SoftAssert.shared.assert(last10EntriesScrollView.wait(),
-					  "\(err) Scroll view doesn't exists on \(failureMessageAddOn)")
-			SoftAssert.shared.assert(last10EntriesText.wait(),
-					  "\(err) '\(last10EntriesLabel)' text doesn't exists on \(failureMessageAddOn)")
-			SoftAssert.shared.assertEqual(last10EntriesText.label, last10EntriesLabel,
-					  "\(err) label does NOT match on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(navigationBarText.wait(),
+					  "\(err) 'List of entries' text doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(addEntryButton.wait(),
+					  "\(err) 'Add entry' button doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(editEntryButton.wait(),
+					  "\(err) 'Edit entry' button doesn't exists on \(failureMessageAddOn)")
+//			SoftAssert.shared.assert(last10EntriesText.wait(),
+//					  "\(err) '\(last10EntriesLabel)' text doesn't exists on \(failureMessageAddOn)")
+			
+//			SoftAssert.shared.assertEqual(last10EntriesText.label, last10EntriesLabel,
+//					  "\(err) label does NOT match on \(failureMessageAddOn)")
 		}
 		return self
 	}
