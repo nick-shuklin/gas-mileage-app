@@ -4,9 +4,13 @@ import XCTest
 class HomeScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Static Screen Elements
 	private lazy var mainTabView = app.otherElements["main_tab"].firstMatch
+	private lazy var chartView = app.otherElements["ytd_chart_view"].firstMatch
+	private lazy var last10EntriesScrollView = app.scrollViews["scroll_view"].firstMatch
+	private lazy var last10EntriesLabel = app.staticTexts["last_10_entries_label"].firstMatch
 	
 	// MARK: - Labels
 	private let failureMessageAddOn = "'Home Screen'"
+	private let last10EntriesLabelValue = LocalizedString.string(forKey: "last_10_entries_label", locale: "en_US")
 	
 	init() {
 		assertScreenIsDisplayed()
@@ -20,27 +24,18 @@ class HomeScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	// MARK: - Navigation & UI Interactions
-//	@discardableResult
-//	func tapSignUpButton() -> Self {
-//		runActivity(.step, "Then tap 'Sign Up' button") {
-//			viewBoardButton.tapElement()
-//		}
-//		return self
-//	}
 	
 	// MARK: - Assertions
-//	@discardableResult
-//	func verifyAllStaticElements() -> Self {
-//		let message = "Then verify all static elements"
-//		Configuration.stepByStepMessage.append("\n*\(message)")
-//		runActivity(.assert, message) {
-//			XCTAssert(signUpButton.wait(),
-//					  "\(err) 'Sign Up' button doesn't exists on \(failureMessageAddOn)")
-//			XCTAssert(signInButton.wait(),
-//					  "\(err) 'Sign in' button doesn't exists on \(failureMessageAddOn)")
-//			XCTAssert(viewBoardButton.wait(),
-//					  "\(err) 'VIEW BOARD' button doesn't exists on \(failureMessageAddOn)")
-//		}
-//		return self
-//	}
+	@discardableResult
+	func verifyAllStaticElements() -> Self {
+		runActivity(.assert, "Then verify all static elements") {
+			XCTAssert(chartView.wait(),
+					  "\(err) Chart view doesn't exists on \(failureMessageAddOn)")
+			XCTAssert(last10EntriesScrollView.wait(),
+					  "\(err) Scroll view doesn't exists on \(failureMessageAddOn)")
+			XCTAssertEqual(last10EntriesLabel.label, last10EntriesLabelValue,
+					  "\(err) label does NOT match on \(failureMessageAddOn)")
+		}
+		return self
+	}
 }
