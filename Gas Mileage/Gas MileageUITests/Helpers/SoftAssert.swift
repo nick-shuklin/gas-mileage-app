@@ -59,7 +59,7 @@ class SoftAssert {
 								   _ expected: T,
 								   _ message: String) {
 		if actual != expected {
-			let failureMessage = "Expected \(expected), but got \(actual). \(message)"
+			let failureMessage = "Expected '\(expected)', but got '\(actual)'. \(message)"
 			failures.append(failureMessage)
 		}
 	}
