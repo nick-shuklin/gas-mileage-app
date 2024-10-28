@@ -6,6 +6,10 @@ enum AccIDs {
 		case last10EntriesLabel = "last_10_entries_label"
 	}
 	
+	enum EntriesScreen: String {
+		case entriesTabView = "entries_tab"
+	}
+	
 	enum TabBar: String {
 		case mainTabBarButton = "house"
 		case entriesTabBarButton = "fuelpump"
