@@ -40,6 +40,7 @@ struct ListOfEntriesTab: View {
 					
 					ToolbarItem(placement: .navigationBarTrailing) {
 						EditButton()
+							.accessibilityIdentifier("edit_button")
 					}
 					
 #if DEBUG
@@ -47,6 +48,7 @@ struct ListOfEntriesTab: View {
 						Button(action: addItem) {
 							Label("Add Item", systemImage: "allergens")
 						}
+						.accessibilityIdentifier("generate_entry_button")
 					}
 #endif
 				}
@@ -66,6 +68,7 @@ struct ListOfEntriesTab: View {
 						.frame(width: 30, height: 30)
 				)
 		}
+		.accessibilityIdentifier("add_entry_button")
 	}
 	
 	private func addItem() {
