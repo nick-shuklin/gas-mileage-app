@@ -24,6 +24,17 @@ enum AccIDs {
 		case entryVolumePrefix = "entry_row_volume_"
 	}
 	
+	enum EntryDetailsView: String {
+		case fillupDateText = "fill_up_date"
+		case gasStationNameText = "gas_station_name"
+		case odometer = "odometer"
+		case total = "total"
+		case price = "price"
+		case volume = "volume"
+		case gasMileage = "gas_mileage"
+		case tankFilledToggle = "tank_filled_toggle"
+	}
+	
 	enum TabBar: String {
 		case mainTabBarButton = "house"
 		case entriesTabBarButton = "fuelpump"
