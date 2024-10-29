@@ -11,6 +11,8 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Dynamic Screen Elements
 	// This button is visible only in Debug mode and helps to quickly add randomly generated new entry
 	private lazy var generateEntryButton = app.buttons[AccIDs.EntriesScreen.generateEntryButton.rawValue].firstMatch
+	private lazy var removeImage = app.images["minus.circle.fill"].firstMatch
+	private lazy var deleteCellButton = app.buttons[LocalizedString.string(forKey: "Delete")].firstMatch
 	
 	// MARK: - Strings
 	private let failureMessageAddOn = "'Entries Screen'"
@@ -38,6 +40,17 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	@discardableResult
 	func tapEditEntryButton() -> Self {
 		runActivity(.step, "Then tap 'Edit entry' navigation bar button") {
+			editEntryButton.tapElement()
+		}
+		return self
+	}
+	
+	@discardableResult
+	func deleteFirstEntry() -> Self {
+		runActivity(.step, "Then delete first entry in a list") {
+			editEntryButton.tapElement()
+			removeImage.tapElement()
+			deleteCellButton.tapElement()
 			editEntryButton.tapElement()
 		}
 		return self
