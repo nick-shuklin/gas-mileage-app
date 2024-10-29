@@ -8,3 +8,9 @@
 "List of entries" = "Лист данных";
 "Delete" = "Удалить";
 "edit_button" = "Править";
+"Entry details" = "Данные";
+"odometer" = "Пробег";
+"total" = "Сумма";
+"price" = "Цена";
+"volume" = "Объём";
+"gas_mileage" = "Расход";
