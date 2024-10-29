@@ -39,7 +39,8 @@ class SoftAssert {
 	func assert(_ condition: @autoclosure () -> Bool,
 				_ message: String) {
 		if !condition() {
-			failures.append(message)
+			let failureMessage = "\(Icons.error.rawValue)" + message
+			failures.append(failureMessage)
 		}
 	}
 
@@ -59,9 +60,24 @@ class SoftAssert {
 								   _ expected: T,
 								   _ message: String) {
 		if actual != expected {
-			let failureMessage = "Expected '\(expected)', but got '\(actual)'. \(message)"
+			let failureMessage = "\(Icons.error.rawValue) Expected '\(expected)', but got '\(actual)'. \(message)"
 			failures.append(failureMessage)
 		}
+	}
+	
+	/// Stores a failure message without blocking execution.
+	/// Use this method when you want to collect errors without asserting immediately.
+	///
+	/// - Parameters:
+	///   - message: A descriptive message for the failure.
+	///
+	/// - Usage example:
+	/// ```swift
+	/// SoftAssert.shared.softFail("This test failed without blocking execution")
+	/// ```
+	func softFail(_ message: String) {
+		let failureMessage = "\(Icons.error.rawValue)" + message
+		failures.append(failureMessage)
 	}
 
 	// MARK: - Failure Checking
