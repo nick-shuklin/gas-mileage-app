@@ -55,6 +55,7 @@ final class UITests: BaseUITest {
 		MainScreen()
 			.tapEntriesTabBarButton()
 		EntriesScreen()
+			.tapFirstEntryButton()
 		EntryDetailsScreen()
 			.verifyAllStaticElements()
 		SoftAssert.shared.checkForFailures()
