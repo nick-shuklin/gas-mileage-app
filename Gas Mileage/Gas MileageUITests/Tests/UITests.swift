@@ -24,6 +24,19 @@ final class UITests: BaseUITest {
 		SoftAssert.shared.checkForFailures()
 	}
 	
+	func testEntriesScreenDeleteEntry() throws {
+		var cellID = ""
+		
+		Helpers()
+			.waitForApplicationToLaunch()
+		MainScreen()
+			.tapEntriesTabBarButton()
+		EntriesScreen()
+			.deleteFirstEntry(&cellID)
+			.verifyEntryIsDeleted(odometerValue: cellID)
+		SoftAssert.shared.checkForFailures()
+	}
+	
 	func testTabBarElementsOnEachScreenVerification() throws {
 		Helpers()
 			.waitForApplicationToLaunch()
