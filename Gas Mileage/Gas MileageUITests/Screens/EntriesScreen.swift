@@ -77,11 +77,11 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	func verifyAllStaticElements() -> Self {
 		runActivity(.assert, "Then verify all static elements exists and labels match on \(failureMessageAddOn)") {
 			SoftAssert.shared.assert(navigationBarText.wait(),
-									 "\(err) 'List of entries' text doesn't exists on \(failureMessageAddOn)")
+									 "'List of entries' text doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(addEntryButton.wait(),
-									 "\(err) 'Add entry' button doesn't exists on \(failureMessageAddOn)")
+									 "'Add entry' button doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(editEntryButton.wait(),
-									 "\(err) 'Edit entry' button doesn't exists on \(failureMessageAddOn)")
+									 "'Edit entry' button doesn't exists on \(failureMessageAddOn)")
 		}
 		return self
 	}
