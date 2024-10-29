@@ -8,8 +8,12 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	private lazy var addEntryButton = app.buttons[AccIDs.EntriesScreen.addEntryButton.rawValue].firstMatch
 	private lazy var editEntryButton = app.buttons[AccIDs.EntriesScreen.editEntryButton.rawValue].firstMatch
 	private lazy var listView = app.collectionViews[AccIDs.EntriesScreen.listView.rawValue].firstMatch
+	private var entryNavigationLinks: [XCUIElement?] {
+		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntriesScreen.entryLinkPrefix.rawValue)
+		return app.buttons.matching(predicate).allElementsBoundByIndex
+	}
 	private var activeLocale: String {
-		return ProcessInfo.processInfo.environment["TEST_LOCALE"] ?? "en_US" // Default to English if not set
+		return ProcessInfo.processInfo.environment["TEST_LOCALE"] ?? "en_US"
 	}
 	
 	// MARK: - Dynamic Screen Elements
@@ -45,6 +49,16 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	func tapEditEntryButton() -> Self {
 		runActivity(.step, "Then tap 'Edit entry' navigation bar button") {
 			editEntryButton.tapElement()
+		}
+		return self
+	}
+	
+	@discardableResult
+	func tapFirstEntryButton() -> Self {
+		runActivity(.step, "Then tap on first entry") {
+			XCTAssert(entryNavigationLinks.count > 0, "There are no entries to tap on")
+			let element = entryNavigationLinks.first
+			element??.tapElement()
 		}
 		return self
 	}
