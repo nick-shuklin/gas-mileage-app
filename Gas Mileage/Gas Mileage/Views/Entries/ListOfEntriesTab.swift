@@ -19,9 +19,11 @@ struct ListOfEntriesTab: View {
 							.frame(height: frameHeight)
 							.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 					}
+					.accessibilityIdentifier("navigation_link_\(item.odometer)")
 				}
 				.onDelete(perform: deleteItems)
 			}
+			.accessibilityIdentifier("list_view")
 			.navigationTitle("List of entries")
 			.toolbarTitleDisplayMode(.inline)
 			.toolbar {
