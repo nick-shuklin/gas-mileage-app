@@ -8,6 +8,9 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	private lazy var addEntryButton = app.buttons[AccIDs.EntriesScreen.addEntryButton.rawValue].firstMatch
 	private lazy var editEntryButton = app.buttons[AccIDs.EntriesScreen.editEntryButton.rawValue].firstMatch
 	private lazy var listView = app.collectionViews[AccIDs.EntriesScreen.listView.rawValue].firstMatch
+	private var activeLocale: String {
+		return ProcessInfo.processInfo.environment["TEST_LOCALE"] ?? "en_US" // Default to English if not set
+	}
 	
 	// MARK: - Dynamic Screen Elements
 	// This button is visible only in Debug mode and helps to quickly add randomly generated new entry
@@ -69,5 +72,119 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 									 "\(err) 'Edit entry' button doesn't exists on \(failureMessageAddOn)")
 		}
 		return self
+	}
+	
+	@discardableResult
+	func verifyAllEntries() -> Self {
+		runActivity(.assert, "Then verify all Collection View entries on \(failureMessageAddOn)") {
+			XCTAssertTrue(listView.wait(), "Collection view with identifier 'list_view' does not exist")
+			
+			let cells = listView.cells.allElementsBoundByIndex
+			XCTAssertFalse(cells.isEmpty, "No cells found in the collection view")
+			
+			for cell in cells {
+				verifyEntryCell(cell)
+			}
+		}
+		return self
+	}
+	
+	// MARK: - Helper methods
+	private var dateFormatter: DateFormatter {
+		let formatter = DateFormatter()
+		formatter.locale = Locale(identifier: activeLocale)
+		formatter.dateFormat = activeLocale == "en_US" ? "MMM d, yyyy" : "d MMM yyyy г."
+		return formatter
+	}
+	
+	private var currencyFormatter: NumberFormatter {
+		let formatter = NumberFormatter()
+		formatter.numberStyle = .currency
+		formatter.locale = Locale(identifier: activeLocale)
+		return formatter
+	}
+	
+	private func verifyEntryCell(_ cell: XCUIElement) {
+		let navigationLink = cell.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "navigation_link")).firstMatch
+		SoftAssert.shared.assert(navigationLink.wait(), "Navigation link button not found in cell")
+		
+		let logoImage = cell.images.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_logo")).firstMatch
+		SoftAssert.shared.assert(logoImage.wait(), "Logo image not found in cell")
+		
+		let dateLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_fillupdate")).firstMatch
+		SoftAssert.shared.assert(dateLabel.wait(), "Date label not found in cell")
+		verifyDateFormat(dateLabel.label)
+		
+		let odometerLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_odometer")).firstMatch
+		SoftAssert.shared.assert(odometerLabel.wait(), "Odometer label not found in cell")
+		verifyOdometerFormat(odometerLabel.label)
+		
+		let gasPriceLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_gasprice")).firstMatch
+		SoftAssert.shared.assert(gasPriceLabel.wait(), "Gas price label not found in cell")
+		verifyCurrencyFormat(gasPriceLabel.label)
+		
+		let totalLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_total")).firstMatch
+		SoftAssert.shared.assert(totalLabel.wait(), "Total label not found in cell")
+		verifyCurrencyFormat(totalLabel.label)
+		
+		let mileageLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_gasmileage")).firstMatch
+		SoftAssert.shared.assert(mileageLabel.wait(), "Gas mileage label not found in cell")
+		verifyMileageFormat(mileageLabel.label)
+		
+		let volumeLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_volume")).firstMatch
+		SoftAssert.shared.assert(volumeLabel.wait(), "Volume label not found in cell")
+		verifyVolumeFormat(volumeLabel.label)
+		
+		let chevronImage = cell.images["chevron.forward"]
+		SoftAssert.shared.assert(chevronImage.wait(), "Chevron forward image not found in cell")
+	}
+
+	private func verifyDateFormat(_ dateText: String) {
+		guard let _ = dateFormatter.date(from: dateText) else {
+			SoftAssert.shared.softFail("Date format is incorrect: \(dateText)")
+			return
+		}
+	}
+
+	private func verifyCurrencyFormat(_ currencyText: String) {
+		let pattern: String
+		if activeLocale == "en_US" {
+			   // Pattern for "en_US" with or without "per gal" and optional commas in thousands place
+			   pattern = #"^\$\d{1,3}(,\d{3})*(\.\d{1,2})?( per gal)?$"#
+		   } else {
+			   // Pattern for Russian locale to match currency values with optional "per gal"
+			   pattern = #"^\$\d+(\.\d{1,2})?( per gal)?$"#
+		   }
+		validateTextWithRegex(pattern, text: currencyText, failureMessage: "Currency format is incorrect: \(currencyText)")
+	}
+
+	private func verifyOdometerFormat(_ odometerText: String) {
+		let pattern: String
+		if activeLocale == "en_US" {
+			pattern = #"^[\d,]+ miles$"#
+		} else {
+			pattern = #"^[\d\s,]+ миль$"#
+		}
+		validateTextWithRegex(pattern, text: odometerText, failureMessage: "Odometer format is incorrect: \(odometerText)")
+	}
+
+	private func verifyMileageFormat(_ mileageText: String) {
+		let pattern = activeLocale == "en_US" ? #"^[\d.]+ mpg$"# : #"^[\d.]+ mpg$"#
+		validateTextWithRegex(pattern, text: mileageText, failureMessage: "Mileage format is incorrect: \(mileageText)")
+	}
+
+	private func verifyVolumeFormat(_ volumeText: String) {
+		let pattern = activeLocale == "en_US" ? #"^[\d.]+ gal$"# : #"^[\d.]+ gal$"#
+		validateTextWithRegex(pattern, text: volumeText, failureMessage: "Volume format is incorrect: \(volumeText)")
+	}
+	
+	private func validateTextWithRegex(_ pattern: String,
+									   text: String,
+									   failureMessage: String) {
+		let regex = try! NSRegularExpression(pattern: pattern, options: [])
+		let range = NSRange(location: 0, length: text.utf16.count)
+		if regex.firstMatch(in: text, options: [], range: range) == nil {
+			SoftAssert.shared.softFail(failureMessage)
+		}
 	}
 }
