@@ -13,6 +13,15 @@ enum AccIDs {
 		case editEntryButton = "edit_button"
 		case removeImage = "minus.circle.fill"
 		case listView = "list_view"
+		
+		case entryLinkPrefix = "navigation_link_"
+		case entryLogoPrefix = "entry_row_logo_"
+		case entryFillupDatePrefix = "entry_row_fillupdate_"
+		case entryOdometerPrefix = "entry_row_odometer_"
+		case entryGasPricePrefix = "entry_row_gasprice_"
+		case entryTotalPrefix = "entry_row_total_"
+		case entryGasMileagePrefix = "entry_row_gasmileage_"
+		case entryVolumePrefix = "entry_row_volume_"
 	}
 	
 	enum TabBar: String {

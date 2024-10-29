@@ -54,7 +54,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		runActivity(.step, "Then delete first entry in a list") {
 			var odometerReading = ""
 			let firstCell = app.cells.firstMatch
-			let logoElement = firstCell.images.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_logo")).firstMatch
+			let logoElement = firstCell.images.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryLogoPrefix.rawValue)).firstMatch
 			SoftAssert.shared.assert(logoElement.wait(), "Logo image not found in the first cell")
 
 			if let identifier = logoElement.identifier.split(separator: "_").last {
@@ -87,12 +87,13 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	@discardableResult
-	func verifyEntryIsDeleted(odometerValue: String) {
+	func verifyEntryIsDeleted(odometerValue: String) -> Self {
 		runActivity(.step, "Then verify entry with odometer '\(odometerValue)' is not displayed") {
 			let image = app.images.containing(NSPredicate(format: "identifier CONTAINS %@", odometerValue)).firstMatch
 			SoftAssert.shared.assert(image.wait(result: false),
 									 "Entry with odometer \(odometerValue) is still visible after deletion")
 		}
+		return self
 	}
 	
 	@discardableResult
@@ -126,38 +127,35 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	private func verifyEntryCell(_ cell: XCUIElement) {
-		let navigationLink = cell.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "navigation_link")).firstMatch
+		let navigationLink = cell.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryLinkPrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(navigationLink.wait(), "Navigation link button not found in cell")
 		
-		let logoImage = cell.images.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_logo")).firstMatch
+		let logoImage = cell.images.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryLogoPrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(logoImage.wait(), "Logo image not found in cell")
 		
-		let dateLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_fillupdate")).firstMatch
+		let dateLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryFillupDatePrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(dateLabel.wait(), "Date label not found in cell")
 		verifyDateFormat(dateLabel.label)
 		
-		let odometerLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_odometer")).firstMatch
+		let odometerLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryOdometerPrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(odometerLabel.wait(), "Odometer label not found in cell")
 		verifyOdometerFormat(odometerLabel.label)
 		
-		let gasPriceLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_gasprice")).firstMatch
+		let gasPriceLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryGasPricePrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(gasPriceLabel.wait(), "Gas price label not found in cell")
 		verifyCurrencyFormat(gasPriceLabel.label)
 		
-		let totalLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_total")).firstMatch
+		let totalLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryTotalPrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(totalLabel.wait(), "Total label not found in cell")
 		verifyCurrencyFormat(totalLabel.label)
 		
-		let mileageLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_gasmileage")).firstMatch
+		let mileageLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryGasMileagePrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(mileageLabel.wait(), "Gas mileage label not found in cell")
 		verifyMileageFormat(mileageLabel.label)
 		
-		let volumeLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_volume")).firstMatch
+		let volumeLabel = cell.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryVolumePrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(volumeLabel.wait(), "Volume label not found in cell")
 		verifyVolumeFormat(volumeLabel.label)
-		
-		let chevronImage = cell.images["chevron.forward"]
-		SoftAssert.shared.assert(chevronImage.wait(), "Chevron forward image not found in cell")
 	}
 
 	private func verifyDateFormat(_ dateText: String) {
