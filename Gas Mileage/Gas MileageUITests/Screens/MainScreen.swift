@@ -50,11 +50,9 @@ class MainScreen: BaseScreen, TabBarProtocol {
 			XCTAssert(last10EntriesScrollView.wait(),
 					  "\(err) Scroll view doesn't exists on \(failureMessageAddOn)")
 			
-			// Access the single child 'Other' view which contains all the rows
 			let containerView = last10EntriesScrollView.children(matching: .other).element(boundBy: 0)
 			XCTAssert(containerView.wait(), "Container view inside ScrollView should exist.")
 			
-			// 1. Get all entry rows inside the container view
 			let entryRows = containerView.children(matching: .other).allElementsBoundByIndex
 			SoftAssert.shared.assert(entryRows.count == 10,
 									 "ScrollView should contain exactly 10 entries, but contains \(entryRows.count).")
@@ -63,7 +61,6 @@ class MainScreen: BaseScreen, TabBarProtocol {
 			for (index, row) in entryRows.enumerated() {
 				verifyElementsInEntry(row, at: index)
 				
-				// 3. Extract ID from the elements and check order
 				let currentID = extractID(from: row)
 				if let previous = previousID {
 					SoftAssert.shared.assert(previous > currentID,
@@ -97,7 +94,6 @@ class MainScreen: BaseScreen, TabBarProtocol {
 	}
 
 	private func extractID(from entry: XCUIElement) -> Int {
-		// Extract ID from the first matching element inside the entry containing an ID
 		let firstMatchingElement = entry.images.allElementsBoundByIndex.first(where: { $0.identifier.contains("short_entry_row_logo_") })
 		guard let identifier = firstMatchingElement?.identifier,
 			  let idString = identifier.split(separator: "_").last,
