@@ -31,15 +31,15 @@ class MainScreen: BaseScreen, TabBarProtocol {
 	func verifyAllStaticElements() -> Self {
 		runActivity(.assert, "Then verify all static elements exists and labels match on \(failureMessageAddOn)") {
 			SoftAssert.shared.assert(navigationBarText.wait(),
-					  "\(err) 'Main Screen' text doesn't exists on \(failureMessageAddOn)")
+					  "'Main Screen' text doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(chartView.wait(),
-					  "\(err) Chart view doesn't exists on \(failureMessageAddOn)")
+					  "Chart view doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(last10EntriesScrollView.wait(),
-					  "\(err) Scroll view doesn't exists on \(failureMessageAddOn)")
+					  "Scroll view doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(last10EntriesText.wait(),
-					  "\(err) '\(last10EntriesLabel)' text doesn't exists on \(failureMessageAddOn)")
+					  "'\(last10EntriesLabel)' text doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assertEqual(last10EntriesText.label, last10EntriesLabel,
-					  "\(err) label does NOT match on \(failureMessageAddOn)")
+					  "label does NOT match on \(failureMessageAddOn)")
 		}
 		return self
 	}
