@@ -14,7 +14,6 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	
 	// MARK: - Strings
 	private let failureMessageAddOn = "'Entries Screen'"
-	private let last10EntriesLabel = LocalizedString.string(forKey: AccIDs.MainScreen.last10EntriesLabel.rawValue)
 	
 	init() {
 		assertScreenIsDisplayed()
@@ -28,6 +27,21 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	// MARK: - Navigation & UI Interactions
+	@discardableResult
+	func tapAddEntryButton() -> Self {
+		runActivity(.step, "Then tap 'Add entry' navigation bar button") {
+			addEntryButton.tapElement()
+		}
+		return self
+	}
+	
+	@discardableResult
+	func tapEditEntryButton() -> Self {
+		runActivity(.step, "Then tap 'Edit entry' navigation bar button") {
+			editEntryButton.tapElement()
+		}
+		return self
+	}
 	
 	// MARK: - Assertions
 	@discardableResult
@@ -39,11 +53,6 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 					  "\(err) 'Add entry' button doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(editEntryButton.wait(),
 					  "\(err) 'Edit entry' button doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(last10EntriesText.wait(),
-//					  "\(err) '\(last10EntriesLabel)' text doesn't exists on \(failureMessageAddOn)")
-			
-//			SoftAssert.shared.assertEqual(last10EntriesText.label, last10EntriesLabel,
-//					  "\(err) label does NOT match on \(failureMessageAddOn)")
 		}
 		return self
 	}
