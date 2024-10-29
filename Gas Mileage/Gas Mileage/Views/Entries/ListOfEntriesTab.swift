@@ -9,64 +9,51 @@ struct ListOfEntriesTab: View {
 	
 	let frameHeight: CGFloat = 48
 	
-    var body: some View {
-		VStack {
-			NavigationSplitView {
-				List {
-					ForEach(items) { item in
-						ZStack {
-							NavigationLink(destination: EntryDetailsView(item: item, showTabBar: $showTabBar)) {
-								EmptyView()
-							}
-							.opacity(0) // Hides the default NavigationLink's visibility
-
-							EntryRowView(item: item)
-								.contentShape(Rectangle())
-								.frame(height: frameHeight)
-//									.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
-						}
+	var body: some View {
+		NavigationView {
+			List {
+				ForEach(items) { item in
+					NavigationLink(destination: EntryDetailsView(item: item, showTabBar: $showTabBar)) {
+						EntryRowView(item: item)
+							.contentShape(Rectangle())
+							.frame(height: frameHeight)
+							.toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 					}
-					.onDelete(perform: deleteItems)
 				}
-				.navigationTitle("List of entries")
-				.toolbarTitleDisplayMode(.inline)
-				.toolbar {
-					ToolbarItem(placement: .topBarLeading) {
-						addEntryButton
-							.sheet(isPresented: $showEditEntryView) {
-								EditEntryView(entry: nil)
-							}
-					}
-					
-					ToolbarItem(placement: .navigationBarTrailing) {
-						EditButton()
-							.accessibilityIdentifier("edit_button")
-					}
-					
+				.onDelete(perform: deleteItems)
+			}
+			.navigationTitle("List of entries")
+			.toolbarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItem(placement: .topBarLeading) {
+					addEntryButton
+						.sheet(isPresented: $showEditEntryView) {
+							EditEntryView(entry: nil)
+						}
+				}
+				
+				ToolbarItem(placement: .navigationBarTrailing) {
+					EditButton()
+						.accessibilityIdentifier("edit_button")
+				}
+				
 #if DEBUG
-					ToolbarItem {
-						Button(action: addItem) {
-							Label("Add Item", systemImage: "allergens")
-						}
-						.accessibilityIdentifier("generate_entry_button")
+				ToolbarItem {
+					Button(action: addItem) {
+						Label("Add Item", systemImage: "allergens")
 					}
-#endif
+					.accessibilityIdentifier("generate_entry_button")
 				}
-			} detail: {
-				Text("Select an item")
+#endif
 			}
 		}
-    }
-	
+	}
+		
 	private var addEntryButton: some View {
 		Button {
 			showEditEntryView.toggle()
 		} label: {
 			Image(systemName: "plus")
-				.background(
-					backGroundSquareShapedShadow()
-						.frame(width: 30, height: 30)
-				)
 		}
 		.accessibilityIdentifier("add_entry_button")
 	}
@@ -77,7 +64,7 @@ struct ListOfEntriesTab: View {
 			modelContext.insert(newItem)
 		}
 	}
-
+	
 	private func deleteItems(offsets: IndexSet) {
 		withAnimation {
 			for index in offsets {
