@@ -50,8 +50,20 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	@discardableResult
-	func deleteFirstEntry() -> Self {
+	func deleteFirstEntry(_ id: inout String) -> Self {
 		runActivity(.step, "Then delete first entry in a list") {
+			var odometerReading = ""
+			let firstCell = app.cells.firstMatch
+			let logoElement = firstCell.images.matching(NSPredicate(format: "identifier BEGINSWITH %@", "entry_row_logo")).firstMatch
+			SoftAssert.shared.assert(logoElement.wait(), "Logo image not found in the first cell")
+
+			if let identifier = logoElement.identifier.split(separator: "_").last {
+				odometerReading = String(identifier)
+				id = odometerReading
+			} else {
+				XCTFail("Failed to extract odometer value from the identifier")
+			}
+			
 			editEntryButton.tapElement()
 			removeImage.tapElement()
 			deleteCellButton.tapElement()
@@ -72,6 +84,15 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 									 "\(err) 'Edit entry' button doesn't exists on \(failureMessageAddOn)")
 		}
 		return self
+	}
+	
+	@discardableResult
+	func verifyEntryIsDeleted(odometerValue: String) {
+		runActivity(.step, "Then verify entry with odometer '\(odometerValue)' is not displayed") {
+			let image = app.images.containing(NSPredicate(format: "identifier CONTAINS %@", odometerValue)).firstMatch
+			SoftAssert.shared.assert(image.wait(result: false),
+									 "Entry with odometer \(odometerValue) is still visible after deletion")
+		}
 	}
 	
 	@discardableResult
