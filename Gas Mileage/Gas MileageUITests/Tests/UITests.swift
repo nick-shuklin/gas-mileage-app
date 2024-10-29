@@ -20,6 +20,7 @@ final class UITests: BaseUITest {
 			.tapEntriesTabBarButton()
 		EntriesScreen()
 			.verifyAllStaticElements()
+			.verifyAllEntries()
 		SoftAssert.shared.checkForFailures()
 	}
 	
