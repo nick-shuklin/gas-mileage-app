@@ -7,6 +7,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	private lazy var navigationBarText = app.staticTexts[LocalizedString.string(forKey: "List of entries")].firstMatch
 	private lazy var addEntryButton = app.buttons[AccIDs.EntriesScreen.addEntryButton.rawValue].firstMatch
 	private lazy var editEntryButton = app.buttons[AccIDs.EntriesScreen.editEntryButton.rawValue].firstMatch
+	private lazy var listView = app.collectionViews[AccIDs.EntriesScreen.listView.rawValue].firstMatch
 	
 	// MARK: - Dynamic Screen Elements
 	// This button is visible only in Debug mode and helps to quickly add randomly generated new entry
@@ -61,14 +62,12 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	func verifyAllStaticElements() -> Self {
 		runActivity(.assert, "Then verify all static elements exists and labels match on \(failureMessageAddOn)") {
 			SoftAssert.shared.assert(navigationBarText.wait(),
-					  "\(err) 'List of entries' text doesn't exists on \(failureMessageAddOn)")
+									 "\(err) 'List of entries' text doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(addEntryButton.wait(),
-					  "\(err) 'Add entry' button doesn't exists on \(failureMessageAddOn)")
+									 "\(err) 'Add entry' button doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(editEntryButton.wait(),
-					  "\(err) 'Edit entry' button doesn't exists on \(failureMessageAddOn)")
+									 "\(err) 'Edit entry' button doesn't exists on \(failureMessageAddOn)")
 		}
 		return self
 	}
-	
-	// MARK: - Helper methods
 }
