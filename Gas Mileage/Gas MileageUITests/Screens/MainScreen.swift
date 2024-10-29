@@ -118,7 +118,7 @@ class MainScreen: BaseScreen, TabBarProtocol {
 	}
 
 	private func isValidTotalFormat(_ total: String) -> Bool {
-		let totalRegex = #"^\$\d+\.\d{1}$"#
+		let totalRegex = #"^\$\d+\.\d{1,2}$"#
 		return NSPredicate(format: "SELF MATCHES %@", totalRegex).evaluate(with: total)
 	}
 }
