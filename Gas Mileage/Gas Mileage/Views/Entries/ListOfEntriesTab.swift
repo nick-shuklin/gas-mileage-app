@@ -34,7 +34,7 @@ struct ListOfEntriesTab: View {
 						}
 				}
 				
-				ToolbarItem(placement: .navigationBarTrailing) {
+				ToolbarItem(placement: .topBarTrailing) {
 					EditButton()
 						.accessibilityIdentifier("edit_button")
 				}
