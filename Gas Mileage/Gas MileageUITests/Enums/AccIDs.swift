@@ -12,6 +12,7 @@ enum AccIDs {
 		case generateEntryButton = "generate_entry_button"
 		case editEntryButton = "edit_button"
 		case removeImage = "minus.circle.fill"
+		case listView = "list_view"
 	}
 	
 	enum TabBar: String {
