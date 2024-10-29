@@ -48,4 +48,15 @@ final class UITests: BaseUITest {
 			.tapChartsTabBarButton()
 		SoftAssert.shared.checkForFailures()
 	}
+	
+	func testEntryDetailsAllElementsVerification() throws {
+		Helpers()
+			.waitForApplicationToLaunch()
+		MainScreen()
+			.tapEntriesTabBarButton()
+		EntriesScreen()
+		EntryDetailsScreen()
+			.verifyAllStaticElements()
+		SoftAssert.shared.checkForFailures()
+	}
 }
