@@ -60,4 +60,18 @@ final class UITests: BaseUITest {
 			.verifyAllStaticElements()
 		SoftAssert.shared.checkForFailures()
 	}
+	
+	func testEditEntryAllElementsVerification() throws {
+		Helpers()
+			.waitForApplicationToLaunch()
+		MainScreen()
+			.tapEntriesTabBarButton()
+		EntriesScreen()
+			.tapFirstEntryButton()
+		EntryDetailsScreen()
+			.tapEditEntryButton()
+		EditEntryOverlay()
+			.verifyAllStaticElements()
+		SoftAssert.shared.checkForFailures()
+	}
 }
