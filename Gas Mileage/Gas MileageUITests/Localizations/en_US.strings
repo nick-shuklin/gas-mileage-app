@@ -8,3 +8,5 @@
 "price" = "Price";
 "volume" = "Volume";
 "gas_mileage" = "Gas mileage";
+"cancel_button" = "Cancel";
+"save_button" = "Save"
