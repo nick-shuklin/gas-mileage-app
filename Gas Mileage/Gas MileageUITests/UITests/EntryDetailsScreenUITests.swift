@@ -4,7 +4,7 @@ import Foundation
 final class EntryDetailsScreenUITests: BaseUITest {
 	
 	// MARK: Test methods
-	func testEntryDetailsAllElementsVerification() throws {
+	func testEntryDetailsAllElementsVerification() {
 		Helpers()
 			.waitForApplicationToLaunch()
 		MainScreen()

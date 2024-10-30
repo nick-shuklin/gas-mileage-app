@@ -4,7 +4,7 @@ import Foundation
 final class EntriesScreenUITests: BaseUITest {
 
 	// MARK: Test methods
-	func testEntriesScreenAllElementsVerification() throws {
+	func testEntriesScreenAllElementsVerification() {
 		Helpers()
 			.waitForApplicationToLaunch()
 		MainScreen()
@@ -16,7 +16,7 @@ final class EntriesScreenUITests: BaseUITest {
 		SoftAssert.shared.checkForFailures()
 	}
 	
-	func testEntriesScreenDeleteEntry() throws {
+	func testEntriesScreenDeleteEntry() {
 		var cellID = ""
 		
 		Helpers()
@@ -24,7 +24,9 @@ final class EntriesScreenUITests: BaseUITest {
 		MainScreen()
 			.tapEntriesTabBarButton()
 		EntriesScreen()
-			.deleteFirstEntry(&cellID)
+			.deleteFirstEntry { newValue in
+				cellID = newValue
+			}
 			.verifyEntryIsDeleted(odometerValue: cellID)
 		SoftAssert.shared.checkForFailures()
 	}
