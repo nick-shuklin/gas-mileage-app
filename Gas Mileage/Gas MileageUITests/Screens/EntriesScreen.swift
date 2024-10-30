@@ -25,6 +25,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Strings
 	private let failureMessageAddOn = "'Entries Screen'"
 	
+	@discardableResult
 	init() {
 		assertScreenIsDisplayed()
 	}
@@ -33,6 +34,10 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		runActivity(.screen, "Then verify \(failureMessageAddOn) is loaded") {
 			XCTAssert(entriesTabView.wait(for: .long),
 					  "\(err) \(failureMessageAddOn) is NOT displayed because 'Entries Tab View' is NOT displayed")
+			XCTAssert(addEntryButton.wait(for: .short),
+					  "\(err) \(failureMessageAddOn) is NOT displayed because 'Add entry' button is NOT displayed")
+			XCTAssert(addEntryButton.wait(state: .hittable, for: .short),
+					  "\(err) \(failureMessageAddOn) is NOT displayed because 'Add entry' button is NOT hittable")
 		}
 	}
 	
@@ -86,6 +91,34 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		return self
 	}
 	
+	@discardableResult
+	func deleteFirstEntry(assignValue: ((String) -> Void)? = nil) -> Self {
+		runActivity(.step, "Then delete first entry in a list") {
+			guard app.cells.firstMatch.exists else {
+				print("No entries available to delete")
+				return
+			}
+
+			var odometerReading = ""
+			let firstCell = app.cells.firstMatch
+			let logoElement = firstCell.images.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryLogoPrefix.rawValue)).firstMatch
+			SoftAssert.shared.assert(logoElement.wait(), "Logo image not found in the first cell")
+
+			if let identifier = logoElement.identifier.split(separator: "_").last {
+				odometerReading = String(identifier)
+				assignValue?(odometerReading) // Assign only if the closure is provided
+			} else {
+				XCTFail("Failed to extract odometer value from the identifier")
+			}
+
+			editEntryButton.tapElement()
+			removeImage.tapElement()
+			deleteCellButton.tapElement()
+			editEntryButton.tapElement()
+		}
+		return self
+	}
+	
 	// MARK: - Assertions
 	@discardableResult
 	func verifyAllStaticElements() -> Self {
@@ -126,6 +159,22 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	// MARK: - Helper methods
+	func getOdometerFromFirstEntry(_ odometerValue: inout String) -> Self {
+		runActivity(.step, "Get the odometer reading from the first entry in the list") {
+			guard let firstEntry = entryNavigationLinks.first as? XCUIElement else {
+				return odometerValue = String(1)
+			}
+
+			// Extracting the odometer reading from the accessibility ID postfix
+			if let identifier = firstEntry.identifier.split(separator: "_").last {
+				return odometerValue = String(identifier)
+			} else {
+				XCTFail("Failed to extract odometer reading from the first entry's accessibility identifier")
+			}
+		}
+		return self
+	}
+	
 	private var dateFormatter: DateFormatter {
 		let formatter = DateFormatter()
 		formatter.locale = Locale(identifier: activeLocale)
