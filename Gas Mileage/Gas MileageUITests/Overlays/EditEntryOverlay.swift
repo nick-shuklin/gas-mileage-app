@@ -42,7 +42,7 @@ class EditEntryOverlay: BaseScreen {
 	@discardableResult
 	func tapCancelButton() -> Self {
 		runActivity(.step, "Then tap 'Cancel' navigation bar button") {
-			cancelButton.tapElement()
+			cancelAlertButton.tapElement()
 		}
 		return self
 	}
@@ -131,9 +131,14 @@ class EditEntryOverlay: BaseScreen {
 	}
 	
 	@discardableResult
-	func verifyAlertIsNOTdisplayed() -> Self {
-		runActivity(.assert, "Then verify alert is NOT displayed on \(failureMessageAddOn)") {
-			XCTAssert(alert.wait(result: false, for: .short), "Alert is displayed on \(failureMessageAddOn)")
+	func verifyAlert(isDisplayed: Bool) -> Self {
+		let actionDescription = isDisplayed ? "NOT displayed" : "displayed"
+		runActivity(.assert, "Then verify alert is \(actionDescription) on \(failureMessageAddOn)") {
+			if isDisplayed {
+				SoftAssert.shared.assert(alert.wait(for: .short), "Alert is \(actionDescription) on \(failureMessageAddOn)")
+			} else {
+				SoftAssert.shared.assert(alert.wait(result: false, for: .short), "Alert is \(actionDescription) on \(failureMessageAddOn)")
+			}
 		}
 		return self
 	}
