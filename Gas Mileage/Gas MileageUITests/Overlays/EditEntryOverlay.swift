@@ -3,20 +3,21 @@ import XCTest
 
 class EditEntryOverlay: BaseScreen {
 	// MARK: - Static Screen Elements (in order top to the bottom, left to right how they displayed on the screen)
-	private lazy var cancelButton = app.buttons[AccIDs.EditEntryOverlay.cancelButton.rawValue].firstMatch
-	private lazy var navigationBarText = app.staticTexts[AccIDs.EditEntryOverlay.title.rawValue].firstMatch
-	private lazy var saveEntryButton = app.buttons[AccIDs.EditEntryOverlay.saveButton.rawValue].firstMatch
-	private lazy var fillupDatePicker = app.datePickers[AccIDs.EditEntryOverlay.fillUpDatePicker.rawValue].firstMatch
-	private lazy var gasStationNamePicker = app.buttons[AccIDs.EditEntryOverlay.gasStationPicker.rawValue].firstMatch
-	private lazy var odometerText = app.staticTexts[AccIDs.EditEntryOverlay.odometerText.rawValue].firstMatch
-	private lazy var odometerTextField = app.staticTexts[AccIDs.EditEntryOverlay.odometerTextfield.rawValue].firstMatch
-	private lazy var totalText = app.staticTexts[AccIDs.EditEntryOverlay.totalText.rawValue].firstMatch
-	private lazy var totalTextField = app.staticTexts[AccIDs.EditEntryOverlay.totalTextfield.rawValue].firstMatch
-	private lazy var priceText = app.staticTexts[AccIDs.EditEntryOverlay.priceText.rawValue].firstMatch
-	private lazy var priceTextField = app.staticTexts[AccIDs.EditEntryOverlay.priceTextfield.rawValue].firstMatch
-	private lazy var volumeText = app.staticTexts[AccIDs.EditEntryOverlay.volumeText.rawValue].firstMatch
-	private lazy var volumeTextField = app.staticTexts[AccIDs.EditEntryOverlay.volumeTextfield.rawValue].firstMatch
-	private lazy var tankFilledToggle = app.switches[AccIDs.EditEntryOverlay.tankFilledToggle.rawValue].firstMatch
+	private lazy var editEntryMainView = app.otherElements[AccIDs.EditEntryOverlay.editEntryMainView.rawValue].firstMatch
+	private lazy var cancelButton = editEntryMainView.buttons[AccIDs.EditEntryOverlay.cancelButton.rawValue].firstMatch
+	private lazy var navigationBarText = editEntryMainView.staticTexts[AccIDs.EditEntryOverlay.title.rawValue].firstMatch
+	private lazy var saveEntryButton = editEntryMainView.buttons[AccIDs.EditEntryOverlay.saveButton.rawValue].firstMatch
+	private lazy var fillupDatePicker = editEntryMainView.datePickers[AccIDs.EditEntryOverlay.fillUpDatePicker.rawValue].firstMatch
+	private lazy var gasStationNamePicker = editEntryMainView.buttons[AccIDs.EditEntryOverlay.gasStationPicker.rawValue].firstMatch
+	private lazy var odometerText = editEntryMainView.staticTexts[AccIDs.EditEntryOverlay.odometerText.rawValue].firstMatch
+	private lazy var odometerTextField = editEntryMainView.textFields[AccIDs.EditEntryOverlay.odometerTextfield.rawValue].firstMatch
+	private lazy var totalText = editEntryMainView.staticTexts[AccIDs.EditEntryOverlay.totalText.rawValue].firstMatch
+	private lazy var totalTextField = editEntryMainView.textFields[AccIDs.EditEntryOverlay.totalTextfield.rawValue].firstMatch
+	private lazy var priceText = editEntryMainView.staticTexts[AccIDs.EditEntryOverlay.priceText.rawValue].firstMatch
+	private lazy var priceTextField = editEntryMainView.textFields[AccIDs.EditEntryOverlay.priceTextfield.rawValue].firstMatch
+	private lazy var volumeText = editEntryMainView.staticTexts[AccIDs.EditEntryOverlay.volumeText.rawValue].firstMatch
+	private lazy var volumeTextField = editEntryMainView.textFields[AccIDs.EditEntryOverlay.volumeTextfield.rawValue].firstMatch
+	private lazy var tankFilledToggle = editEntryMainView.switches[AccIDs.EditEntryOverlay.tankFilledToggle.rawValue].firstMatch
 	
 	// MARK: - Dynamic Screen Element
 	
