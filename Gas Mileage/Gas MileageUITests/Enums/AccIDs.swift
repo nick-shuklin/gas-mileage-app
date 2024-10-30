@@ -51,6 +51,9 @@ enum AccIDs {
 		case volumeText = "volume_text"
 		case volumeTextfield = "volume_textfield"
 		case tankFilledToggle = "tank_filled_toggle"
+		case okAlertButton = "data_is_not_correct_alert_ok_button"
+		case cancelAlertButton = "data_is_not_correct_alert_cancel_button"
+		case alertMessage = "data_is_not_correct_alert_message"
 	}
 	
 	enum TabBar: String {
