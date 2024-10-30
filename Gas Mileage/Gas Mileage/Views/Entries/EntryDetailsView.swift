@@ -48,6 +48,7 @@ struct EntryDetailsView: View {
 				.accessibilityIdentifier("edit_button")
 				.sheet(isPresented: $showEditEntryView) {
 					EditEntryView(entry: item)
+						.accessibilityIdentifier("navigation_bar_edit_entry")
 				}
 			}
 		}

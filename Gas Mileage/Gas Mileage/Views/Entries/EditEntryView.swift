@@ -67,7 +67,7 @@ struct EditEntryView: View {
 						}
 					}
 					.disabled(odometer.isEmpty)
-					.accessibilityIdentifier("title")
+					.accessibilityIdentifier("save_button")
 				}
 			}
 			.onAppear {

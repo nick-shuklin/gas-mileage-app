@@ -31,6 +31,7 @@ struct ListOfEntriesTab: View {
 					addEntryButton
 						.sheet(isPresented: $showEditEntryView) {
 							EditEntryView(entry: nil)
+								.accessibilityIdentifier("navigation_bar_edit_entry")
 						}
 				}
 				
