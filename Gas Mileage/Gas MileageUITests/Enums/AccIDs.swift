@@ -35,6 +35,23 @@ enum AccIDs {
 		case tankFilledToggle = "tank_filled_toggle"
 	}
 	
+	enum EditEntryOverlay: String {
+		case cancelButton = "cancel_button"
+		case title = "title"
+		case saveButton = "save_button"
+		case fillUpDatePicker = "fill_up_date_picker"
+		case gasStationPicker = "gas_station_picker"
+		case odometerText = "odometer_text"
+		case odometerTextfield = "odometer_textfield"
+		case totalText = "total_text"
+		case totalTextfield = "total_textfield"
+		case priceText = "price_text"
+		case priceTextfield = "price_textfield"
+		case volumeText = "volume_text"
+		case volumeTextfield = "volume_textfield"
+		case tankFilledToggle = "tank_filled_toggle"
+	}
+	
 	enum TabBar: String {
 		case mainTabBarButton = "house"
 		case entriesTabBarButton = "fuelpump"
