@@ -1,7 +1,7 @@
 import Foundation
 import XCTest
 
-class EntryDetailsScreen: BaseScreen, TabBarProtocol {
+class EntryDetailsScreen: BaseScreen {
 	// MARK: - Static Screen Elements (in order top to the bottom, left to right how they displayed on the screen)
 	private lazy var backButton = app.buttons[LocalizedString.string(forKey: "List of entries")].firstMatch
 	private lazy var navigationBarText = app.staticTexts[LocalizedString.string(forKey: "Entry details")].firstMatch

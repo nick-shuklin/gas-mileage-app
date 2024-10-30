@@ -1,7 +1,7 @@
 import Foundation
 import XCTest
 
-class EditEntryOverlay: BaseScreen, TabBarProtocol {
+class EditEntryOverlay: BaseScreen {
 	// MARK: - Static Screen Elements (in order top to the bottom, left to right how they displayed on the screen)
 	private lazy var cancelButton = app.buttons[AccIDs.EditEntryOverlay.cancelButton.rawValue].firstMatch
 	private lazy var navigationBarText = app.staticTexts[AccIDs.EditEntryOverlay.title.rawValue].firstMatch
