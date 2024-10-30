@@ -17,16 +17,21 @@ struct EntryDetailsView: View {
 			
 			Section {
 				VStack {
-					DetailRow(label: "Odometer", value: "\(item.odometer) miles")
-						.accessibilityIdentifier("odometer")
-					DetailRow(label: "Total", value: "$\(item.total.roundTo(places: 2))")
-						.accessibilityIdentifier("total")
-					DetailRow(label: "Price", value: "$\(item.gasPrice.roundTo(places: 2)) per gal")
-						.accessibilityIdentifier("price")
-					DetailRow(label: "Volume", value: "\(item.volume.roundTo(places: 2)) gal")
-						.accessibilityIdentifier("volume")
-					DetailRow(label: "Gas mileage", value: "\(item.gasMileage.roundTo(places: 2)) mpg")
-						.accessibilityIdentifier("gas_mileage")
+					DetailRow(label: Text("Odometer"),
+							  value: Text("\(item.odometer) miles"))
+					.accessibilityIdentifier("odometer")
+					DetailRow(label: Text("Total"),
+							  value: Text("$\(item.total.roundTo(places: 2))"))
+					.accessibilityIdentifier("total")
+					DetailRow(label: Text("Price"),
+							  value: Text("$\(item.gasPrice.roundTo(places: 2)) per gal"))
+					.accessibilityIdentifier("price")
+					DetailRow(label: Text("Volume"),
+							  value: Text("\(item.volume.roundTo(places: 2)) gal"))
+					.accessibilityIdentifier("volume")
+					DetailRow(label: Text("Gas mileage"),
+							  value: Text("\(item.gasMileage.roundTo(places: 2)) mpg"))
+					.accessibilityIdentifier("gas_mileage")
 				}
 			}
 			
@@ -66,14 +71,14 @@ struct EntryDetailsView: View {
 }
 
 struct DetailRow: View {
-	let label: String
-	let value: String
+	let label: Text
+	let value: Text
 
 	var body: some View {
 		HStack {
-			Text(label)
+			label
 			Spacer()
-			Text(value)
+			value
 		}
 	}
 }
