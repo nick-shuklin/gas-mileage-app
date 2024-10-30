@@ -65,6 +65,34 @@ extension XCUIElement {
 		}
 	}
 	
+	/// Attempts to type the specified text into the current element, ensuring it gains focus before typing.
+	///
+	/// This method repeatedly taps the element up to five times to gain focus. If the element does not
+	/// gain focus after five attempts, the method fails the test with an appropriate error message.
+	///
+	/// - Parameter text: The text to type into the element.
+	/// - Important: This method assumes that the element needs to be focused (or selected) before typing.
+	/// - Precondition: The element must be tappable and able to receive focus.
+	/// - Postcondition: The specified text is typed into the element if it successfully gains focus.
+	///
+	/// - Warning: If the element fails to gain focus after five attempts, the test will fail with an error message.
+	func typeHere(_ text: String) {
+		for _ in 0..<5 {
+			if !isSelected {
+				tap()
+			} else {
+				break
+			}
+		}
+
+		guard isSelected else {
+			XCTFail("Failed to gain focus for typing after 5 attempts")
+			return
+		}
+
+		typeText(text)
+	}
+	
 	/// Retrieves the value of the `XCUIElement` as a `String`.
 	///
 	/// This method attempts to cast the element’s value to a `String`. If the cast is successful, the method returns the string representation of the element’s value. If the cast fails, the method returns an empty string.
