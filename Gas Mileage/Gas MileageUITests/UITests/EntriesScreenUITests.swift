@@ -27,7 +27,8 @@ final class EntriesScreenUITests: BaseUITest {
 			.deleteFirstEntry { newValue in
 				cellID = newValue
 			}
-			.verifyEntryIsDeleted(odometerValue: cellID)
+			.verifyEntry(isDeleted: true,
+						 odometerValue: cellID)
 		SoftAssert.shared.checkForFailures()
 	}
 }

@@ -4,7 +4,7 @@ import Foundation
 final class EditEntryScreenUITests: BaseUITest {
 
 	// MARK: Test methods	
-	func testEditEntryAllElementsVerification() throws {
+	func testEditEntryAllElementsVerification() {
 		Helpers()
 			.waitForApplicationToLaunch()
 		MainScreen()
