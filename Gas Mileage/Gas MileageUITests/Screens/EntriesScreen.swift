@@ -134,18 +134,16 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	@discardableResult
-	func verifyEntry(isDeleted: Bool,
+	func verifyEntry(isDisplayed: Bool,
 					 odometerValue: String) -> Self {
-		let actionDescription = isDeleted ? "not displayed" : "displayed"
+		let actionDescription = isDisplayed ? "not displayed" : "displayed"
 		runActivity(.step, "Then verify entry with odometer '\(odometerValue)' is \(actionDescription)") {
 			let image = app.images.containing(NSPredicate(format: "identifier CONTAINS %@", odometerValue)).firstMatch
-			let entryExists = image.wait(for: .short)
 			
-			if isDeleted {
-				// Check if the entry does not exist
-				SoftAssert.shared.assert(image.wait(result: false, for: .short), "Entry with odometer '\(odometerValue)' is still visible after deletion")
-			} else {
+			if isDisplayed {
 				SoftAssert.shared.assert(image.wait(for: .short), "Entry with odometer '\(odometerValue)' is not visible as expected")
+			} else {
+				SoftAssert.shared.assert(image.wait(result: false, for: .short), "Entry with odometer '\(odometerValue)' is still visible")
 			}
 		}
 		return self
