@@ -1,16 +1,11 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%lld km" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld км"
-          }
-        }
-      }
+    "%lf gal" : {
+
+    },
+    "%lf mpg" : {
+
     },
     "%lld miles" : {
       "localizations" : {
@@ -21,6 +16,12 @@
           }
         }
       }
+    },
+    "$%lf" : {
+
+    },
+    "$%lf per gal" : {
+
     },
     "3M" : {
       "localizations" : {
@@ -147,17 +148,6 @@
         }
       }
     },
-    "Confirm" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Подтвердить"
-          }
-        }
-      }
-    },
     "Date" : {
       "localizations" : {
         "ru" : {
@@ -198,16 +188,6 @@
         }
       }
     },
-    "Enter volume in gallons" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Введите объем в галлонах"
-          }
-        }
-      }
-    },
     "Entries" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -239,34 +219,12 @@
         }
       }
     },
-    "Full" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Полный"
-          }
-        }
-      }
-    },
     "Gas mileage" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Расход"
-          }
-        }
-      }
-    },
-    "Gas mileage chart" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "График расхода"
           }
         }
       }
@@ -312,17 +270,6 @@
         }
       }
     },
-    "Logo" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Лого"
-          }
-        }
-      }
-    },
     "Main" : {
       "localizations" : {
         "ru" : {
@@ -343,16 +290,8 @@
         }
       }
     },
-    "miles per gallon" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "миль на галлон"
-          }
-        }
-      }
+    "mi." : {
+
     },
     "Month" : {
       "localizations" : {
@@ -445,6 +384,9 @@
           }
         }
       }
+    },
+    "Tank filled up?" : {
+
     },
     "To forcefully recalculate each entry gas mileage data turn on toggle above and wait until it automatically turns back off" : {
       "localizations" : {
