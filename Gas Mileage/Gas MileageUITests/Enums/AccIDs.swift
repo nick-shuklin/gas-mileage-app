@@ -36,6 +36,7 @@ enum AccIDs {
 	}
 	
 	enum EditEntryOverlay: String {
+		case editEntryMainView = "navigation_bar_edit_entry"
 		case cancelButton = "cancel_button"
 		case title = "title"
 		case saveButton = "save_button"
