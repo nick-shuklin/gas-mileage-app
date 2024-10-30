@@ -20,6 +20,9 @@ class EditEntryOverlay: BaseScreen {
 	private lazy var tankFilledToggle = editEntryMainView.switches[AccIDs.EditEntryOverlay.tankFilledToggle.rawValue].firstMatch
 	
 	// MARK: - Dynamic Screen Element
+	private lazy var alert = app.alerts.firstMatch
+	private lazy var okAlertButton = alert.buttons[AccIDs.EditEntryOverlay.okAlertButton.rawValue].firstMatch
+	private lazy var cancelAlertButton = alert.buttons[AccIDs.EditEntryOverlay.cancelAlertButton.rawValue].firstMatch
 	
 	// MARK: - Strings
 	private let failureMessageAddOn = "'Edit entry' overlay"
@@ -53,9 +56,38 @@ class EditEntryOverlay: BaseScreen {
 	}
 	
 	@discardableResult
+	func tapAlertOkButton() -> Self {
+		runActivity(.step, "Then tap 'OK' alert button") {
+			okAlertButton.tapElement()
+		}
+		return self
+	}
+	
+	@discardableResult
+	func tapAlertCancelButton() -> Self {
+		runActivity(.step, "Then tap 'Cancel' alert button") {
+			cancelAlertButton.tapElement()
+		}
+		return self
+	}
+	
+	@discardableResult
 	func tapOnTankFilledToggle() -> Self {
 		runActivity(.step, "Then tap 'Tank Filled' toggle") {
 			tankFilledToggle.tapElement()
+		}
+		return self
+	}
+	
+	@discardableResult
+	func typeInAllFields(odometer: String,
+						 total: String,
+						 price: String,
+						 volume: String) -> Self {
+		runActivity(.step, "Then type in data to each text fields") {
+			odometerTextField.typeHere(odometer)
+			totalTextField.typeHere(total)
+			priceTextField.typeHere(price)
 		}
 		return self
 	}
@@ -94,6 +126,14 @@ class EditEntryOverlay: BaseScreen {
 									 "'Volume' text field doesn't exists on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(tankFilledToggle.wait(),
 									 "'Tank filled up?' toggle doesn't exists on \(failureMessageAddOn)")
+		}
+		return self
+	}
+	
+	@discardableResult
+	func verifyAlertIsNOTdisplayed() -> Self {
+		runActivity(.assert, "Then verify alert is NOT displayed on \(failureMessageAddOn)") {
+			XCTAssert(alert.wait(result: false, for: .short), "Alert is displayed on \(failureMessageAddOn)")
 		}
 		return self
 	}
