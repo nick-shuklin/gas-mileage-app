@@ -8,10 +8,10 @@ struct EditEntryView: View {
 
 	@State private var odometer: String = "4100"
 	@State private var fillUpDate: Date = Date()
-	@State private var total: Double = 45.0
-	@State private var gasPrice: Double = 3.0
-	@State private var volume: Double = 15.0
-	@State private var gasMileage = 0.0
+	@State private var total: Double = 45.00
+	@State private var gasPrice: Double = 3.00
+	@State private var volume: Double = 15.00
+	@State private var gasMileage = 1.00
 	@State private var isFilledUp: Bool = true
 	@State private var selectedGasStationName: GasFillEntry.GasStationName = .chevron
 	@State private var showAlert: Bool = false
@@ -187,6 +187,11 @@ struct EntryDataSection: View {
 	@Binding var volume: Double
 	@Binding var isFilledUp: Bool
 	@FocusState var isOdometerFieldFocused: Bool
+	@FocusState var isTotalFieldFocused: Bool
+	@FocusState var isPriceFieldFocused: Bool
+	@FocusState var isVolumeFieldFocused: Bool
+	@State private var totalString: String = "45.00"
+	@State private var priceString: String = "3.00"
 
 	var body: some View {
 		Section {
@@ -207,9 +212,9 @@ struct EntryDataSection: View {
 								odometer = ""
 							}
 						}
+						.accessibilityAddTraits(isOdometerFieldFocused ? .isSelected : [])
 						.multilineTextAlignment(.trailing)
 						.accessibilityIdentifier("odometer_textfield")
-						.accessibilityAddTraits(isOdometerFieldFocused ? .isSelected : [])
 					Text("mi.")
 				}
 
@@ -217,15 +222,27 @@ struct EntryDataSection: View {
 					Text("Total")
 						.accessibilityIdentifier("total_text")
 					Spacer()
-					TextField("Total",
-							  value: $total,
-							  formatter: EditEntryView.nf.totalFormat())
+					TextField("Total", text: $totalString)
 						.keyboardType(.decimalPad)
-						.onChange(of: total) { oldValue, newValue in
-							if newValue < 0 {
-								total = oldValue  // Prevent negative values
+						.focused($isTotalFieldFocused) // Binding the focus state
+						.onChange(of: isTotalFieldFocused) { _, focused in
+							if focused {
+								totalString = ""
+							} else {
+								if let doubleValue = Double(totalString), doubleValue >= 0 {
+									total = doubleValue
+								} else {
+									total = 1.00
+								}
+								totalString = String(format: "%.2f", total)
 							}
 						}
+						.onChange(of: totalString) {_,  newValue in
+							if let doubleValue = Double(newValue), doubleValue >= 0 {
+								total = doubleValue
+							}
+						}
+						.accessibilityAddTraits(isTotalFieldFocused ? .isSelected : [])
 						.multilineTextAlignment(.trailing)
 						.accessibilityIdentifier("total_textfield")
 				}
@@ -234,18 +251,31 @@ struct EntryDataSection: View {
 					Text("Price")
 						.accessibilityIdentifier("price_text")
 					Spacer()
-					TextField("Price",
-							  value: $gasPrice,
-							  formatter: EditEntryView.nf.priceFormat())
+					TextField("Price", text: $priceString)
 						.keyboardType(.decimalPad)
-						.onChange(of: gasPrice) { oldValue, newValue in
-							if newValue < 1 {
-								gasPrice = oldValue  // Prevent negative values
-							}
-							if newValue >= 1 && newValue < 10 {
-								volume = (total / gasPrice).roundTo(places: 2)
+						.focused($isPriceFieldFocused) // Binding the focus state
+						.onChange(of: isPriceFieldFocused) { _, focused in
+							if focused {
+								priceString = ""
+							} else {
+								if let doubleValue = Double(priceString), doubleValue >= 1 {
+									gasPrice = doubleValue
+								} else {
+									gasPrice = 1.00
+								}
+								priceString = String(format: "%.2f", gasPrice)
 							}
 						}
+						.onChange(of: priceString) {_, newValue in
+							// Update the Double value based on user input while typing
+							if let doubleValue = Double(newValue), doubleValue >= 1 {
+								gasPrice = doubleValue
+								if gasPrice >= 1 && gasPrice < 10 {
+									volume = (total / gasPrice).roundTo(places: 2)
+								}
+							}
+						}
+						.accessibilityAddTraits(isPriceFieldFocused ? .isSelected : [])
 						.multilineTextAlignment(.trailing)
 						.accessibilityIdentifier("price_textfield")
 				}
@@ -258,6 +288,7 @@ struct EntryDataSection: View {
 							  value: $volume,
 							  formatter: EditEntryView.nf.totalFormat())
 						.keyboardType(.decimalPad)
+						.focused($isVolumeFieldFocused)
 						.onChange(of: volume) { oldValue, newValue in
 							if newValue < 1 {
 								volume = oldValue
@@ -266,6 +297,7 @@ struct EntryDataSection: View {
 								total = (volume * gasPrice).roundTo(places: 2)
 							}
 						}
+						.accessibilityAddTraits(isVolumeFieldFocused ? .isSelected : [])
 						.multilineTextAlignment(.trailing)
 						.accessibilityIdentifier("volume_textfield")
 				}
