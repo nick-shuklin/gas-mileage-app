@@ -5,60 +5,23 @@ class EditEntryOverlay: BaseScreen, TabBarProtocol {
 	// MARK: - Static Screen Elements (in order top to the bottom, left to right how they displayed on the screen)
 	private lazy var cancelButton = app.buttons[AccIDs.EditEntryOverlay.cancelButton.rawValue].firstMatch
 	private lazy var navigationBarText = app.staticTexts[AccIDs.EditEntryOverlay.title.rawValue].firstMatch
-	private lazy var editEntryButton = app.buttons[AccIDs.EntriesScreen.editEntryButton.rawValue].firstMatch
-	private lazy var fillupDateText = app.staticTexts[AccIDs.EntryDetailsView.fillupDateText.rawValue].firstMatch
-//	private lazy var gasStationNameText = app.staticTexts[AccIDs.EntryDetailsView.gasStationNameText.rawValue].firstMatch
-//	private var odometerText: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.odometer.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.first
-//	}
-//	private var odometerData: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.odometer.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.last
-//	}
-//	private var totalText: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.total.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.first
-//	}
-//	private var totalData: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.total.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.last
-//	}
-//	private var priceText: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.price.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.first
-//	}
-//	private var priceData: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.price.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.last
-//	}
-//	private var volumeText: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.volume.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.first
-//	}
-//	private var volumeData: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.volume.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.last
-//	}
-//	private var gasMileageText: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.gasMileage.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.first
-//	}
-//	private var gasMileageData: XCUIElement? {
-//		let predicate = NSPredicate(format: "identifier CONTAINS[c] %@", AccIDs.EntryDetailsView.gasMileage.rawValue)
-//		return app.staticTexts.matching(predicate).allElementsBoundByIndex.last
-//	}
-//	private lazy var tankFilledToggle = app.switches[AccIDs.EntryDetailsView.tankFilledToggle.rawValue].firstMatch
+	private lazy var saveEntryButton = app.buttons[AccIDs.EditEntryOverlay.saveButton.rawValue].firstMatch
+	private lazy var fillupDatePicker = app.datePickers[AccIDs.EditEntryOverlay.fillUpDatePicker.rawValue].firstMatch
+	private lazy var gasStationNamePicker = app.buttons[AccIDs.EditEntryOverlay.gasStationPicker.rawValue].firstMatch
+	private lazy var odometerText = app.staticTexts[AccIDs.EditEntryOverlay.odometerText.rawValue].firstMatch
+	private lazy var odometerTextField = app.staticTexts[AccIDs.EditEntryOverlay.odometerTextfield.rawValue].firstMatch
+	private lazy var totalText = app.staticTexts[AccIDs.EditEntryOverlay.totalText.rawValue].firstMatch
+	private lazy var totalTextField = app.staticTexts[AccIDs.EditEntryOverlay.totalTextfield.rawValue].firstMatch
+	private lazy var priceText = app.staticTexts[AccIDs.EditEntryOverlay.priceText.rawValue].firstMatch
+	private lazy var priceTextField = app.staticTexts[AccIDs.EditEntryOverlay.priceTextfield.rawValue].firstMatch
+	private lazy var volumeText = app.staticTexts[AccIDs.EditEntryOverlay.volumeText.rawValue].firstMatch
+	private lazy var volumeTextField = app.staticTexts[AccIDs.EditEntryOverlay.volumeTextfield.rawValue].firstMatch
+	private lazy var tankFilledToggle = app.switches[AccIDs.EditEntryOverlay.tankFilledToggle.rawValue].firstMatch
 	
 	// MARK: - Dynamic Screen Element
 	
 	// MARK: - Strings
 	private let failureMessageAddOn = "'Edit entry' overlay"
-//	private let odometerTextLabel = LocalizedString.string(forKey: AccIDs.EntryDetailsView.odometer.rawValue)
-//	private let totalTextLabel = LocalizedString.string(forKey: AccIDs.EntryDetailsView.total.rawValue)
-//	private let priceTextLabel = LocalizedString.string(forKey: AccIDs.EntryDetailsView.price.rawValue)
-//	private let volumeTextLabel = LocalizedString.string(forKey: AccIDs.EntryDetailsView.volume.rawValue)
-//	private let gasMileageTextLabel = LocalizedString.string(forKey: AccIDs.EntryDetailsView.gasMileage.rawValue)
 	
 	init() {
 		assertScreenIsDisplayed()
@@ -73,17 +36,17 @@ class EditEntryOverlay: BaseScreen, TabBarProtocol {
 	
 	// MARK: - Navigation & UI Interactions
 	@discardableResult
-	func tapBackButton() -> Self {
-		runActivity(.step, "Then tap 'Back' navigation bar button") {
-			backButton.tapElement()
+	func tapCancelButton() -> Self {
+		runActivity(.step, "Then tap 'Cancel' navigation bar button") {
+			cancelButton.tapElement()
 		}
 		return self
 	}
 	
 	@discardableResult
-	func tapEditEntryButton() -> Self {
-		runActivity(.step, "Then tap 'Edit entry' navigation bar button") {
-			editEntryButton.tapElement()
+	func tapSaveEntryButton() -> Self {
+		runActivity(.step, "Then tap 'Save entry' navigation bar button") {
+			saveEntryButton.tapElement()
 		}
 		return self
 	}
@@ -97,54 +60,40 @@ class EditEntryOverlay: BaseScreen, TabBarProtocol {
 	}
 	
 	// MARK: - Assertions
-//	@discardableResult
-//	func verifyAllStaticElements() -> Self {
-//		runActivity(.assert, "Then verify all static elements exists and labels match on \(failureMessageAddOn)") {
-//			SoftAssert.shared.assert(navigationBarText.wait(),
-//									 "'List of entries' text doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(backButton.wait(),
-//									 "'Back' button doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(editEntryButton.wait(),
-//									 "'Edit entry' button doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(listView.wait(),
-//									 "'Collection' view doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(fillupDateText.wait(),
-//									 "'Fill up date' text doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(gasStationNameText.wait(),
-//									 "Gas station name text doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((odometerText?.wait()) != nil),
-//									 "'Odometer' text doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assertEqual(odometerText?.label, odometerTextLabel,
-//					  "label does NOT match on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((odometerData?.wait()) != nil),
-//									 "'Odometer' data doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((totalText?.wait()) != nil),
-//									 "'Total' text doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assertEqual(totalText?.label, totalTextLabel,
-//					  "label does NOT match on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((totalData?.wait()) != nil),
-//									 "'Total' data doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((priceText?.wait()) != nil),
-//									 "'Price' text doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assertEqual(priceText?.label, priceTextLabel,
-//					  "label does NOT match on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((priceData?.wait()) != nil),
-//									 "'Price' data doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((volumeText?.wait()) != nil),
-//									 "'Volume' text doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assertEqual(volumeText?.label, volumeTextLabel,
-//					  "label does NOT match on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((volumeData?.wait()) != nil),
-//									 "'Volume' data doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((gasMileageText?.wait()) != nil),
-//									 "'Gas mileage' text doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assertEqual(gasMileageText?.label, gasMileageTextLabel,
-//					  "label does NOT match on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(((gasMileageData?.wait()) != nil),
-//									 "'Gas mileage' data doesn't exists on \(failureMessageAddOn)")
-//			SoftAssert.shared.assert(tankFilledToggle.wait(),
-//									 "'Tank filled up?' toggle doesn't exists on \(failureMessageAddOn)")
-//		}
-//		return self
-//	}
+	@discardableResult
+	func verifyAllStaticElements() -> Self {
+		runActivity(.assert, "Then verify all static elements exists and labels match on \(failureMessageAddOn)") {
+			SoftAssert.shared.assert(cancelButton.wait(),
+									 "'Cancel' button doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(navigationBarText.wait(),
+									 "Title text doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(saveEntryButton.wait(),
+									 "'Save' button doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(fillupDatePicker.wait(),
+									 "'Fill Up Date' picker doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(gasStationNamePicker.wait(),
+									 "'Gas Station Name' picker doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(odometerText.wait(),
+									 "'Odometer' text doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(odometerTextField.wait(),
+									 "'Odometer' text field doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(totalText.wait(),
+									 "'Total' text doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(totalTextField.wait(),
+									 "'Total' text field doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(priceText.wait(),
+									 "'Price' text doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(priceTextField.wait(),
+									 "'Price' text field doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(volumeText.wait(),
+									 "'Volume' text doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(volumeTextField.wait(),
+									 "'Volume' text field doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(tankFilledToggle.wait(),
+									 "'Volume' text field doesn't exists on \(failureMessageAddOn)")
+			SoftAssert.shared.assert(tankFilledToggle.wait(),
+									 "'Tank filled up?' toggle doesn't exists on \(failureMessageAddOn)")
+		}
+		return self
+	}
 }
