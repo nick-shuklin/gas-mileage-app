@@ -134,11 +134,19 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	@discardableResult
-	func verifyEntryIsDeleted(odometerValue: String) -> Self {
-		runActivity(.step, "Then verify entry with odometer '\(odometerValue)' is not displayed") {
+	func verifyEntry(isDeleted: Bool,
+					 odometerValue: String) -> Self {
+		let actionDescription = isDeleted ? "not displayed" : "displayed"
+		runActivity(.step, "Then verify entry with odometer '\(odometerValue)' is \(actionDescription)") {
 			let image = app.images.containing(NSPredicate(format: "identifier CONTAINS %@", odometerValue)).firstMatch
-			SoftAssert.shared.assert(image.wait(result: false),
-									 "Entry with odometer \(odometerValue) is still visible after deletion")
+			let entryExists = image.wait(for: .short)
+			
+			if isDeleted {
+				// Check if the entry does not exist
+				SoftAssert.shared.assert(image.wait(result: false, for: .short), "Entry with odometer '\(odometerValue)' is still visible after deletion")
+			} else {
+				SoftAssert.shared.assert(image.wait(for: .short), "Entry with odometer '\(odometerValue)' is not visible as expected")
+			}
 		}
 		return self
 	}
@@ -237,7 +245,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 			   // Pattern for Russian locale to match currency values with optional "per gal"
 			   pattern = #"^\$\d+(\.\d{1,2})?( per gal)?$"#
 		   }
-		validateTextWithRegex(pattern, text: currencyText, failureMessage: "Currency format is incorrect: \(currencyText)")
+		verifyTextWithRegex(pattern, text: currencyText, failureMessage: "Currency format is incorrect: \(currencyText)")
 	}
 
 	private func verifyOdometerFormat(_ odometerText: String) {
@@ -247,20 +255,20 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		} else {
 			pattern = #"^[\d\s,]+ миль$"#
 		}
-		validateTextWithRegex(pattern, text: odometerText, failureMessage: "Odometer format is incorrect: \(odometerText)")
+		verifyTextWithRegex(pattern, text: odometerText, failureMessage: "Odometer format is incorrect: \(odometerText)")
 	}
 
 	private func verifyMileageFormat(_ mileageText: String) {
 		let pattern = activeLocale == "en_US" ? #"^[\d.]+ mpg$"# : #"^[\d.]+ mpg$"#
-		validateTextWithRegex(pattern, text: mileageText, failureMessage: "Mileage format is incorrect: \(mileageText)")
+		verifyTextWithRegex(pattern, text: mileageText, failureMessage: "Mileage format is incorrect: \(mileageText)")
 	}
 
 	private func verifyVolumeFormat(_ volumeText: String) {
 		let pattern = activeLocale == "en_US" ? #"^[\d.]+ gal$"# : #"^[\d.]+ gal$"#
-		validateTextWithRegex(pattern, text: volumeText, failureMessage: "Volume format is incorrect: \(volumeText)")
+		verifyTextWithRegex(pattern, text: volumeText, failureMessage: "Volume format is incorrect: \(volumeText)")
 	}
 	
-	private func validateTextWithRegex(_ pattern: String,
+	private func verifyTextWithRegex(_ pattern: String,
 									   text: String,
 									   failureMessage: String) {
 		let regex = try! NSRegularExpression(pattern: pattern, options: [])
