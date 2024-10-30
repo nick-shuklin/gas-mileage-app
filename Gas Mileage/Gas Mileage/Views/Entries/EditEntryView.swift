@@ -75,12 +75,20 @@ struct EditEntryView: View {
 					loadEntry(entry)
 				}
 			}
-			.alert("Date is not correct", isPresented: $showAlert) {
+			.alert("Data is not correct", isPresented: $showAlert) {
+				Button("Cancel", role: .cancel) {
+					showAlert.toggle()
+					dismiss()
+				}
+				.accessibilityIdentifier("data_is_not_correct_alert_cancel_button")
+				
 				Button("Ok", role: .destructive) {
 					showAlert.toggle()
 				}
+				.accessibilityIdentifier("data_is_not_correct_alert_ok_button")
 			} message: {
 				Text("Please, check date or odometer reading")
+					.accessibilityIdentifier("data_is_not_correct_alert_message")
 			}
 		}
 	}
@@ -178,6 +186,7 @@ struct EntryDataSection: View {
 	@Binding var gasPrice: Double
 	@Binding var volume: Double
 	@Binding var isFilledUp: Bool
+	@FocusState var isOdometerFieldFocused: Bool
 
 	var body: some View {
 		Section {
@@ -186,13 +195,21 @@ struct EntryDataSection: View {
 					Text("Odometer")
 						.accessibilityIdentifier("odometer_text")
 					Spacer()
-					TextField("Odometer", text: $odometer)
+					TextField("Odometer",
+							  text: $odometer)
 						.keyboardType(.numberPad)
+						.focused($isOdometerFieldFocused)
 						.onChange(of: odometer) { _, newValue in
 							odometer = newValue.filter { $0.isNumber }
 						}
+						.onChange(of: isOdometerFieldFocused) {_, focused in
+							if focused {
+								odometer = ""
+							}
+						}
 						.multilineTextAlignment(.trailing)
 						.accessibilityIdentifier("odometer_textfield")
+						.accessibilityAddTraits(isOdometerFieldFocused ? .isSelected : [])
 					Text("mi.")
 				}
 
@@ -200,7 +217,9 @@ struct EntryDataSection: View {
 					Text("Total")
 						.accessibilityIdentifier("total_text")
 					Spacer()
-					TextField("Total", value: $total, formatter: EditEntryView.nf.totalFormat())
+					TextField("Total",
+							  value: $total,
+							  formatter: EditEntryView.nf.totalFormat())
 						.keyboardType(.decimalPad)
 						.onChange(of: total) { oldValue, newValue in
 							if newValue < 0 {
@@ -215,7 +234,9 @@ struct EntryDataSection: View {
 					Text("Price")
 						.accessibilityIdentifier("price_text")
 					Spacer()
-					TextField("Price", value: $gasPrice, formatter: EditEntryView.nf.priceFormat())
+					TextField("Price",
+							  value: $gasPrice,
+							  formatter: EditEntryView.nf.priceFormat())
 						.keyboardType(.decimalPad)
 						.onChange(of: gasPrice) { oldValue, newValue in
 							if newValue < 1 {
@@ -233,7 +254,9 @@ struct EntryDataSection: View {
 					Text("Volume")
 						.accessibilityIdentifier("volume_text")
 					Spacer()
-					TextField("Volume", value: $volume, formatter: EditEntryView.nf.totalFormat())
+					TextField("Volume",
+							  value: $volume,
+							  formatter: EditEntryView.nf.totalFormat())
 						.keyboardType(.decimalPad)
 						.onChange(of: volume) { oldValue, newValue in
 							if newValue < 1 {
