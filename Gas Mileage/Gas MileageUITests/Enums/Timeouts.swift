@@ -1,5 +1,6 @@
 import Foundation
 
+/// Predefined timeout intervals used for waiting in UI tests.
 enum Timeouts: TimeInterval {
 	case veryShort = 1
 	case short = 3
