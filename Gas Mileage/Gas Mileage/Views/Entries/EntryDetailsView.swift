@@ -7,93 +7,78 @@ struct EntryDetailsView: View {
 	@Binding var showTabBar: Bool
 	
 	var body: some View {
-		NavigationStack {
-			Form {
-				Section {
-					Text(item.fillUpDate, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-					Text(item.gasStationName.rawValue)
-				}
-				
-				Section {
-					VStack {
-						HStack {
-							Text("Odometer")
-							HStack(alignment: .lastTextBaseline) {
-								Spacer()
-								Text("\(item.odometer) miles")
-								Spacer()
-							}
-						}
-						
-						HStack {
-							Text("Total")
-							HStack(alignment: .lastTextBaseline) {
-								Spacer()
-								Text("$" + String(item.total.roundTo(places: 2)))
-								Spacer()
-							}
-						}
-						
-						HStack {
-							Text("Price")
-							HStack(alignment: .lastTextBaseline) {
-								Spacer()
-								Text("$" + String(item.gasPrice.roundTo(places: 2)) + " per gal")
-								Spacer()
-							}
-						}
-						
-						HStack {
-							Text("Volume")
-							HStack(alignment: .lastTextBaseline) {
-								Spacer()
-								Text(String(item.volume.roundTo(places: 2)) + " gal")
-								Spacer()
-							}
-						}
-						
-						HStack {
-							Text("Gas mileage")
-							HStack(alignment: .lastTextBaseline) {
-								Spacer()
-								Text(String(item.gasMileage.roundTo(places: 2)) + " mpg")
-								Spacer()
-							}
-						}
-					}
-				}
-				
-				Section {
-					Toggle(String("Tank filled up?"), isOn: $item.isFilledUp)
-					Toggle(String("Paid cash?"), isOn: $item.isPaidCash)
+		Form {
+			Section {
+				Text(item.fillUpDate, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+					.accessibilityIdentifier("fill_up_date")
+				Text(item.gasStationName.rawValue)
+					.accessibilityIdentifier("gas_station_name")
+			}
+			
+			Section {
+				VStack {
+					DetailRow(label: Text("Odometer"),
+							  value: Text("\(item.odometer) miles"))
+					.accessibilityIdentifier("odometer")
+					DetailRow(label: Text("Total"),
+							  value: Text("$\(item.total.roundTo(places: 2))"))
+					.accessibilityIdentifier("total")
+					DetailRow(label: Text("Price"),
+							  value: Text("$\(item.gasPrice.roundTo(places: 2)) per gal"))
+					.accessibilityIdentifier("price")
+					DetailRow(label: Text("Volume"),
+							  value: Text("\(item.volume.roundTo(places: 2)) gal"))
+					.accessibilityIdentifier("volume")
+					DetailRow(label: Text("Gas mileage"),
+							  value: Text("\(item.gasMileage.roundTo(places: 2)) mpg"))
+					.accessibilityIdentifier("gas_mileage")
 				}
 			}
-			.toolbar {
-				ToolbarItem(placement: .principal) {
-					Text("Entry details")
+			
+			Section {
+				Toggle(String("Tank filled up?"), isOn: $item.isFilledUp)
+					.accessibilityIdentifier("tank_filled_toggle")
+			}
+		}
+		.accessibilityIdentifier("list_view")
+		.navigationTitle("Entry details") // This approach vs ToolbarItem adds accID to NavigationBar
+		.toolbarTitleDisplayMode(.inline)
+		.toolbar {
+			ToolbarItem(placement: .topBarTrailing) {
+				Button {
+					showEditEntryView.toggle()
+				} label: {
+					Label("Edit", systemImage: "edit")
 				}
-				
-				ToolbarItem(placement: .automatic) {
-					Button {
-						showEditEntryView.toggle()
-					} label: {
-						Label("Edit", systemImage: "edit")
-					}
-					.sheet(isPresented: $showEditEntryView) {
-						EditEntryView(entry: item)
-					}
+				.accessibilityIdentifier("edit_button")
+				.sheet(isPresented: $showEditEntryView) {
+					EditEntryView(entry: item)
+						.accessibilityIdentifier("navigation_bar_edit_entry")
 				}
 			}
-			.onAppear {
-				withAnimation {
-					showTabBar.toggle()
-				}
+		}
+		.onAppear {
+			withAnimation {
+				showTabBar.toggle()
 			}
-			.onDisappear {
-				withAnimation {
-					showTabBar.toggle()
-				}
+		}
+		.onDisappear {
+			withAnimation {
+				showTabBar.toggle()
 			}
+		}
+	}
+}
+
+struct DetailRow: View {
+	let label: Text
+	let value: Text
+
+	var body: some View {
+		HStack {
+			label
+			Spacer()
+			value
 		}
 	}
 }

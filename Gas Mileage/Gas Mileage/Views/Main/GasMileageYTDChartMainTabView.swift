@@ -25,7 +25,7 @@ struct GasMileageYTDChartMainTabView: View {
 			.interpolationMethod(.catmullRom)
 		}
 		.chartXAxis {
-			AxisMarks(values: .stride(by: .day, count: 7)) { _ in
+			AxisMarks(values: .stride(by: .day, count: 14)) { _ in
 				AxisGridLine()
 				AxisTick()
 				AxisValueLabel(format: .dateTime.month().day(), centered: false)
@@ -34,5 +34,6 @@ struct GasMileageYTDChartMainTabView: View {
 		.chartYAxis {
 			AxisMarks(position: .leading, values: .automatic(desiredCount: 3))
 		}
+		.accessibilityIdentifier("ytd_chart_view")
 	}
 }
