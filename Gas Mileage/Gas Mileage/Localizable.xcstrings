@@ -148,22 +148,22 @@
         }
       }
     },
+    "Data is not correct" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Данные не верны"
+          }
+        }
+      }
+    },
     "Date" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дата"
-          }
-        }
-      }
-    },
-    "Date is not correct" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Дата не верна"
           }
         }
       }
@@ -386,7 +386,14 @@
       }
     },
     "Tank filled up?" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полный бак?"
+          }
+        }
+      }
     },
     "To forcefully recalculate each entry gas mileage data turn on toggle above and wait until it automatically turns back off" : {
       "localizations" : {
