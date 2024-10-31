@@ -30,7 +30,7 @@ final class E2EUItests: BaseUITest {
 			.tapSaveEntryButton()
 			.verifyAlert(isDisplayed: false)
 		EntriesScreen()
-			.verifyEntry(isDisplayed: false,
+			.verifyEntry(isDisplayed: true,
 						 odometerValue: newOdometerValue)
 		SoftAssert.shared.checkForFailures()
 		
