@@ -10,7 +10,7 @@ struct ListOfEntriesTab: View {
 	let frameHeight: CGFloat = 48
 	
 	var body: some View {
-		NavigationView {
+		NavigationStack {
 			List {
 				ForEach(items) { item in
 					NavigationLink(destination: EntryDetailsView(item: item, showTabBar: $showTabBar)) {
