@@ -2,7 +2,7 @@ import Foundation
 import XCTest
 
 class EntriesScreen: BaseScreen, TabBarProtocol {
-	// MARK: - Static Screen Elements (in order top to the bottom, left to right how they displayed on the screen)
+	// MARK: - Static Screen Elements (in order top to the bottom, left to right as displayed on the screen)
 	private lazy var entriesTabView = app.otherElements[AccIDs.EntriesScreen.entriesTabView.rawValue].firstMatch
 	private lazy var navigationBarText = app.staticTexts[LocalizedString.string(forKey: "List of entries")].firstMatch
 	private lazy var addEntryButton = app.buttons[AccIDs.EntriesScreen.addEntryButton.rawValue].firstMatch
@@ -17,7 +17,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	// MARK: - Dynamic Screen Elements
-	// This button is visible only in Debug mode and helps to quickly add randomly generated new entry
+	// Element available only in Debug mode for quick test setup.
 	private lazy var generateEntryButton = app.buttons[AccIDs.EntriesScreen.generateEntryButton.rawValue].firstMatch
 	private lazy var removeImage = app.images["minus.circle.fill"].firstMatch
 	private lazy var deleteCellButton = app.buttons[LocalizedString.string(forKey: "Delete")].firstMatch
@@ -25,11 +25,14 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	// MARK: - Strings
 	private let failureMessageAddOn = "'Entries Screen'"
 	
+	// MARK: - Initialization
+	/// Initializes and verifies that the Entries screen is displayed.
 	@discardableResult
 	init() {
 		assertScreenIsDisplayed()
 	}
 	
+	/// Ensures the Entries screen is loaded by checking key UI elements.
 	internal func assertScreenIsDisplayed() {
 		runActivity(.screen, "Then verify \(failureMessageAddOn) is loaded") {
 			XCTAssert(entriesTabView.wait(for: .long),
@@ -62,12 +65,12 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	func tapFirstEntryButton() -> Self {
 		runActivity(.step, "Then tap on first entry") {
 			XCTAssert(entryNavigationLinks.count > 0, "There are no entries to tap on")
-			let element = entryNavigationLinks.first
-			element??.tapElement()
+			entryNavigationLinks.first??.tapElement()
 		}
 		return self
 	}
 	
+	/// Deletes the first entry in the list and captures its odometer reading.
 	@discardableResult
 	func deleteFirstEntry(_ id: inout String) -> Self {
 		runActivity(.step, "Then delete first entry in a list") {
@@ -91,6 +94,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		return self
 	}
 	
+	/// Deletes the first entry and assigns its odometer reading through a closure, if provided.
 	@discardableResult
 	func deleteFirstEntry(assignValue: ((String) -> Void)? = nil) -> Self {
 		runActivity(.step, "Then delete first entry in a list") {
@@ -106,7 +110,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 
 			if let identifier = logoElement.identifier.split(separator: "_").last {
 				odometerReading = String(identifier)
-				assignValue?(odometerReading) // Assign only if the closure is provided
+				assignValue?(odometerReading)
 			} else {
 				XCTFail("Failed to extract odometer value from the identifier")
 			}
@@ -120,19 +124,21 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	// MARK: - Assertions
+	/// Verifies that all static elements exist on the Entries screen.
 	@discardableResult
 	func verifyAllStaticElements() -> Self {
-		runActivity(.assert, "Then verify all static elements exists and labels match on \(failureMessageAddOn)") {
+		runActivity(.assert, "Then verify all static elements exist and labels match on \(failureMessageAddOn)") {
 			SoftAssert.shared.assert(navigationBarText.wait(),
-									 "'List of entries' text doesn't exists on \(failureMessageAddOn)")
+									 "'List of entries' text doesn't exist on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(addEntryButton.wait(),
-									 "'Add entry' button doesn't exists on \(failureMessageAddOn)")
+									 "'Add entry' button doesn't exist on \(failureMessageAddOn)")
 			SoftAssert.shared.assert(editEntryButton.wait(),
-									 "'Edit entry' button doesn't exists on \(failureMessageAddOn)")
+									 "'Edit entry' button doesn't exist on \(failureMessageAddOn)")
 		}
 		return self
 	}
 	
+	/// Checks if an entry with the specified odometer value is displayed or hidden.
 	@discardableResult
 	func verifyEntry(isDisplayed: Bool,
 					 odometerValue: String) -> Self {
@@ -149,6 +155,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		return self
 	}
 	
+	/// Confirms that all entries in the collection view are displayed correctly.
 	@discardableResult
 	func verifyAllEntries() -> Self {
 		runActivity(.assert, "Then verify all Collection View entries on \(failureMessageAddOn)") {
@@ -165,13 +172,13 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 	}
 	
 	// MARK: - Helper methods
+	/// Retrieves the odometer reading from the first entry and assigns it to the provided variable.
 	func getOdometerFromFirstEntry(_ odometerValue: inout String) -> Self {
 		runActivity(.step, "Get the odometer reading from the first entry in the list") {
 			guard let firstEntry = entryNavigationLinks.first as? XCUIElement else {
 				return odometerValue = String(1)
 			}
 
-			// Extracting the odometer reading from the accessibility ID postfix
 			if let identifier = firstEntry.identifier.split(separator: "_").last {
 				return odometerValue = String(identifier)
 			} else {
@@ -181,6 +188,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		return self
 	}
 	
+	// MARK: - Formatters and Validation Methods
 	private var dateFormatter: DateFormatter {
 		let formatter = DateFormatter()
 		formatter.locale = Locale(identifier: activeLocale)
@@ -195,6 +203,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		return formatter
 	}
 	
+	/// Checks that each field within a cell matches its expected format.
 	private func verifyEntryCell(_ cell: XCUIElement) {
 		let navigationLink = cell.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", AccIDs.EntriesScreen.entryLinkPrefix.rawValue)).firstMatch
 		SoftAssert.shared.assert(navigationLink.wait(), "Navigation link button not found in cell")
@@ -227,6 +236,7 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		verifyVolumeFormat(volumeLabel.label)
 	}
 
+	/// Verifies that a date string matches the expected date format for the current locale.
 	private func verifyDateFormat(_ dateText: String) {
 		guard let _ = dateFormatter.date(from: dateText) else {
 			SoftAssert.shared.softFail("Date format is incorrect: \(dateText)")
@@ -234,18 +244,20 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		}
 	}
 
+	/// Validates that a currency string follows the correct format based on locale settings.
 	private func verifyCurrencyFormat(_ currencyText: String) {
 		let pattern: String
 		if activeLocale == "en_US" {
-			   // Pattern for "en_US" with or without "per gal" and optional commas in thousands place
-			   pattern = #"^\$\d{1,3}(,\d{3})*(\.\d{1,2})?( per gal)?$"#
-		   } else {
-			   // Pattern for Russian locale to match currency values with optional "per gal"
-			   pattern = #"^\$\d+(\.\d{1,2})?( per gal)?$"#
-		   }
+			// Pattern for "en_US" with optional "per gal" suffix and commas in the thousands place
+			pattern = #"^\$\d{1,3}(,\d{3})*(\.\d{1,2})?( per gal)?$"#
+		} else {
+			// Pattern for Russian locale with optional "per gal" suffix
+			pattern = #"^\$\d+(\.\d{1,2})?( per gal)?$"#
+		}
 		verifyTextWithRegex(pattern, text: currencyText, failureMessage: "Currency format is incorrect: \(currencyText)")
 	}
 
+	/// Checks if the odometer text follows the expected format, differing by locale.
 	private func verifyOdometerFormat(_ odometerText: String) {
 		let pattern: String
 		if activeLocale == "en_US" {
@@ -256,19 +268,22 @@ class EntriesScreen: BaseScreen, TabBarProtocol {
 		verifyTextWithRegex(pattern, text: odometerText, failureMessage: "Odometer format is incorrect: \(odometerText)")
 	}
 
+	/// Ensures mileage text follows the correct format depending on locale.
 	private func verifyMileageFormat(_ mileageText: String) {
 		let pattern = activeLocale == "en_US" ? #"^[\d.]+ mpg$"# : #"^[\d.]+ mpg$"#
 		verifyTextWithRegex(pattern, text: mileageText, failureMessage: "Mileage format is incorrect: \(mileageText)")
 	}
 
+	/// Validates that the volume text matches the expected format based on locale.
 	private func verifyVolumeFormat(_ volumeText: String) {
 		let pattern = activeLocale == "en_US" ? #"^[\d.]+ gal$"# : #"^[\d.]+ gal$"#
 		verifyTextWithRegex(pattern, text: volumeText, failureMessage: "Volume format is incorrect: \(volumeText)")
 	}
 	
+	/// Confirms that a given text matches the specified regex pattern, logging failure if it doesn't.
 	private func verifyTextWithRegex(_ pattern: String,
-									   text: String,
-									   failureMessage: String) {
+									 text: String,
+									 failureMessage: String) {
 		let regex = try! NSRegularExpression(pattern: pattern, options: [])
 		let range = NSRange(location: 0, length: text.utf16.count)
 		if regex.firstMatch(in: text, options: [], range: range) == nil {
