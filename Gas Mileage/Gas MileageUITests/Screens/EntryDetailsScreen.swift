@@ -2,8 +2,7 @@ import Foundation
 import XCTest
 
 class EntryDetailsScreen: BaseScreen {
-	// MARK: - Static Screen Elements
-	// Essential elements on the Entry Details screen in order of appearance.
+	// MARK: - Static Screen Elements (in order top to the bottom, left to right as displayed on the screen)
 	private lazy var backButton = app.buttons[LocalizedString.string(forKey: "List of entries")].firstMatch
 	private lazy var navigationBarText = app.staticTexts[LocalizedString.string(forKey: "Entry details")].firstMatch
 	private lazy var editEntryButton = app.buttons[AccIDs.EntriesScreen.editEntryButton.rawValue].firstMatch
