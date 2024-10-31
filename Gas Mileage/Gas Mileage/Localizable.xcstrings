@@ -168,16 +168,6 @@
         }
       }
     },
-    "Default settings applied based on iPhone settings. Metric: km for odometer, liters per 100km for gas mileage. Imperial: ml and miles per gallon (mpg)" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройки по умолчанию используются из настроек системы iPhone. Метрическая: км для одометра, литры на 100 км для расхода. Имперская: мили для одометра, мили на один галлон для пробега"
-          }
-        }
-      }
-    },
     "Edit" : {
       "localizations" : {
         "ru" : {
@@ -235,16 +225,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Заправка"
-          }
-        }
-      }
-    },
-    "Imperial or Metric" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Имперская или метрическая"
           }
         }
       }
@@ -421,16 +401,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Расход денежных средств"
-          }
-        }
-      }
-    },
-    "Unit settings" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройки данных"
           }
         }
       }
